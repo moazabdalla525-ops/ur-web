@@ -79,11 +79,11 @@ export default function WorkContent() {
       {/* Header */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-blue-900 blur-[120px]" />
+          <div className="orb-pulse absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-[#153243] blur-[120px]" />
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-2xl">
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-4">
+            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-4">
               Portfolio
             </motion.span>
             <motion.h1 variants={fadeUp} className="font-heading font-bold text-5xl md:text-6xl text-slate-50 mb-6">
@@ -106,7 +106,7 @@ export default function WorkContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: i * 0.06, ease: 'easeOut' }}
-              className={`bg-gradient-to-br ${p.gradient} bg-[#0C1024] border border-slate-800/80 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-300`}
+              className={`bg-gradient-to-br ${p.gradient} bg-[#153243] border border-slate-800/80 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-300`}
               style={{ boxShadow: `0 0 80px ${p.glow}` }}
             >
               <div className="p-8 md:p-10">
@@ -123,13 +123,13 @@ export default function WorkContent() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.04, y: -1 }}
                     whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-2 bg-[#0C1024] hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 cursor-pointer"
+                    className="flex items-center gap-2 bg-[#153243] hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 cursor-pointer"
                   >
                     View live site <ExternalLink size={14} />
                   </motion.a>
                 </div>
 
-                <p className="text-blue-400/70 font-medium text-base mb-4 italic">&ldquo;{p.tagline}&rdquo;</p>
+                <p className="text-[#B4B8AB]/70 font-medium text-base mb-4 italic">&ldquo;{p.tagline}&rdquo;</p>
                 <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-2xl">{p.description}</p>
 
                 <div>
@@ -144,7 +144,7 @@ export default function WorkContent() {
                         transition={{ duration: 0.3, delay: fi * 0.06 }}
                         className="flex items-start gap-2.5"
                       >
-                        <CheckCircle2 className="text-blue-400 flex-shrink-0 mt-0.5" size={15} aria-hidden="true" />
+                        <CheckCircle2 className="text-[#B4B8AB] flex-shrink-0 mt-0.5" size={15} aria-hidden="true" />
                         <span className="text-slate-300 text-sm">{f}</span>
                       </motion.li>
                     ))}
@@ -172,7 +172,7 @@ export default function WorkContent() {
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a href={CALENDLY} target="_blank" rel="noopener noreferrer"
                 whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30">
+                className="flex items-center gap-2 bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40">
                 Book a 15-min call
               </motion.a>
               <motion.a href={WHATSAPP} target="_blank" rel="noopener noreferrer"

@@ -88,7 +88,7 @@ function PrimaryBtn({ href, children }: { href: string; children: React.ReactNod
       rel="noopener noreferrer"
       whileHover={{ scale: 1.04, y: -2 }}
       whileTap={{ scale: 0.97 }}
-      className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30 hover:shadow-blue-800/40"
+      className="flex items-center gap-2 bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40 hover:shadow-[#153243]/40"
     >
       {children}
     </motion.a>
@@ -121,8 +121,8 @@ export default function HomeContent() {
       <section ref={heroRef} className="relative min-h-screen flex items-center pt-16 overflow-hidden">
         {/* Animated ambient orbs */}
         <motion.div style={{ y: orbY }} className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-blue-900 blur-[120px]" />
-          <div className="orb-pulse-slow absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-slate-700 blur-[100px]" />
+          <div className="orb-pulse absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-[#153243] blur-[120px]" />
+          <div className="orb-pulse-slow absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#284B63] blur-[100px]" />
           <div
             className="absolute inset-0 opacity-[0.025]"
             style={{ backgroundImage: 'radial-gradient(circle, #93C5FD 1px, transparent 1px)', backgroundSize: '28px 28px' }}
@@ -135,11 +135,11 @@ export default function HomeContent() {
             <motion.div variants={stagger} initial="hidden" animate="visible" className="flex flex-col items-start">
               {/* Animated badge */}
               <motion.div variants={fadeUp} className="flex items-center gap-2 mb-6">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-400 bg-blue-800/20 border border-blue-700/30 px-3 py-1.5 rounded-full">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] bg-[#284B63]/15 border border-[#284B63]/30 px-3 py-1.5 rounded-full">
                   <motion.span
                     animate={{ opacity: [1, 0.3, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-1.5 h-1.5 rounded-full bg-blue-400"
+                    className="w-1.5 h-1.5 rounded-full bg-[#B4B8AB]"
                   />
                   UAE Web Developer
                 </span>
@@ -218,7 +218,7 @@ export default function HomeContent() {
             viewport={{ once: true, margin: '-80px' }}
             className="text-center mb-14"
           >
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-3">
+            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-3">
               Who I work with
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-heading font-bold text-3xl md:text-4xl text-slate-50 mb-4">
@@ -241,14 +241,14 @@ export default function HomeContent() {
                 key={n.title}
                 variants={fadeUp}
                 whileHover={cardHover}
-                className="bg-[#0C1024] border border-slate-800/80 rounded-2xl p-6 transition-colors duration-300 cursor-default group"
+                className="bg-[#153243] border border-slate-800/80 rounded-2xl p-6 transition-colors duration-300 cursor-default group"
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className="w-10 h-10 bg-blue-800/20 group-hover:bg-blue-700/30 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
+                  className="w-10 h-10 bg-[#284B63]/15 group-hover:bg-[#284B63]/25 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
                 >
-                  <n.icon className="text-blue-400" size={20} aria-hidden="true" />
+                  <n.icon className="text-[#B4B8AB]" size={20} aria-hidden="true" />
                 </motion.div>
                 <h3 className="font-heading font-semibold text-slate-50 mb-2 text-base">{n.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{n.desc}</p>
@@ -259,7 +259,7 @@ export default function HomeContent() {
       </section>
 
       {/* ── What you get ── */}
-      <section className="py-24 bg-[#0C1024]/50 border-y border-slate-800/40">
+      <section className="py-24 bg-[#284B63]/50 border-y border-slate-800/40">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -268,7 +268,7 @@ export default function HomeContent() {
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
             >
-              <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-3">
+              <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-3">
                 What you get
               </motion.span>
               <motion.h2 variants={fadeUp} className="font-heading font-bold text-3xl md:text-4xl text-slate-50 mb-4">
@@ -291,7 +291,7 @@ export default function HomeContent() {
                       viewport={{ once: true }}
                       transition={{ type: 'spring', stiffness: 300, delay: i * 0.08 }}
                     >
-                      <CheckCircle2 className="text-blue-400 flex-shrink-0 mt-0.5" size={18} aria-hidden="true" />
+                      <CheckCircle2 className="text-[#B4B8AB] flex-shrink-0 mt-0.5" size={18} aria-hidden="true" />
                     </motion.div>
                     <span className="text-slate-300 text-sm leading-relaxed">{item}</span>
                   </motion.li>
@@ -307,8 +307,8 @@ export default function HomeContent() {
               className="relative"
             >
               {/* Glow behind card */}
-              <div className="absolute -inset-4 bg-blue-800/5 rounded-3xl blur-2xl" />
-              <div className="relative bg-[#0C1024] border border-blue-800/30 rounded-3xl p-8">
+              <div className="absolute -inset-4 bg-[#284B63]/5 rounded-3xl blur-2xl" />
+              <div className="relative bg-[#153243] border border-[#284B63]/30 rounded-3xl p-8">
                 <div className="text-center mb-8">
                   <p className="text-slate-500 text-sm mb-2">One-time investment</p>
                   <motion.p
@@ -332,7 +332,7 @@ export default function HomeContent() {
                   ].map((row) => (
                     <div key={row.label} className="flex items-center justify-between py-3 border-b border-slate-800/60">
                       <span className="text-slate-500 text-sm">{row.label}</span>
-                      <span className={`font-medium text-sm ${row.accent ? 'text-blue-400' : 'text-slate-50'}`}>{row.value}</span>
+                      <span className={`font-medium text-sm ${row.accent ? 'text-[#B4B8AB]' : 'text-slate-50'}`}>{row.value}</span>
                     </div>
                   ))}
                 </div>
@@ -343,7 +343,7 @@ export default function HomeContent() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold py-3.5 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold py-3.5 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
                 >
                   Get started <ArrowRight size={16} />
                 </motion.a>
@@ -364,7 +364,7 @@ export default function HomeContent() {
             viewport={{ once: true, margin: '-80px' }}
             className="text-center mb-14"
           >
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-3">
+            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-3">
               See it in action
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-heading font-bold text-3xl md:text-4xl text-slate-50 mb-4">
@@ -389,7 +389,7 @@ export default function HomeContent() {
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 style={{ boxShadow: `0 0 60px ${site.glow}` }}
-                className={`relative bg-gradient-to-br ${site.gradient} bg-[#0C1024] border border-slate-800/80 ${site.accentBorder} rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300 cursor-default`}
+                className={`relative bg-gradient-to-br ${site.gradient} bg-[#153243] border border-slate-800/80 ${site.accentBorder} rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300 cursor-default`}
               >
                 <div>
                   <span className="text-xs font-semibold text-slate-600 uppercase tracking-widest">{site.tag}</span>
@@ -402,7 +402,7 @@ export default function HomeContent() {
                   rel="noopener noreferrer"
                   whileHover={{ x: 4 }}
                   transition={{ type: 'spring', stiffness: 400 }}
-                  className="flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-200 cursor-pointer"
+                  className="flex items-center gap-2 text-[#B4B8AB] hover:text-[#B4B8AB] text-sm font-semibold transition-colors duration-200 cursor-pointer"
                 >
                   View live site <ExternalLink size={14} />
                 </motion.a>
@@ -413,7 +413,7 @@ export default function HomeContent() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-24 border-t border-slate-800/40 bg-[#0C1024]/30">
+      <section className="py-24 border-t border-slate-800/40 bg-[#153243]/30">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             variants={stagger}
@@ -422,7 +422,7 @@ export default function HomeContent() {
             viewport={{ once: true, margin: '-80px' }}
             className="text-center mb-12"
           >
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-3">
+            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-3">
               Questions
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-heading font-bold text-3xl md:text-4xl text-slate-50">
@@ -449,7 +449,7 @@ export default function HomeContent() {
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            <div className="w-[600px] h-[300px] rounded-full bg-blue-900 blur-[100px]" />
+            <div className="w-[600px] h-[300px] rounded-full bg-[#153243] blur-[100px]" />
           </motion.div>
         </div>
 

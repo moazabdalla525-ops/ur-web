@@ -30,8 +30,8 @@ const directLinks = [
     sublabel: 'Free 15-min discovery call',
     href: CALENDLY,
     target: '_blank',
-    color: 'bg-blue-900/10 border-blue-700/30 hover:border-blue-600/50',
-    iconColor: 'text-blue-400',
+    color: 'bg-[#153243]/10 border-[#284B63]/30 hover:border-[#284B63]/60',
+    iconColor: 'text-[#B4B8AB]',
   },
   {
     icon: MessageCircle,
@@ -48,7 +48,7 @@ const directLinks = [
     sublabel: EMAIL,
     href: `mailto:${EMAIL}`,
     target: '_self',
-    color: 'bg-[#0C1024] border-slate-800/60 hover:border-slate-700/60',
+    color: 'bg-[#153243] border-slate-800/60 hover:border-slate-700/60',
     iconColor: 'text-slate-400',
   },
 ];
@@ -81,11 +81,11 @@ export default function ContactContent() {
       {/* Header */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-blue-900 blur-[120px]" />
+          <div className="orb-pulse absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#153243] blur-[120px]" />
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-xl">
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-4">
+            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-4">
               Contact
             </motion.span>
             <motion.h1 variants={fadeUp} className="font-heading font-bold text-5xl md:text-6xl text-slate-50 mb-5">
@@ -131,29 +131,29 @@ export default function ContactContent() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                        Your name <span className="text-blue-400">*</span>
+                        Your name <span className="text-[#B4B8AB]">*</span>
                       </label>
                       <input id="name" name="name" type="text" required placeholder="Ahmed Al Mansouri"
-                        className="w-full bg-[#0C1024] border border-slate-800/80 focus:border-blue-600/50 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
+                        className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
                     </div>
                     <div>
                       <label htmlFor="business" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                        Business name <span className="text-blue-400">*</span>
+                        Business name <span className="text-[#B4B8AB]">*</span>
                       </label>
                       <input id="business" name="business" type="text" required placeholder="Al Noor AC Services"
-                        className="w-full bg-[#0C1024] border border-slate-800/80 focus:border-blue-600/50 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
+                        className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="industry" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                      Industry <span className="text-blue-400">*</span>
+                      Industry <span className="text-[#B4B8AB]">*</span>
                     </label>
                     <select id="industry" name="industry" required defaultValue=""
-                      className="w-full bg-[#0C1024] border border-slate-800/80 focus:border-blue-600/50 text-slate-50 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 cursor-pointer appearance-none">
-                      <option value="" disabled className="text-slate-700 bg-[#0C1024]">Select your industry</option>
+                      className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 cursor-pointer appearance-none">
+                      <option value="" disabled className="text-slate-700 bg-[#153243]">Select your industry</option>
                       {industries.map((ind) => (
-                        <option key={ind} value={ind} className="bg-[#0C1024] text-slate-50">{ind}</option>
+                        <option key={ind} value={ind} className="bg-[#153243] text-slate-50">{ind}</option>
                       ))}
                     </select>
                   </div>
@@ -164,16 +164,16 @@ export default function ContactContent() {
                       <span className="text-slate-700 font-normal normal-case tracking-normal">(optional)</span>
                     </label>
                     <input id="website" name="website" type="url" placeholder="https://yoursite.com"
-                      className="w-full bg-[#0C1024] border border-slate-800/80 focus:border-blue-600/50 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
+                      className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                      Message <span className="text-blue-400">*</span>
+                      Message <span className="text-[#B4B8AB]">*</span>
                     </label>
                     <textarea id="message" name="message" required rows={5}
                       placeholder="Tell me what you do, which area you serve, and what you're hoping a new website will do for the business..."
-                      className="w-full bg-[#0C1024] border border-slate-800/80 focus:border-blue-600/50 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 resize-none" />
+                      className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 resize-none" />
                   </div>
 
                   <motion.button
@@ -181,7 +181,7 @@ export default function ContactContent() {
                     disabled={submitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30"
+                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
                   >
                     {submitting ? (
                       <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</>
@@ -219,7 +219,7 @@ export default function ContactContent() {
                     <link.icon className={link.iconColor} size={20} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="font-heading font-semibold text-slate-50 text-sm group-hover:text-blue-300 transition-colors duration-200">
+                    <p className="font-heading font-semibold text-slate-50 text-sm group-hover:text-[#B4B8AB] transition-colors duration-200">
                       {link.label}
                     </p>
                     <p className="text-slate-600 text-xs mt-0.5 break-all">{link.sublabel}</p>
@@ -231,7 +231,7 @@ export default function ContactContent() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.6 }}
-                className="mt-6 bg-[#0C1024] border border-slate-800/60 rounded-2xl p-5"
+                className="mt-6 bg-[#153243] border border-slate-800/60 rounded-2xl p-5"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <motion.span

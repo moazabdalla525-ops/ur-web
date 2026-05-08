@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  background-color: #070C18;
-  color: #f8fafc;
+  background-color: #0F1E2B;
+  color: #F4F9E9;
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -34,12 +34,12 @@ h6 {
 }
 
 ::selection {
-  background-color: #1E40AF;
-  color: #fff;
+  background-color: #284B63;
+  color: #F4F9E9;
 }
 
 :focus-visible {
-  outline: 2px solid #2563EB;
+  outline: 2px solid #284B63;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -54,11 +54,11 @@ h6 {
 .gradient-shimmer {
   background: linear-gradient(
     110deg,
-    #60A5FA 0%,
-    #93C5FD 30%,
-    #CBD5E1 50%,
-    #93C5FD 70%,
-    #60A5FA 100%
+    #B4B8AB 0%,
+    #EEF0EB 30%,
+    #F4F9E9 50%,
+    #EEF0EB 70%,
+    #B4B8AB 100%
   );
   background-size: 250%;
   animation: shimmer 5s linear infinite;

@@ -39,13 +39,13 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#070C18]/90 backdrop-blur-md border-b border-slate-800/80 shadow-xl shadow-black/50'
+          ? 'bg-[#0F1E2B]/95 backdrop-blur-md border-b border-[#284B63]/30 shadow-xl shadow-black/50'
           : 'bg-transparent'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="font-heading font-bold text-xl text-slate-50 hover:opacity-80 transition-opacity duration-200">
-          Ur<span className="bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">Web</span>
+          Ur<span className="bg-gradient-to-r from-[#B4B8AB] to-[#EEF0EB] bg-clip-text text-transparent">Web</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -54,7 +54,7 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               className={`text-sm font-medium transition-colors duration-200 cursor-pointer ${
-                pathname === l.href ? 'text-blue-400' : 'text-slate-400 hover:text-slate-50'
+                pathname === l.href ? 'text-[#B4B8AB]' : 'text-slate-400 hover:text-slate-50'
               }`}
             >
               {l.label}
@@ -68,7 +68,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
-          className="hidden md:flex items-center bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30"
+          className="hidden md:flex items-center bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
         >
           Book a call
         </motion.a>
@@ -90,7 +90,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="md:hidden overflow-hidden bg-[#0C1024] border-b border-slate-800"
+            className="md:hidden overflow-hidden bg-[#153243] border-b border-[#284B63]/30"
           >
             <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-4">
               {links.map((l) => (
@@ -98,7 +98,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   className={`text-base font-medium transition-colors duration-200 ${
-                    pathname === l.href ? 'text-blue-400' : 'text-slate-400'
+                    pathname === l.href ? 'text-[#B4B8AB]' : 'text-slate-400'
                   }`}
                 >
                   {l.label}
@@ -109,7 +109,7 @@ export default function Navbar() {
                   href={CALENDLY}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-blue-700 to-blue-900 text-white font-semibold px-5 py-3 rounded-full text-center cursor-pointer"
+                  className="bg-gradient-to-r from-[#284B63] to-[#153243] text-white font-semibold px-5 py-3 rounded-full text-center cursor-pointer"
                 >
                   Book a 15-min call
                 </a>

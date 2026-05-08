@@ -5,12 +5,12 @@ const WHATSAPP = 'https://wa.me/971528686540';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800/60 bg-[#070C18]">
+    <footer className="border-t border-[#284B63]/30 bg-[#0F1E2B]">
       <div className="max-w-6xl mx-auto px-6 py-14">
         <div className="flex flex-col md:flex-row justify-between items-start gap-10">
           <div className="max-w-xs">
             <p className="font-heading font-bold text-xl text-slate-50 mb-3">
-              Ur<span className="bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">Web</span>
+              Ur<span className="bg-gradient-to-r from-[#B4B8AB] to-[#EEF0EB] bg-clip-text text-transparent">Web</span>
             </p>
             <p className="text-slate-500 text-sm leading-relaxed">
               Websites that get UAE businesses found on Google. Fixed price, fixed timeline, no agency markup.
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 border-t border-[#284B63]/30 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-600">© 2025 Ur Web. All rights reserved.</p>
           <p className="text-xs text-slate-600">Dubai, UAE · Sun–Thu 9am–7pm</p>
         </div>
