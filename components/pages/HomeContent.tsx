@@ -9,8 +9,8 @@ import {
 import PhoneMockup from '@/components/PhoneMockup';
 import FAQ from '@/components/FAQ';
 
-const CALENDLY = 'https://calendly.com/moaz';
-const WHATSAPP = 'https://wa.me/971XXXXXXXXX';
+const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
+const WHATSAPP = 'https://wa.me/971528686540';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },

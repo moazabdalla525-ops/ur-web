@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-const CALENDLY = 'https://calendly.com/moaz';
-const WHATSAPP = 'https://wa.me/971XXXXXXXXX';
+const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
+const WHATSAPP = 'https://wa.me/971528686540';
 
 export default function Footer() {
   return (

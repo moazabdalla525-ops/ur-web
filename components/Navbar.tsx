@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-const CALENDLY = 'https://calendly.com/moaz';
-const WHATSAPP = 'https://wa.me/971XXXXXXXXX';
+const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
+const WHATSAPP = 'https://wa.me/971528686540';
 
 const links = [
   { href: '/', label: 'Home' },

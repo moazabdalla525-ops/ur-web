@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { CalendarDays, MessageCircle, Mail, Send, CheckCircle2 } from 'lucide-react';
 
-const CALENDLY = 'https://calendly.com/moaz';
-const WHATSAPP = 'https://wa.me/971XXXXXXXXX';
+const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
+const WHATSAPP = 'https://wa.me/971528686540';
 const EMAIL = 'moazabdalla567@gmail.com';
 
 const fadeUp: Variants = {
