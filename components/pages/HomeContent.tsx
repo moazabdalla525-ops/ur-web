@@ -1,9 +1,8 @@
 'use client';
 
-import { motion, type Variants, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, type Variants, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import {
-  AirVent, Keyboard, Wrench, Truck, ChefHat, Waves, UtensilsCrossed,
   CheckCircle2, ExternalLink, ArrowRight, CalendarDays, MessageCircle,
 } from 'lucide-react';
 import PhoneMockup from '@/components/PhoneMockup';
@@ -28,16 +27,19 @@ const wordReveal: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } },
 };
 
-const cardHover = { y: -6, scale: 1.01 };
+const aboutFacts = [
+  { label: 'Fixed price', value: 'AED 1,500' },
+  { label: 'Delivery', value: '10 days' },
+  { label: 'Communication', value: 'WhatsApp' },
+  { label: 'Revisions', value: '1 round' },
+];
 
-const niches = [
-  { icon: AirVent,         title: 'AC Service Contractors',      desc: "Get found when someone Googles 'AC repair near me' in your area." },
-  { icon: Keyboard,        title: 'Typing Centers',              desc: "Capture customers searching 'Tasheel near me' or 'Amer [your area].'" },
-  { icon: Wrench,          title: 'Plumbers',                    desc: 'Show up for emergency searches at midnight.' },
-  { icon: Truck,           title: 'Movers & Packers',            desc: 'Look professional enough to win the corporate jobs.' },
-  { icon: ChefHat,         title: 'Home Kitchens & Cake Artists',desc: 'Stop losing the Google search wave to bigger brands.' },
-  { icon: Waves,           title: 'Pool Maintenance',            desc: 'Win the recurring contracts in your villa community.' },
-  { icon: UtensilsCrossed, title: 'Restaurants',                 desc: "Every time someone searches 'burger spot near me' — you pop up." },
+const monthlyFeatures = [
+  'Hosting & SSL certificate',
+  'Security updates & patches',
+  'Monthly content edits (text, photos, hours)',
+  'Uptime monitoring',
+  'Direct WhatsApp access',
 ];
 
 const deliverables = [
@@ -214,58 +216,78 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ── Who I work with ── */}
+      {/* ── About ── */}
       <section className="py-24 border-t border-slate-800/40">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="text-center mb-14"
-          >
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-3">
-              Who I work with
-            </motion.span>
-            <motion.h2 variants={fadeUp} className="font-heading font-bold text-3xl md:text-4xl text-slate-50 mb-4">
-              Built for businesses that need to be <span className="gradient-shimmer">found</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-slate-500 max-w-xl mx-auto text-base">
-              Not pretty for pretty&apos;s sake — built to rank for the exact searches your customers are already making.
-            </motion.p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          >
-            {niches.map((n) => (
-              <motion.div
-                key={n.title}
+            {/* Left — text */}
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+            >
+              <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-3">
+                About
+              </motion.span>
+              <motion.h2 variants={fadeUp} className="font-heading font-bold text-3xl md:text-4xl text-slate-50 mb-5">
+                Not an agency.{' '}
+                <span className="gradient-shimmer">Just me.</span>
+              </motion.h2>
+              <motion.p variants={fadeUp} className="text-slate-400 text-base leading-relaxed mb-4">
+                Small Dubai businesses pay AED 5,000–15,000 to agencies for sites that take 3 months. I do the same work for AED 1,500 in 10 days — no account managers, no meetings, no markup.
+              </motion.p>
+              <motion.p variants={fadeUp} className="text-slate-500 text-base leading-relaxed mb-8">
+                You message me on WhatsApp, I respond. You give feedback once, I revise once. Then we go live.
+              </motion.p>
+              <motion.a
                 variants={fadeUp}
-                whileHover={cardHover}
-                className="bg-[#153243] border border-slate-800/80 rounded-2xl p-6 transition-colors duration-300 cursor-default group"
+                href="/about"
+                whileHover={{ x: 4 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+                className="inline-flex items-center gap-2 text-[#B4B8AB] hover:text-[#EEF0EB] text-sm font-semibold transition-colors duration-200 cursor-pointer"
               >
+                Full story <ArrowRight size={15} />
+              </motion.a>
+            </motion.div>
+
+            {/* Right — stats */}
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {aboutFacts.map((f, i) => (
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  key={f.label}
+                  variants={fadeUp}
+                  whileHover={{ y: -4, scale: 1.02 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className="w-10 h-10 bg-[#284B63]/15 group-hover:bg-[#284B63]/25 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
+                  className="bg-[#153243] border border-slate-800/60 hover:border-[#284B63]/40 rounded-2xl p-6 text-center transition-colors duration-300"
                 >
-                  <n.icon className="text-[#B4B8AB]" size={20} aria-hidden="true" />
+                  <motion.p
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: 'spring', stiffness: 200, delay: i * 0.08 }}
+                    className="font-heading font-bold text-2xl text-[#F4F9E9] mb-1"
+                  >
+                    {f.value}
+                  </motion.p>
+                  <p className="text-slate-500 text-xs uppercase tracking-widest">{f.label}</p>
                 </motion.div>
-                <h3 className="font-heading font-semibold text-slate-50 mb-2 text-base">{n.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{n.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
       {/* ── What you get ── */}
-      <section className="py-24 bg-[#284B63]/50 border-y border-slate-800/40">
+      <section className="py-24 bg-[#153243]/20 border-y border-slate-800/40">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -310,51 +332,80 @@ export default function HomeContent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="relative"
+              className="relative flex flex-col gap-4"
             >
-              {/* Glow behind card */}
-              <div className="absolute -inset-4 bg-[#284B63]/5 rounded-3xl blur-2xl" />
-              <div className="relative bg-[#153243] border border-[#284B63]/30 rounded-3xl p-8">
-                <div className="text-center mb-8">
-                  <p className="text-slate-500 text-sm mb-2">One-time investment</p>
-                  <motion.p
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-                    className="font-heading font-bold text-5xl text-slate-50 mb-1"
-                  >
-                    AED 1,500
-                  </motion.p>
-                  <p className="text-slate-600 text-sm">+ AED 250/month after launch (optional)</p>
-                </div>
-
-                <div className="space-y-4 mb-8">
-                  {[
-                    { label: 'Delivery time', value: '10 working days' },
-                    { label: 'Revision rounds', value: '1 included' },
-                    { label: 'Pages included', value: '5 pages' },
-                    { label: 'SEO setup', value: 'Included', accent: true },
-                  ].map((row) => (
-                    <div key={row.label} className="flex items-center justify-between py-3 border-b border-slate-800/60">
-                      <span className="text-slate-500 text-sm">{row.label}</span>
-                      <span className={`font-medium text-sm ${row.accent ? 'text-[#B4B8AB]' : 'text-slate-50'}`}>{row.value}</span>
+              {/* One-time card */}
+              <div className="relative">
+                <div className="absolute -inset-2 bg-[#284B63]/5 rounded-3xl blur-xl" />
+                <div className="relative bg-[#153243] border-2 border-[#284B63]/40 rounded-3xl p-7">
+                  <div className="absolute -top-3 left-6 bg-gradient-to-r from-[#284B63] to-[#153243] text-[#F4F9E9] text-xs font-bold px-3 py-1 rounded-full">
+                    ONE-TIME
+                  </div>
+                  <div className="flex items-end justify-between mb-5">
+                    <div>
+                      <p className="text-slate-500 text-xs mb-1">Fixed price</p>
+                      <motion.p
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
+                        className="font-heading font-bold text-4xl text-[#F4F9E9]"
+                      >
+                        AED 1,500
+                      </motion.p>
                     </div>
-                  ))}
+                    <p className="text-slate-600 text-xs text-right">5 pages · 10 days<br />50% deposit to start</p>
+                  </div>
+                  <div className="space-y-2.5 mb-6">
+                    {[
+                      { label: 'Delivery', value: '10 working days' },
+                      { label: 'Revision rounds', value: '1 included' },
+                      { label: 'SEO setup', value: 'Included', accent: true },
+                      { label: 'Source code', value: 'Yours forever', accent: true },
+                    ].map((row) => (
+                      <div key={row.label} className="flex items-center justify-between py-2 border-b border-slate-800/50">
+                        <span className="text-slate-500 text-sm">{row.label}</span>
+                        <span className={`font-medium text-sm ${row.accent ? 'text-[#B4B8AB]' : 'text-slate-50'}`}>{row.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <motion.a
+                    href={CALENDLY}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold py-3 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
+                  >
+                    Get started <ArrowRight size={15} />
+                  </motion.a>
                 </div>
-
-                <motion.a
-                  href={CALENDLY}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold py-3.5 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
-                >
-                  Get started <ArrowRight size={16} />
-                </motion.a>
-                <p className="text-center text-xs text-slate-600 mt-4">No contract. 50% deposit to start.</p>
               </div>
+
+              {/* Monthly card */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+                className="bg-[#0F1E2B] border border-slate-800/60 rounded-3xl p-6"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <p className="text-slate-500 text-xs mb-0.5">After launch · optional</p>
+                    <p className="font-heading font-bold text-2xl text-[#F4F9E9]">AED 250<span className="text-slate-500 text-sm font-normal">/mo</span></p>
+                  </div>
+                  <span className="text-xs text-slate-600 border border-slate-800 rounded-full px-2.5 py-1">Cancel any time</span>
+                </div>
+                <ul className="space-y-2">
+                  {monthlyFeatures.map((f) => (
+                    <li key={f} className="flex items-center gap-2.5">
+                      <CheckCircle2 className="text-green-400 flex-shrink-0" size={14} aria-hidden="true" />
+                      <span className="text-slate-400 text-xs">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </motion.div>
           </div>
         </div>
