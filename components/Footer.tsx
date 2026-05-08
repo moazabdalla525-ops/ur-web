@@ -5,12 +5,12 @@ const WHATSAPP = 'https://wa.me/971528686540';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800/60 bg-[#060912]">
+    <footer className="border-t border-slate-800/60 bg-[#070C18]">
       <div className="max-w-6xl mx-auto px-6 py-14">
         <div className="flex flex-col md:flex-row justify-between items-start gap-10">
           <div className="max-w-xs">
             <p className="font-heading font-bold text-xl text-slate-50 mb-3">
-              Ur<span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Web</span>
+              Ur<span className="bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">Web</span>
             </p>
             <p className="text-slate-500 text-sm leading-relaxed">
               Websites that get UAE businesses found on Google. Fixed price, fixed timeline, no agency markup.

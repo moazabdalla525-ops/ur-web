@@ -50,11 +50,11 @@ export default function PricingContent() {
       {/* Header */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-violet-600 blur-[120px]" />
+          <div className="orb-pulse absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-blue-900 blur-[120px]" />
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-2xl">
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-indigo-400 block mb-4">
+            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-4">
               Pricing
             </motion.span>
             <motion.h1 variants={fadeUp} className="font-heading font-bold text-5xl md:text-6xl text-slate-50 mb-6">
@@ -77,10 +77,10 @@ export default function PricingContent() {
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="relative bg-indigo-500/5 border-2 border-indigo-500/40 rounded-3xl p-8"
-              style={{ boxShadow: '0 0 60px rgba(99,102,241,0.06)' }}
+              className="relative bg-blue-900/5 border-2 border-blue-700/40 rounded-3xl p-8"
+              style={{ boxShadow: '0 0 60px rgba(30,64,175,0.08)' }}
             >
-              <div className="absolute -top-3 left-8 bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+              <div className="absolute -top-3 left-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white text-xs font-bold px-3 py-1 rounded-full">
                 MOST POPULAR
               </div>
 
@@ -106,7 +106,7 @@ export default function PricingContent() {
                     transition={{ duration: 0.3, delay: 0.1 + i * 0.05 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="text-indigo-400 flex-shrink-0 mt-0.5" size={16} aria-hidden="true" />
+                    <CheckCircle2 className="text-blue-400 flex-shrink-0 mt-0.5" size={16} aria-hidden="true" />
                     <span className="text-slate-300 text-sm">{f}</span>
                   </motion.li>
                 ))}
@@ -118,7 +118,7 @@ export default function PricingContent() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-semibold py-3.5 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-indigo-500/25"
+                className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold py-3.5 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30"
               >
                 Book a discovery call <ArrowRight size={16} />
               </motion.a>
@@ -196,7 +196,7 @@ export default function PricingContent() {
                 <tr className="border-b border-slate-800/60">
                   <th className="py-4 px-6 text-left text-slate-600 font-medium">What</th>
                   <th className="py-4 px-4 text-center text-slate-400 font-semibold">Agency</th>
-                  <th className="py-4 px-4 text-center text-indigo-400 font-semibold">Ur Web</th>
+                  <th className="py-4 px-4 text-center text-blue-400 font-semibold">Ur Web</th>
                 </tr>
               </thead>
               <tbody>
@@ -264,7 +264,7 @@ export default function PricingContent() {
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a href={CALENDLY} target="_blank" rel="noopener noreferrer"
                 whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-indigo-500/25">
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30">
                 <CalendarDays size={16} /> Book a free call
               </motion.a>
               <motion.a href={WHATSAPP} target="_blank" rel="noopener noreferrer"

@@ -42,7 +42,7 @@ export default function FAQ() {
             className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer group"
             aria-expanded={open === i}
           >
-            <span className="font-heading font-medium text-slate-50 text-base leading-snug group-hover:text-indigo-300 transition-colors duration-200">
+            <span className="font-heading font-medium text-slate-50 text-base leading-snug group-hover:text-blue-300 transition-colors duration-200">
               {faq.q}
             </span>
             <motion.span

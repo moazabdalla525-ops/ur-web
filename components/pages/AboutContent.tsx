@@ -48,15 +48,15 @@ export default function AboutContent() {
       <section className="pt-32 pb-16 relative overflow-hidden">
         {/* Background orbs */}
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-violet-600 blur-[120px]" />
-          <div className="orb-pulse-slow absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-indigo-600 blur-[100px]" />
+          <div className="orb-pulse absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-900 blur-[120px]" />
+          <div className="orb-pulse-slow absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-slate-700 blur-[100px]" />
         </div>
 
         <div className="max-w-4xl mx-auto px-6">
           <motion.div variants={stagger} initial="hidden" animate="visible">
             <motion.span
               variants={fadeUp}
-              className="text-xs font-semibold uppercase tracking-widest text-indigo-400 block mb-4"
+              className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-4"
             >
               About
             </motion.span>
@@ -133,7 +133,7 @@ export default function AboutContent() {
                     transition={{ duration: 0.4, delay: 0.2 }}
                     className="font-heading font-bold text-7xl md:text-8xl leading-none"
                     style={{
-                      background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%)',
+                      background: 'linear-gradient(135deg, #0A1628 0%, #1E3A8A 50%, #0A1628 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
@@ -150,7 +150,7 @@ export default function AboutContent() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.15 }}
-                    className="text-xs font-semibold uppercase tracking-widest text-indigo-400 block mb-3"
+                    className="text-xs font-semibold uppercase tracking-widest text-blue-400 block mb-3"
                   >
                     {s.heading}
                   </motion.span>
@@ -178,7 +178,7 @@ export default function AboutContent() {
             transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            <div className="w-[500px] h-[200px] rounded-full bg-indigo-600 blur-[80px]" />
+            <div className="w-[500px] h-[200px] rounded-full bg-blue-900 blur-[80px]" />
           </motion.div>
         </div>
 
@@ -199,7 +199,7 @@ export default function AboutContent() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-indigo-500/25"
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-blue-900/30"
               >
                 <CalendarDays size={16} />
                 Book a discovery call
