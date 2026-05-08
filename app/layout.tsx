@@ -19,14 +19,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Moaz — Websites That Get UAE Businesses Found on Google',
-    template: '%s | Moaz',
+    default: 'Ur Web — Websites That Get UAE Businesses Found on Google',
+    template: '%s | Ur Web',
   },
   description:
     'Clean, fast, mobile-first websites for UAE businesses. AED 1,500 fixed price. Delivered in 10 working days. On-page SEO included.',
   keywords: ['web developer UAE', 'website design Dubai', 'SEO Dubai', 'affordable website UAE'],
   openGraph: {
-    title: 'Moaz — Websites That Actually Get Customers',
+    title: 'Ur Web — Websites That Actually Get Customers',
     description: 'AED 1,500 fixed price. 10 working days. Ranked on Google.',
     type: 'website',
     locale: 'en_AE',

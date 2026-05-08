@@ -10,7 +10,7 @@ export default function PhoneMockup() {
         className="absolute inset-0 rounded-full"
         style={{
           background:
-            'radial-gradient(ellipse at center, rgba(59,130,246,0.18) 0%, transparent 70%)',
+            'radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, transparent 70%)',
           transform: 'scale(1.2)',
         }}
       />
@@ -39,7 +39,7 @@ export default function PhoneMockup() {
               <stop offset="100%" stopColor="#070D1D" />
             </linearGradient>
             <linearGradient id="btnGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#3B82F6" />
+              <stop offset="0%" stopColor="#6366F1" />
               <stop offset="100%" stopColor="#2563EB" />
             </linearGradient>
             <clipPath id="screenClip">
@@ -66,7 +66,7 @@ export default function PhoneMockup() {
 
             {/* Navbar */}
             <rect x="16" y="26" width="168" height="26" fill="#111827" />
-            <rect x="26" y="33" width="32" height="10" rx="5" fill="#3B82F6" />
+            <rect x="26" y="33" width="32" height="10" rx="5" fill="#6366F1" />
             <rect x="128" y="35" width="18" height="6" rx="3" fill="#334155" />
             <rect x="152" y="35" width="18" height="6" rx="3" fill="#334155" />
 
@@ -75,12 +75,12 @@ export default function PhoneMockup() {
 
             {/* Badge */}
             <rect x="26" y="60" width="60" height="10" rx="5" fill="#1E3A5F" />
-            <rect x="30" y="63" width="52" height="4" rx="2" fill="#60A5FA" opacity="0.7" />
+            <rect x="30" y="63" width="52" height="4" rx="2" fill="#818cf8" opacity="0.7" />
 
             {/* Headline */}
             <rect x="26" y="76" width="130" height="11" rx="4" fill="#F8FAFC" />
             <rect x="26" y="92" width="110" height="11" rx="4" fill="#F8FAFC" />
-            <rect x="26" y="108" width="80" height="11" rx="4" fill="#93C5FD" />
+            <rect x="26" y="108" width="80" height="11" rx="4" fill="#a5b4fc" />
 
             {/* Subtext */}
             <rect x="26" y="126" width="112" height="6" rx="3" fill="#475569" />
@@ -97,7 +97,7 @@ export default function PhoneMockup() {
 
             {/* Icons on cards */}
             <circle cx="49" cy="197" r="9" fill="rgba(59,130,246,0.15)" />
-            <circle cx="49" cy="197" r="5" fill="#3B82F6" />
+            <circle cx="49" cy="197" r="5" fill="#6366F1" />
             <circle cx="127" cy="197" r="9" fill="rgba(34,197,94,0.12)" />
             <circle cx="127" cy="197" r="5" fill="#22C55E" />
 
@@ -112,9 +112,9 @@ export default function PhoneMockup() {
             <rect x="24" y="258" width="44" height="24" rx="6" fill="#1E293B" />
             <rect x="78" y="258" width="44" height="24" rx="6" fill="#1E293B" />
             <rect x="132" y="258" width="44" height="24" rx="6" fill="#1E293B" />
-            <rect x="30" y="264" width="32" height="7" rx="2" fill="#3B82F6" />
-            <rect x="84" y="264" width="32" height="7" rx="2" fill="#3B82F6" />
-            <rect x="138" y="264" width="32" height="7" rx="2" fill="#3B82F6" />
+            <rect x="30" y="264" width="32" height="7" rx="2" fill="#6366F1" />
+            <rect x="84" y="264" width="32" height="7" rx="2" fill="#6366F1" />
+            <rect x="138" y="264" width="32" height="7" rx="2" fill="#6366F1" />
             <rect x="28" y="275" width="36" height="4" rx="2" fill="#334155" />
             <rect x="82" y="275" width="36" height="4" rx="2" fill="#334155" />
             <rect x="136" y="275" width="36" height="4" rx="2" fill="#334155" />
@@ -128,7 +128,7 @@ export default function PhoneMockup() {
 
             {/* Footer */}
             <rect x="16" y="358" width="168" height="36" fill="#0A1020" />
-            <rect x="26" y="368" width="44" height="8" rx="3" fill="#3B82F6" opacity="0.6" />
+            <rect x="26" y="368" width="44" height="8" rx="3" fill="#6366F1" opacity="0.6" />
             <rect x="80" y="370" width="28" height="5" rx="3" fill="#334155" />
             <rect x="116" y="370" width="28" height="5" rx="3" fill="#334155" />
             <rect x="150" y="370" width="22" height="5" rx="3" fill="#334155" />
