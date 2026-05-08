@@ -72,14 +72,13 @@ export default function ContactContent() {
     const data = new FormData(form);
 
     try {
-      await fetch('/', {
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        body: data,
+        headers: { Accept: 'application/json' },
       });
-      setSubmitted(true);
+      if (res.ok) setSubmitted(true);
     } catch {
-      // Still show success — Netlify handles the actual submission
       setSubmitted(true);
     } finally {
       setSubmitting(false);
@@ -146,13 +145,9 @@ export default function ContactContent() {
                 </div>
               ) : (
                 <form
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
                   onSubmit={handleSubmit}
                   className="space-y-5"
                 >
-                  <input type="hidden" name="form-name" value="contact" />
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
