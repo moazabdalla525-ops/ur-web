@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import PhoneMockup from '@/components/PhoneMockup';
 import FAQ from '@/components/FAQ';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
@@ -124,10 +125,15 @@ export default function HomeContent() {
           <div className="orb-pulse absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-[#153243] blur-[120px]" />
           <div className="orb-pulse-slow absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#284B63] blur-[100px]" />
           <div
-            className="absolute inset-0 opacity-[0.025]"
-            style={{ backgroundImage: 'radial-gradient(circle, #93C5FD 1px, transparent 1px)', backgroundSize: '28px 28px' }}
+            className="absolute inset-0 opacity-[0.02]"
+            style={{ backgroundImage: 'radial-gradient(circle, #B4B8AB 1px, transparent 1px)', backgroundSize: '28px 28px' }}
           />
         </motion.div>
+
+        {/* Floating particles + beam sweep */}
+        <div className="absolute inset-0 -z-10">
+          <AnimatedBackground count={22} />
+        </div>
 
         <div className="max-w-6xl mx-auto px-6 py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -442,15 +448,31 @@ export default function HomeContent() {
 
       {/* ── Closing CTA ── */}
       <section className="py-28 relative overflow-hidden">
-        {/* Animated glow orbs */}
-        <div className="absolute inset-0 -z-10 pointer-events-none">
+        {/* Animated glow orbs + pulse rings */}
+        <div className="absolute inset-0 -z-10 pointer-events-none flex items-center justify-center">
           <motion.div
             animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.1, 0.05] }}
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute"
           >
             <div className="w-[600px] h-[300px] rounded-full bg-[#153243] blur-[100px]" />
           </motion.div>
+
+          {/* Expanding pulse rings */}
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full border border-[#284B63]/20"
+              style={{ width: 300, height: 300 }}
+              animate={{ scale: [0.8, 2.4], opacity: [0.4, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                delay: i * 1.35,
+                ease: 'easeOut',
+              }}
+            />
+          ))}
         </div>
 
         <div className="max-w-3xl mx-auto px-6 text-center">

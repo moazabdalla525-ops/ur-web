@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from 'framer-motion';
 import { CheckCircle2, X, ArrowRight, CalendarDays, MessageCircle } from 'lucide-react';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
@@ -51,6 +52,7 @@ export default function PricingContent() {
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 -z-10 pointer-events-none">
           <div className="orb-pulse absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#153243] blur-[120px]" />
+          <AnimatedBackground count={12} />
         </div>
         <div className="max-w-6xl mx-auto px-6">
           <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-2xl">

@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from 'framer-motion';
 import { CalendarDays, MessageCircle } from 'lucide-react';
+import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
@@ -50,6 +51,7 @@ export default function AboutContent() {
         <div className="absolute inset-0 -z-10 pointer-events-none">
           <div className="orb-pulse absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#153243] blur-[120px]" />
           <div className="orb-pulse-slow absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#284B63] blur-[100px]" />
+          <AnimatedBackground count={14} />
         </div>
 
         <div className="max-w-4xl mx-auto px-6">
