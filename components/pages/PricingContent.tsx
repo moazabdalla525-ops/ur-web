@@ -1,279 +1,314 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
-import { CheckCircle2, X, ArrowRight, CalendarDays, MessageCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CalendarDays, MessageCircle, Check, Plus, Star } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-
-const oneTimeFeatures = [
-  '5-page custom website (Home, Services, About, Contact, + 1 service page)',
-  'Mobile-first, responsive design',
-  'One-tap call & WhatsApp buttons',
-  'On-page SEO: titles, meta, schema markup, sitemap',
-  'Google Business Profile cleanup + link',
-  'Contact form → your email + SMS',
-  '1 revision round included',
-  'Delivered in 10 working days',
-  'Full source code ownership',
-  'First month hosting included',
+const includes = [
+  'Custom 5-page website (Home, Services, About, Contact, +1 service page)',
+  'Mobile-first design — one-tap call & WhatsApp buttons',
+  'On-page SEO setup — titles, meta, schema, sitemap',
+  'Google Business Profile cleanup and link',
+  'Contact form to your email + SMS',
+  'Source code, fully transferred. You own everything.',
+  'Delivered in 10 working days from deposit.',
 ];
 
-const monthlyFeatures = [
+const monthly = [
   'Hosting & SSL certificate',
-  'Security updates and patches',
-  'Monthly content edits (text, photos, hours)',
+  'Security updates & patches',
+  'Monthly content edits — text, photos, hours',
   'Uptime monitoring',
-  'Direct WhatsApp access',
+  'Direct WhatsApp access · 4-hr reply Sun–Thu',
+];
+
+const compareRows = [
+  { label: 'Price', metric: 'AED', a: '5,000–15,000', b: '1,500', spread: '÷ 4–10' },
+  { label: 'Timeline', metric: 'Days', a: '42–84', b: '10', spread: '÷ 4–8' },
+  { label: 'Reply time', metric: 'Hrs', a: '24', b: '4', spread: '÷ 6' },
+  { label: 'People talking', metric: 'Headcount', a: '3–5', b: '1', spread: 'just me' },
+  { label: 'Source code', metric: 'Ownership', a: 'Locked', b: 'Yours', spread: 'day one' },
+  { label: 'Office markup', metric: 'AED', a: 'Built in', b: 'None', spread: 'no rent' },
 ];
 
 const pricingFaqs = [
-  { q: 'Is there a contract?', a: 'No. The one-time fee is a one-time project — no contract needed. The monthly support plan is month-to-month; cancel any time.' },
-  { q: 'How does payment work?', a: '50% upfront to start, 50% on delivery before the site goes live. Bank transfer or online payment.' },
-  { q: 'What if I need more than 5 pages?', a: 'Additional pages are AED 150 each. We discuss scope before starting so there are no surprises.' },
-  { q: 'Can I host the site myself?', a: "Yes — I hand over the files and you skip the monthly fee. Most clients keep the support plan because it removes the hassle." },
+  ['Is there a contract?', 'No. The one-time fee is a one-time project — no contract needed. The monthly support plan is month-to-month; cancel any time.'],
+  ['How does payment work?', '50% upfront to start, 50% on delivery before the site goes live. Bank transfer or online payment.'],
+  ['What if I need more than 5 pages?', 'Additional pages are AED 150 each. We discuss scope before starting so there are no surprises.'],
+  ['Can I host the site myself?', "Yes — I hand over the files and you skip the monthly fee. Most clients keep the support plan because it removes the hassle."],
 ];
 
 export default function PricingContent() {
+  const [openFaq, setOpenFaq] = useState(-1);
+
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in')),
+      { threshold: 0.15 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
+      <section className="pt-32 pb-16 relative overflow-hidden px-8">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#153243] blur-[120px]" />
+          <div className="orbA absolute rounded-full" style={{ width: '500px', height: '500px', background: 'rgba(40,75,99,.5)', filter: 'blur(120px)', top: '-100px', right: '10%' }} />
           <AnimatedBackground count={12} />
         </div>
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-2xl">
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-4">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
               Pricing
-            </motion.span>
-            <motion.h1 variants={fadeUp} className="font-heading font-bold text-5xl md:text-6xl text-slate-50 mb-6">
+            </span>
+            <h1 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(48px,8vw,100px)' }}>
               Transparent.{' '}
-              <span className="gradient-shimmer">No surprises.</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-slate-400 text-lg leading-relaxed">
+              <span className="italic"><span className="apricot-fill">No surprises.</span></span>
+            </h1>
+            <p className="text-[17px] leading-relaxed" style={{ color: '#94A3B8' }}>
               One fixed price. One fixed timeline. You know exactly what you&apos;re getting before you pay a dirham.
-            </motion.p>
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Pricing cards */}
-      <section className="pb-20">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-6 items-start">
-            {/* One-time */}
-            <motion.div
-              initial={{ opacity: 0, y: 36 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="relative bg-[#284B63]/5 border-2 border-[#284B63]/40 rounded-3xl p-8"
-              style={{ boxShadow: '0 0 60px rgba(40,75,99,0.12)' }}
+      {/* Main pricing */}
+      <section className="py-20 px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-12 gap-6 reveal">
+            {/* Big price block */}
+            <div
+              className="col-span-12 md:col-span-7 relative grad-border rounded-3xl p-10 md:p-14 overflow-hidden"
+              style={{ background: 'linear-gradient(160deg, rgba(40,75,99,.45), rgba(11,26,38,.85))' }}
             >
-              <div className="absolute -top-3 left-8 bg-gradient-to-r from-[#284B63] to-[#153243] text-[#F4F9E9] text-xs font-bold px-3 py-1 rounded-full">
-                MOST POPULAR
+              <span
+                className="absolute -top-3 left-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-[.2em] uppercase"
+                style={{ background: 'linear-gradient(105deg,#F4D3A8,#C26F4F)', color: '#0B1A26' }}
+              >
+                One-time · pay once
+              </span>
+              <p className="text-[11px] f-mono uppercase tracking-[.22em] mb-3" style={{ color: '#475569' }}>Fixed price · no add-ons</p>
+              <div className="flex items-end gap-4">
+                <p className="f-display glow leading-none" style={{ color: '#EEF0EB', fontSize: 'clamp(80px,13vw,180px)' }}>1,500</p>
+                <div className="pb-6">
+                  <p className="f-display text-[28px]" style={{ color: '#E8B98A' }}>AED</p>
+                  <p className="text-[12px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>≈ USD 408</p>
+                </div>
+              </div>
+              <p className="mt-4 text-[15px] max-w-md" style={{ color: '#CBD5E1' }}>
+                Complete website, ready to rank. Same scope, same price, whether you sell cakes or run a clinic.
+              </p>
+
+              {/* Ledger */}
+              <div className="mt-10 grid gap-px rounded-xl overflow-hidden" style={{ background: 'rgba(180,184,171,.10)' }}>
+                {includes.map((d, i) => (
+                  <div key={d} className="flex items-start gap-4 px-5 py-3.5" style={{ background: 'rgba(11,26,38,.7)' }}>
+                    <span className="f-mono text-[10px] mt-0.5 shrink-0" style={{ color: '#475569', width: '24px' }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="mt-0.5 shrink-0" style={{ color: '#E8B98A' }}><Check size={16} /></span>
+                    <span className="text-[14px] leading-relaxed flex-1" style={{ color: '#EEF0EB' }}>{d}</span>
+                  </div>
+                ))}
               </div>
 
-              <div className="mb-6">
-                <p className="text-slate-500 text-sm mb-2">One-time payment</p>
-                <motion.p
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ type: 'spring', stiffness: 200, delay: 0.3 }}
-                  className="font-heading font-bold text-5xl text-slate-50"
+              <div className="flex flex-wrap items-center gap-3 mt-10">
+                <a
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="press inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold cursor-pointer"
+                  style={{ background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)', boxShadow: '0 18px 50px -18px rgba(232,185,138,.55)', color: '#0B1A26' }}
                 >
-                  AED 1,500
-                </motion.p>
-                <p className="text-slate-600 text-sm mt-1">Complete website, ready to rank</p>
+                  <CalendarDays size={16} /> Book a discovery call
+                </a>
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="press inline-flex items-center gap-2 rounded-full border px-7 py-4 text-base font-medium cursor-pointer"
+                  style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
+                >
+                  <MessageCircle size={16} /> Question first?
+                </a>
+              </div>
+              <p className="text-[12px] f-mono mt-4" style={{ color: '#475569' }}>50% deposit to start · 50% on launch</p>
+            </div>
+
+            {/* Monthly + testimonial */}
+            <div className="col-span-12 md:col-span-5 flex flex-col gap-6">
+              <div className="rounded-3xl p-9" style={{ background: 'rgba(15,30,43,.65)', border: '1px solid rgba(180,184,171,.12)' }}>
+                <p className="text-[11px] f-mono uppercase tracking-[.22em]" style={{ color: '#475569' }}>Optional · monthly care</p>
+                <div className="flex items-end gap-3 mt-2">
+                  <p className="f-display text-[64px] leading-none" style={{ color: '#EEF0EB' }}>250</p>
+                  <p className="pb-3 text-[14px]" style={{ color: '#94A3B8' }}>AED / mo</p>
+                </div>
+                <p className="mt-3 text-[14px]" style={{ color: '#94A3B8' }}>So your site stays fast, safe, and current. Cancel any time.</p>
+                <ul className="mt-6 flex flex-col gap-2.5">
+                  {monthly.map((d) => (
+                    <li key={d} className="flex items-start gap-3 text-[13px]" style={{ color: '#CBD5E1' }}>
+                      <span className="mt-1 w-1 h-1 rounded-full shrink-0" style={{ background: '#E8B98A' }} />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="press mt-8 w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 text-[14px] font-medium cursor-pointer"
+                  style={{ border: '1px solid rgba(180,184,171,.20)', color: '#CBD5E1' }}
+                >
+                  <MessageCircle size={15} /> Ask on WhatsApp
+                </a>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {oneTimeFeatures.map((f, i) => (
-                  <motion.li
-                    key={f}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 + i * 0.05 }}
-                    className="flex items-start gap-3"
-                  >
-                    <CheckCircle2 className="text-[#B4B8AB] flex-shrink-0 mt-0.5" size={16} aria-hidden="true" />
-                    <span className="text-slate-300 text-sm">{f}</span>
-                  </motion.li>
-                ))}
-              </ul>
-
-              <motion.a
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold py-3.5 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
-              >
-                Book a discovery call <ArrowRight size={16} />
-              </motion.a>
-              <p className="text-center text-xs text-slate-600 mt-3">50% deposit to start</p>
-            </motion.div>
-
-            {/* Monthly */}
-            <motion.div
-              initial={{ opacity: 0, y: 36 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-              className="bg-[#153243] border border-slate-800/80 rounded-3xl p-8"
-            >
-              <div className="mb-6">
-                <p className="text-slate-500 text-sm mb-2">Per month, after launch</p>
-                <p className="font-heading font-bold text-5xl text-slate-50">AED 250</p>
-                <p className="text-slate-600 text-sm mt-1">Optional — cancel any time</p>
+              <div className="rounded-3xl p-9 grad-border relative overflow-hidden" style={{ background: 'rgba(232,185,138,.05)' }}>
+                <Star size={28} style={{ color: '#E8B98A' }} />
+                <p className="f-display text-[26px] mt-3" style={{ color: '#EEF0EB' }}>
+                  &ldquo;Done in 11 days, came in on price, ranked us in a month.&rdquo;
+                </p>
+                <p className="mt-4 text-[12px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>
+                  Faisal · Al Noor AC, Ajman
+                </p>
               </div>
-
-              <ul className="space-y-3 mb-8">
-                {monthlyFeatures.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-green-400 flex-shrink-0 mt-0.5" size={16} aria-hidden="true" />
-                    <span className="text-slate-300 text-sm">{f}</span>
-                  </li>
-                ))}
-                <li className="flex items-start gap-3 opacity-40">
-                  <X className="text-slate-600 flex-shrink-0 mt-0.5" size={16} aria-hidden="true" />
-                  <span className="text-slate-500 text-sm">New page builds (quoted separately)</span>
-                </li>
-                <li className="flex items-start gap-3 opacity-40">
-                  <X className="text-slate-600 flex-shrink-0 mt-0.5" size={16} aria-hidden="true" />
-                  <span className="text-slate-500 text-sm">Full redesigns</span>
-                </li>
-              </ul>
-
-              <motion.a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 w-full border border-slate-700 hover:border-slate-500 text-slate-200 font-semibold py-3.5 rounded-2xl transition-colors duration-200 cursor-pointer"
-              >
-                <MessageCircle size={16} /> Ask on WhatsApp
-              </motion.a>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Comparison table */}
-      <section className="py-20 border-t border-slate-800/60 bg-[#153243]/30">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-heading font-bold text-3xl text-slate-50 mb-3">Why not an agency?</h2>
-            <p className="text-slate-500">Same result. A fraction of the cost and time.</p>
-          </motion.div>
+      <section className="py-20 px-8 border-t" style={{ borderColor: 'rgba(180,184,171,.08)', background: 'rgba(15,30,43,.25)' }}>
+        <div className="max-w-[1100px] mx-auto">
+          <div className="text-center mb-12 reveal">
+            <h2 className="f-display mb-3" style={{ color: '#EEF0EB', fontSize: 'clamp(36px,6vw,72px)' }}>
+              Agency, vs <span className="italic"><span className="apricot-fill">just me.</span></span>
+            </h2>
+            <p className="text-[15px]" style={{ color: '#94A3B8' }}>Same result, a fraction of the cost and time.</p>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="overflow-hidden rounded-2xl border border-slate-800/60"
-          >
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-800/60">
-                  <th className="py-4 px-6 text-left text-slate-600 font-medium">What</th>
-                  <th className="py-4 px-4 text-center text-slate-400 font-semibold">Agency</th>
-                  <th className="py-4 px-4 text-center text-[#B4B8AB] font-semibold">Ur Web</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { label: 'Price', agency: 'AED 5,000–15,000', moaz: 'AED 1,500' },
-                  { label: 'Timeline', agency: '6–12 weeks', moaz: '10 working days' },
-                  { label: 'Revision rounds', agency: '3–5 (costly)', moaz: '1 included' },
-                  { label: 'Who you deal with', agency: 'Account managers', moaz: 'Just me, direct' },
-                  { label: 'Communication', agency: 'Email tickets', moaz: 'WhatsApp direct' },
-                  { label: 'Source code', agency: 'Sometimes locked in', moaz: 'Always yours' },
-                ].map((row, i) => (
-                  <tr key={row.label} className={`border-b border-slate-800/40 ${i % 2 === 0 ? 'bg-[#153243]/30' : ''}`}>
-                    <td className="py-3.5 px-6 text-slate-300 font-medium">{row.label}</td>
-                    <td className="py-3.5 px-4 text-center text-slate-600">{row.agency}</td>
-                    <td className="py-3.5 px-4 text-center text-green-400 font-medium">{row.moaz}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </motion.div>
+          <div className="reveal rounded-2xl overflow-hidden border" style={{ background: 'rgba(11,26,38,.55)', borderColor: 'rgba(180,184,171,.10)' }}>
+            <div
+              className="grid grid-cols-12 items-center px-6 py-4 border-b"
+              style={{ borderColor: 'rgba(180,184,171,.10)', background: 'rgba(15,30,43,.4)' }}
+            >
+              <div className="col-span-4 f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#475569' }}>Metric</div>
+              <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#475569' }}>Typical agency</div>
+              <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#E8B98A' }}>ur/web</div>
+            </div>
+            {compareRows.map((r, i) => (
+              <div
+                key={r.label}
+                className="grid grid-cols-12 items-center px-6 py-4"
+                style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(180,184,171,.07)' }}
+              >
+                <div className="col-span-4 flex items-baseline gap-3">
+                  <span className="f-mono text-[10px]" style={{ color: '#475569' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className="f-display text-[16px]" style={{ color: '#EEF0EB' }}>{r.label}</span>
+                </div>
+                <div className="col-span-4 text-right f-display text-[18px]" style={{ color: '#475569', textDecoration: 'line-through', textDecorationColor: 'rgba(244,63,94,.4)' }}>{r.a}</div>
+                <div className="col-span-4 text-right flex items-center justify-end gap-3">
+                  <span className="f-display text-[22px]" style={{ color: '#EEF0EB' }}>{r.b}</span>
+                  <span
+                    className="f-mono text-[9.5px] tracking-[.18em] uppercase px-2 py-0.5 rounded-full hidden sm:block"
+                    style={{ color: '#E8B98A', border: '1px solid rgba(232,185,138,.3)', background: 'rgba(232,185,138,.05)' }}
+                  >
+                    {r.spread}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-[12px] mt-6 px-2" style={{ color: '#94A3B8' }}>
+            You weren&apos;t paying for the math, you were paying for the office.
+          </p>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="font-heading font-bold text-3xl text-slate-50 mb-10 text-center"
-          >
-            Pricing questions
-          </motion.h2>
-          <div className="space-y-4">
-            {pricingFaqs.map((faq, i) => (
-              <motion.div
-                key={faq.q}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="bg-[#153243] border border-slate-800/60 rounded-2xl p-6"
+      <section className="py-20 px-8">
+        <div className="max-w-[1100px] mx-auto">
+          <h2 className="f-display mb-10 reveal" style={{ color: '#EEF0EB', fontSize: 'clamp(32px,5vw,64px)' }}>
+            Pricing <span className="italic"><span className="apricot-fill">questions.</span></span>
+          </h2>
+          <div className="flex flex-col">
+            {pricingFaqs.map(([q, a], i) => (
+              <button
+                key={q}
+                onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
+                className="text-left border-t reveal"
+                style={{ borderColor: 'rgba(180,184,171,.10)' }}
               >
-                <h3 className="font-heading font-semibold text-slate-50 mb-2 text-base">{faq.q}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{faq.a}</p>
-              </motion.div>
+                <div className="flex items-start justify-between gap-6 py-7">
+                  <div className="flex items-baseline gap-5">
+                    <span className="f-mono text-[11px] tracking-[.18em] shrink-0" style={{ color: '#475569' }}>{String(i + 1).padStart(2, '0')}</span>
+                    <span className="f-display" style={{ color: '#EEF0EB', fontSize: 'clamp(20px,3vw,30px)' }}>{q}</span>
+                  </div>
+                  <span
+                    className="mt-3 transition-transform duration-300 shrink-0"
+                    style={{ color: '#E8B98A', transform: openFaq === i ? 'rotate(45deg)' : 'rotate(0)' }}
+                  >
+                    <Plus size={22} />
+                  </span>
+                </div>
+                <AnimatePresence>
+                  {openFaq === i && (
+                    <motion.p
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="overflow-hidden pb-7 pl-14 max-w-3xl text-[15px] leading-relaxed"
+                      style={{ color: '#CBD5E1' }}
+                    >
+                      {a}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </button>
             ))}
+            <div className="border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }} />
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 border-t border-slate-800/60">
-        <div className="max-w-2xl mx-auto px-6 text-center">
+      <section className="py-20 px-8 border-t" style={{ borderColor: 'rgba(180,184,171,.08)' }}>
+        <div className="max-w-[800px] mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-heading font-bold text-3xl text-slate-50 mb-4">Still have questions?</h2>
-            <p className="text-slate-500 mb-8">Message me on WhatsApp or book a free 15-min call. No commitment.</p>
+            <h2 className="f-display mb-4" style={{ color: '#EEF0EB', fontSize: 'clamp(32px,5vw,64px)' }}>Still have questions?</h2>
+            <p className="mb-8 text-[15px]" style={{ color: '#94A3B8' }}>Message me on WhatsApp or book a free 15-min call. No commitment.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <motion.a href={CALENDLY} target="_blank" rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40">
+              <a
+                href={CALENDLY}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="press inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold cursor-pointer"
+                style={{ background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)', color: '#0B1A26' }}
+              >
                 <CalendarDays size={16} /> Book a free call
-              </motion.a>
-              <motion.a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 border border-slate-700 hover:border-slate-500 text-slate-200 font-semibold px-7 py-3.5 rounded-full transition-colors duration-200 cursor-pointer">
+              </a>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="press inline-flex items-center gap-2 rounded-full border px-7 py-4 text-base font-medium cursor-pointer"
+                style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
+              >
                 <MessageCircle size={16} /> WhatsApp me
-              </motion.a>
+              </a>
             </div>
           </motion.div>
         </div>

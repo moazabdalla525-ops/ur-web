@@ -4,14 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, CalendarDays } from 'lucide-react';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/work', label: 'Work' },
+  { href: '/', label: 'Work' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -36,53 +35,86 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#0F1E2B]/95 backdrop-blur-md border-b border-[#284B63]/30 shadow-xl shadow-black/50'
-          : 'bg-transparent'
-      }`}
-    >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-heading font-bold text-xl text-slate-50 hover:opacity-80 transition-opacity duration-200">
-          Ur<span className="bg-gradient-to-r from-[#B4B8AB] to-[#EEF0EB] bg-clip-text text-transparent">Web</span>
-        </Link>
-
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={`text-sm font-medium transition-colors duration-200 cursor-pointer ${
-                pathname === l.href ? 'text-[#B4B8AB]' : 'text-slate-400 hover:text-slate-50'
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
+    <header className="fixed top-0 inset-x-0 z-50">
+      {/* Top rail */}
+      <div className="hidden md:flex items-center justify-between text-[11px] f-mono tracking-wider uppercase border-b"
+           style={{ borderColor: 'rgba(180,184,171,.10)', color: '#64748B' }}>
+        <div className="flex items-center gap-6 px-8 py-2.5">
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full pulse" style={{ background: '#7BCBA1' }} />
+            <span style={{ color: '#EEF0EB' }}>Open for May–Jun · 2 slots</span>
+          </span>
+          <span>UAE · GMT+4</span>
         </div>
+        <div className="flex items-center gap-6 px-8 py-2.5">
+          <span>moazabdalla567@gmail.com</span>
+          <span style={{ color: 'rgba(180,184,171,.30)' }}>/</span>
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="hover:text-[#EEF0EB] transition-colors">+971 52 868 6540</a>
+        </div>
+      </div>
 
-        <motion.a
-          href={CALENDLY}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.97 }}
-          className="hidden md:flex items-center bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
-        >
-          Book a call
-        </motion.a>
+      {/* Main nav */}
+      <nav
+        className={`transition-all duration-300 ${scrolled ? 'backdrop-blur-md' : ''}`}
+        style={{
+          background: scrolled ? 'rgba(11,26,38,.88)' : 'transparent',
+          borderBottom: scrolled ? '1px solid rgba(180,184,171,.08)' : '1px solid transparent',
+        }}
+      >
+        <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 cursor-pointer group">
+            <span className="w-2 h-2 rounded-full" style={{ background: '#E8B98A' }} />
+            <span className="f-grot text-[17px] font-semibold tracking-tight" style={{ color: '#EEF0EB' }}>
+              ur<span className="apricot-fill">/web</span>
+            </span>
+          </Link>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-slate-400 hover:text-slate-50 transition-colors cursor-pointer p-2 -mr-2"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-9 text-[13px] f-grot">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="underline-grow cursor-pointer transition-colors duration-200"
+                style={{ color: pathname === l.href ? '#EEF0EB' : '#64748B' }}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <motion.a
+            href={CALENDLY}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="hidden md:inline-flex items-center gap-2 press rounded-full px-5 py-2.5 text-sm font-semibold cursor-pointer"
+            style={{
+              background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)',
+              boxShadow: '0 18px 50px -18px rgba(232,185,138,.55), inset 0 1px 0 rgba(255,255,255,.5)',
+              color: '#0B1A26',
+            }}
+          >
+            <CalendarDays size={14} />
+            Book a 15-min call
+          </motion.a>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-slate-400 hover:text-slate-50 transition-colors cursor-pointer p-2 -mr-2"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
+      {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -90,16 +122,16 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="md:hidden overflow-hidden bg-[#153243] border-b border-[#284B63]/30"
+            className="md:hidden overflow-hidden"
+            style={{ background: 'rgba(11,26,38,.96)', borderBottom: '1px solid rgba(180,184,171,.10)', backdropFilter: 'blur(16px)' }}
           >
-            <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-4">
+            <div className="max-w-[1400px] mx-auto px-8 py-6 flex flex-col gap-5">
               {links.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className={`text-base font-medium transition-colors duration-200 ${
-                    pathname === l.href ? 'text-[#B4B8AB]' : 'text-slate-400'
-                  }`}
+                  className="text-base font-medium f-grot transition-colors duration-200"
+                  style={{ color: pathname === l.href ? '#EEF0EB' : '#64748B' }}
                 >
                   {l.label}
                 </Link>
@@ -109,7 +141,11 @@ export default function Navbar() {
                   href={CALENDLY}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-[#284B63] to-[#153243] text-white font-semibold px-5 py-3 rounded-full text-center cursor-pointer"
+                  className="text-center font-semibold px-5 py-3 rounded-full text-sm cursor-pointer"
+                  style={{
+                    background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)',
+                    color: '#0B1A26',
+                  }}
                 >
                   Book a 15-min call
                 </a>
@@ -117,7 +153,8 @@ export default function Navbar() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-slate-700 text-slate-300 font-medium px-5 py-3 rounded-full text-center cursor-pointer hover:border-slate-500 transition-colors duration-200"
+                  className="text-center font-medium px-5 py-3 rounded-full text-sm cursor-pointer transition-colors duration-200"
+                  style={{ border: '1px solid rgba(180,184,171,.25)', color: '#EEF0EB' }}
                 >
                   WhatsApp me
                 </a>

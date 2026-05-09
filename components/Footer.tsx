@@ -2,69 +2,65 @@ import Link from 'next/link';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
+const EMAIL = 'moazabdalla567@gmail.com';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#284B63]/30 bg-[#0F1E2B]">
-      <div className="max-w-6xl mx-auto px-6 py-14">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-10">
-          <div className="max-w-xs">
-            <p className="font-heading font-bold text-xl text-slate-50 mb-3">
-              Ur<span className="bg-gradient-to-r from-[#B4B8AB] to-[#EEF0EB] bg-clip-text text-transparent">Web</span>
-            </p>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              Websites that get UAE businesses found on Google. Fixed price, fixed timeline, no agency markup.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-12">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-600 mb-4">Pages</p>
-              <div className="flex flex-col gap-2.5">
-                {[
-                  { href: '/', label: 'Home' },
-                  { href: '/work', label: 'Work' },
-                  { href: '/pricing', label: 'Pricing' },
-                  { href: '/about', label: 'About' },
-                  { href: '/contact', label: 'Contact' },
-                ].map((l) => (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    className="text-sm text-slate-500 hover:text-slate-200 transition-colors duration-200 cursor-pointer"
-                  >
-                    {l.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-600 mb-4">Reach me</p>
-              <div className="flex flex-col gap-2.5">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
-                  className="text-sm text-slate-500 hover:text-slate-200 transition-colors duration-200 cursor-pointer">WhatsApp</a>
-                <a href="mailto:moazabdalla567@gmail.com"
-                  className="text-sm text-slate-500 hover:text-slate-200 transition-colors duration-200 cursor-pointer">Email</a>
-                <a href={CALENDLY} target="_blank" rel="noopener noreferrer"
-                  className="text-sm text-slate-500 hover:text-slate-200 transition-colors duration-200 cursor-pointer">Book a call</a>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-600 mb-4">Pricing</p>
-              <div className="flex flex-col gap-2.5">
-                <p className="text-sm text-slate-500">AED 1,500 one-time</p>
-                <p className="text-sm text-slate-500">AED 250/month support</p>
-                <p className="text-sm text-slate-500">10 working days delivery</p>
-              </div>
-            </div>
-          </div>
+    <footer className="border-t px-8 pt-20 pb-10" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+      <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-8">
+        {/* Display wordmark */}
+        <div className="col-span-12 md:col-span-6 flex flex-col gap-5">
+          <p className="f-display" style={{ color: '#EEF0EB', lineHeight: 0.85, fontSize: 'clamp(72px,11vw,160px)' }}>
+            ur<span className="apricot-fill">/web</span>
+          </p>
+          <p className="text-[14px] max-w-md" style={{ color: '#64748B' }}>
+            Independent web shop in the UAE. One person. No office. WhatsApp first.
+            Built for businesses that just need a working site, fast.
+          </p>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#284B63]/30 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-slate-600">© 2025 Ur Web. All rights reserved.</p>
-          <p className="text-xs text-slate-600">Dubai, UAE · Sun–Thu 9am–7pm</p>
+        {/* Site links */}
+        <div className="col-span-6 md:col-span-2 flex flex-col gap-3 text-[13px]">
+          <p className="f-mono text-[10px] uppercase tracking-[.22em]" style={{ color: '#475569' }}>Site</p>
+          {[
+            { href: '/', label: 'Home' },
+            { href: '/work', label: 'Work' },
+            { href: '/pricing', label: 'Pricing' },
+            { href: '/about', label: 'About' },
+            { href: '/contact', label: 'Contact' },
+          ].map((l) => (
+            <Link key={l.href} href={l.href} className="underline-grow self-start" style={{ color: '#EEF0EB' }}>
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Contact links */}
+        <div className="col-span-6 md:col-span-2 flex flex-col gap-3 text-[13px]">
+          <p className="f-mono text-[10px] uppercase tracking-[.22em]" style={{ color: '#475569' }}>Reach me</p>
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="underline-grow self-start" style={{ color: '#EEF0EB' }}>WhatsApp</a>
+          <a href={`mailto:${EMAIL}`} className="underline-grow self-start" style={{ color: '#EEF0EB' }}>Email</a>
+          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="underline-grow self-start" style={{ color: '#EEF0EB' }}>Calendly</a>
+        </div>
+
+        {/* Status */}
+        <div className="col-span-12 md:col-span-2 flex flex-col gap-3 text-[13px]">
+          <p className="f-mono text-[10px] uppercase tracking-[.22em]" style={{ color: '#475569' }}>Status</p>
+          <p style={{ color: '#EEF0EB' }} className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full pulse" style={{ background: '#7BCBA1' }} />
+            Open · 2 slots May–Jun
+          </p>
+          <p style={{ color: '#64748B' }}>UAE · GMT+4</p>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="col-span-12 mt-12 flex flex-col md:flex-row md:items-center justify-between gap-3 pt-8 border-t f-mono text-[10px] tracking-[.2em] uppercase"
+             style={{ borderColor: 'rgba(180,184,171,.10)', color: '#475569' }}>
+          <span>© 2025 Ur Web · Built solo in Dubai</span>
+          <span className="flex items-center gap-2">
+            <span className="blink">▌</span>
+            Last shipped · Goat Burger · 8 days ago
+          </span>
         </div>
       </div>
     </footer>

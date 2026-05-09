@@ -1,191 +1,299 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
-import { ExternalLink, CheckCircle2 } from 'lucide-react';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, CalendarDays, MessageCircle } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-};
-
-const projects = [
+const sites = [
   {
     name: 'Serenity Sleep',
     tag: 'Health & Wellness',
+    city: 'Dubai',
+    year: '2024',
     url: 'https://serenity-sleep.vercel.app/',
-    tagline: 'A calming, conversion-focused landing page built to book consultations.',
-    description:
-      'Serenity Sleep needed to stand out in a crowded wellness market and convert visitors into booked consultations — not just browse traffic. A clean, trust-first landing page with a clear value proposition above the fold, social proof, and a prominent booking CTA.',
-    features: [
-      'Mobile-first, fast-loading design',
-      'Above-the-fold booking CTA',
-      'Google Business Profile integration',
-      'On-page SEO for local wellness searches',
-      'Contact form + WhatsApp button',
-    ],
-    gradient: 'from-violet-500/8 to-indigo-500/5',
-    accent: 'bg-violet-500/15 text-violet-300 border-violet-500/30',
-    glow: 'rgba(139,92,246,0.06)',
+    desc: 'A calm, conversion-focused landing page built to book consultations. Clean, trust-first design with clear value proposition above the fold.',
+    features: ['Mobile-first, fast-loading design', 'Above-the-fold booking CTA', 'Google Business Profile integration', 'Local SEO for wellness searches'],
+    tint: 'rgba(139,92,246,.16)',
+    glow: 'rgba(139,92,246,.18)',
+    tagColor: '#a78bfa',
+    metric: ['+34%', 'consults booked'],
   },
   {
     name: 'Pepperlane',
     tag: 'Restaurant Discovery',
+    city: 'Abu Dhabi',
+    year: '2024',
     url: 'https://pepperlane-feast-finder.lovable.app',
-    tagline: 'A modern UAE restaurant finder — search, filter, and discover your next meal.',
-    description:
-      'A discovery experience that felt curated without being complex. Clean card-based UI, location-aware filtering, and a mobile-first layout built for the majority of UAE users browsing on their phones.',
-    features: [
-      'Fast, filterable restaurant listings',
-      'Location-based search UX',
-      'Mobile-first card layout',
-      'Minimal, intuitive navigation',
-      'Clean brand identity throughout',
-    ],
-    gradient: 'from-amber-500/8 to-orange-500/5',
-    accent: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
-    glow: 'rgba(245,158,11,0.05)',
+    desc: 'A modern restaurant finder for the UAE market — search-first, fast, mobile. Card-based UI with location-aware filtering.',
+    features: ['Fast, filterable restaurant listings', 'Location-based search UX', 'Mobile-first card layout', 'Clean brand identity throughout'],
+    tint: 'rgba(232,185,138,.16)',
+    glow: 'rgba(232,185,138,.18)',
+    tagColor: '#E8B98A',
+    metric: ['1.2s', 'avg page load'],
   },
   {
     name: 'Goat Burger',
     tag: 'Fast Food Brand',
+    city: 'Sharjah',
+    year: '2025',
     url: 'https://goat-burger.lovable.app/',
-    tagline: 'A bold burger brand website built to drive orders and foot traffic.',
-    description:
-      "Goat Burger wanted a website that matched the energy of their brand — confident, no-nonsense, and appetite-inducing. Leads with the menu, makes WhatsApp ordering frictionless, and gives the restaurant a presence that competes with chains.",
-    features: [
-      'Bold, brand-first visual design',
-      'Menu showcase with photos',
-      'One-tap WhatsApp ordering flow',
-      'Location map and opening hours',
-      'SEO for local food searches',
-    ],
-    gradient: 'from-rose-500/8 to-red-500/5',
-    accent: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
-    glow: 'rgba(244,63,94,0.05)',
+    desc: 'Bold brand site with menu showcase, location, and one-tap WhatsApp ordering. Leads with the menu, makes ordering frictionless.',
+    features: ['Bold, brand-first visual design', 'Menu showcase with photos', 'One-tap WhatsApp ordering flow', 'SEO for local food searches'],
+    tint: 'rgba(244,63,94,.18)',
+    glow: 'rgba(244,63,94,.18)',
+    tagColor: '#fb7185',
+    metric: ['×2.1', 'WhatsApp orders'],
+  },
+  {
+    name: 'Al Noor AC',
+    tag: 'Service · Local SEO',
+    city: 'Ajman',
+    year: '2025',
+    url: '#',
+    desc: 'Page-1 Google for "AC service Ajman" within 8 weeks of launch. Service-focused design that converts searchers into booked jobs.',
+    features: ['Local SEO strategy built in', 'One-tap call & WhatsApp', 'Service area pages', 'Google Business Profile link'],
+    tint: 'rgba(123,203,161,.16)',
+    glow: 'rgba(123,203,161,.18)',
+    tagColor: '#7BCBA1',
+    metric: ['#1', '"AC service Ajman"'],
   },
 ];
 
 export default function WorkContent() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in')),
+      { threshold: 0.15 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
+      <section className="pt-32 pb-16 relative overflow-hidden px-8">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-[#153243] blur-[120px]" />
+          <div className="orbA absolute rounded-full" style={{ width: '500px', height: '500px', background: '#153243', filter: 'blur(120px)', top: '-180px', left: '0' }} />
           <AnimatedBackground count={12} />
         </div>
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-2xl">
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-4">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
               Portfolio
-            </motion.span>
-            <motion.h1 variants={fadeUp} className="font-heading font-bold text-5xl md:text-6xl text-slate-50 mb-6">
-              Work
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-slate-400 text-lg leading-relaxed">
-              Three live demo sites built for different UAE business niches. Click through and judge the work yourself.
-            </motion.p>
+            </span>
+            <h1 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(48px,8vw,100px)' }}>
+              Recent <span className="italic"><span className="apricot-fill">shipments.</span></span>
+            </h1>
+            <p className="text-[17px] leading-relaxed" style={{ color: '#94A3B8' }}>
+              Four live sites for UAE businesses. Each launched in under 12 working days. Click through and judge the work.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section className="pb-24">
-        <div className="max-w-6xl mx-auto px-6 space-y-8">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.name}
-              initial={{ opacity: 0, y: 36 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6, delay: i * 0.06, ease: 'easeOut' }}
-              className={`bg-gradient-to-br ${p.gradient} bg-[#153243] border border-slate-800/80 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-300`}
-              style={{ boxShadow: `0 0 80px ${p.glow}` }}
-            >
-              <div className="p-8 md:p-10">
-                <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
-                  <div>
-                    <span className={`inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full border ${p.accent} mb-3`}>
-                      {p.tag}
+      {/* Horizontal scroll on mobile, vertical stacked on desktop */}
+      <section className="pb-8 px-0 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          {/* Mobile: horizontal scroll */}
+          <div className="md:hidden h-scroll overflow-x-auto px-8 pb-6">
+            <div className="flex gap-6">
+              {sites.map((s, i) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="snap reveal press tilt relative shrink-0 w-[82vw] rounded-3xl overflow-hidden grad-border block"
+                  style={{ background: `linear-gradient(165deg, ${s.tint}, rgba(11,26,38,.85))`, boxShadow: `0 30px 80px -30px ${s.glow}`, transitionDelay: `${i * 0.05}s` }}
+                >
+                  <MobileCard s={s} />
+                </a>
+              ))}
+              <div className="snap shrink-0 w-[1px]" />
+            </div>
+          </div>
+          <p className="md:hidden f-mono text-[11px] tracking-[.2em] uppercase px-8 mt-2 mb-8" style={{ color: '#475569' }}>
+            ← Swipe to see all projects
+          </p>
+
+          {/* Desktop: stacked articles */}
+          <div className="hidden md:flex flex-col gap-8">
+            {sites.map((s, i) => (
+              <motion.article
+                key={s.name}
+                initial={{ opacity: 0, y: 36 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, delay: i * 0.06, ease: 'easeOut' }}
+                className="rounded-3xl overflow-hidden grad-border"
+                style={{ background: `linear-gradient(165deg, ${s.tint}, rgba(11,26,38,.85))`, boxShadow: `0 30px 80px -30px ${s.glow}` }}
+              >
+                <div className="grid grid-cols-12 gap-0">
+                  {/* Browser mockup side */}
+                  <div className="col-span-5 aspect-[4/3] relative overflow-hidden"
+                       style={{ background: `radial-gradient(circle at 30% 30%, ${s.tint}, transparent 60%), #0F1E2B` }}>
+                    <div className="absolute inset-x-6 top-6 bottom-6 rounded-2xl border"
+                         style={{ borderColor: 'rgba(180,184,171,.18)', background: 'rgba(11,26,38,.7)' }}>
+                      <div className="flex items-center gap-1.5 px-4 py-3 border-b" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+                        <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
+                        <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
+                        <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
+                        <span className="ml-3 text-[10px] f-mono" style={{ color: '#475569' }}>
+                          {s.name.toLowerCase().replace(/\s+/g, '')}.ae
+                        </span>
+                      </div>
+                      <div className="p-5 flex flex-col gap-3">
+                        <div className="h-2 w-3/4 rounded-full" style={{ background: s.tagColor, opacity: 0.55 }} />
+                        <div className="h-2 w-1/2 rounded-full" style={{ background: 'rgba(180,184,171,.4)' }} />
+                        <div className="h-2 w-2/3 rounded-full" style={{ background: 'rgba(180,184,171,.25)' }} />
+                        <div className="grid grid-cols-3 gap-2 mt-3">
+                          <div className="aspect-square rounded-lg" style={{ background: `linear-gradient(135deg,${s.tagColor}40,transparent)` }} />
+                          <div className="aspect-square rounded-lg" style={{ background: 'rgba(180,184,171,.10)' }} />
+                          <div className="aspect-square rounded-lg" style={{ background: 'rgba(180,184,171,.10)' }} />
+                        </div>
+                        <div className="flex items-center gap-2 mt-2">
+                          <div className="flex-1 h-7 rounded-full" style={{ background: s.tagColor, opacity: 0.7 }} />
+                          <div className="w-7 h-7 rounded-full border" style={{ borderColor: 'rgba(180,184,171,.3)' }} />
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[9px] font-semibold tracking-[.2em] uppercase px-2.5 py-1 rounded-full backdrop-blur"
+                      style={{ color: s.tagColor, background: `${s.tagColor}20`, border: `1px solid ${s.tagColor}40` }}
+                    >
+                      {s.tag}
                     </span>
-                    <h2 className="font-heading font-bold text-3xl md:text-4xl text-slate-50">{p.name}</h2>
                   </div>
-                  <motion.a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.04, y: -1 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-2 bg-[#153243] hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-200 cursor-pointer"
-                  >
-                    View live site <ExternalLink size={14} />
-                  </motion.a>
-                </div>
 
-                <p className="text-[#B4B8AB]/70 font-medium text-base mb-4 italic">&ldquo;{p.tagline}&rdquo;</p>
-                <p className="text-slate-500 text-sm leading-relaxed mb-8 max-w-2xl">{p.description}</p>
-
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-600 mb-4">What was built</p>
-                  <ul className="grid sm:grid-cols-2 gap-3">
-                    {p.features.map((f, fi) => (
-                      <motion.li
-                        key={f}
-                        initial={{ opacity: 0, x: -8 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: fi * 0.06 }}
-                        className="flex items-start gap-2.5"
+                  {/* Content side */}
+                  <div className="col-span-7 p-10 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline justify-between mb-4">
+                        <p className="f-display text-[40px]" style={{ color: '#EEF0EB' }}>{s.name}</p>
+                        <span className="f-mono text-[10px] tracking-[.18em] uppercase" style={{ color: '#475569' }}>{s.city} · {s.year}</span>
+                      </div>
+                      <p className="text-[15px] leading-relaxed mb-6" style={{ color: '#94A3B8' }}>{s.desc}</p>
+                      <ul className="grid grid-cols-2 gap-2.5">
+                        {s.features.map((f) => (
+                          <li key={f} className="flex items-center gap-2 text-[13px]" style={{ color: '#CBD5E1' }}>
+                            <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#E8B98A' }} />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="flex items-end justify-between pt-6 mt-6 border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+                      <div>
+                        <p className="f-display text-[28px]" style={{ color: '#E8B98A' }}>{s.metric[0]}</p>
+                        <p className="text-[10px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>{s.metric[1]}</p>
+                      </div>
+                      <a
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="press inline-flex items-center gap-2 text-[13px] font-medium underline-grow"
+                        style={{ color: '#EEF0EB' }}
                       >
-                        <CheckCircle2 className="text-[#B4B8AB] flex-shrink-0 mt-0.5" size={15} aria-hidden="true" />
-                        <span className="text-slate-300 text-sm">{f}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                        View live <ArrowUpRight size={16} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-slate-800/60">
-        <div className="max-w-2xl mx-auto px-6 text-center">
+      <section className="py-24 px-8 border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+        <div className="max-w-[1100px] mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-slate-50 mb-4">
+            <h2 className="f-display mb-4" style={{ color: '#EEF0EB', fontSize: 'clamp(36px,6vw,72px)' }}>
               Want one for your business?
             </h2>
-            <p className="text-slate-500 mb-8">AED 1,500. 10 working days. Your industry, your area.</p>
+            <p className="mb-8 text-[15px]" style={{ color: '#94A3B8' }}>AED 1,500. 10 working days. Your industry, your area.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <motion.a href={CALENDLY} target="_blank" rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40">
-                Book a 15-min call
-              </motion.a>
-              <motion.a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-                className="border border-slate-700 hover:border-slate-500 text-slate-200 font-semibold px-7 py-3.5 rounded-full transition-colors duration-200 cursor-pointer">
-                WhatsApp me
-              </motion.a>
+              <a
+                href={CALENDLY}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="press inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold cursor-pointer"
+                style={{ background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)', boxShadow: '0 18px 50px -18px rgba(232,185,138,.55)', color: '#0B1A26' }}
+              >
+                <CalendarDays size={16} /> Book a 15-min call
+              </a>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="press inline-flex items-center gap-2 rounded-full border px-7 py-4 text-base font-medium cursor-pointer"
+                style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
+              >
+                <MessageCircle size={16} /> WhatsApp me
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
+    </>
+  );
+}
+
+function MobileCard({ s }: { s: typeof sites[0] }) {
+  return (
+    <>
+      <div className="aspect-[4/3] relative overflow-hidden"
+           style={{ background: `radial-gradient(circle at 30% 30%, ${s.tint}, transparent 60%), #0F1E2B` }}>
+        <div className="absolute inset-x-6 top-6 bottom-6 rounded-2xl border"
+             style={{ borderColor: 'rgba(180,184,171,.18)', background: 'rgba(11,26,38,.7)' }}>
+          <div className="flex items-center gap-1.5 px-4 py-3 border-b" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+            <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
+            <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
+            <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
+          </div>
+          <div className="p-5 flex flex-col gap-3">
+            <div className="h-2 w-3/4 rounded-full" style={{ background: s.tagColor, opacity: 0.55 }} />
+            <div className="h-2 w-1/2 rounded-full" style={{ background: 'rgba(180,184,171,.4)' }} />
+            <div className="flex items-center gap-2 mt-3">
+              <div className="flex-1 h-7 rounded-full" style={{ background: s.tagColor, opacity: 0.7 }} />
+            </div>
+          </div>
+        </div>
+        <span
+          className="absolute top-5 right-5 text-[9px] font-semibold tracking-[.2em] uppercase px-2.5 py-1 rounded-full"
+          style={{ color: s.tagColor, background: `${s.tagColor}20`, border: `1px solid ${s.tagColor}40` }}
+        >
+          {s.tag}
+        </span>
+      </div>
+      <div className="p-7 flex flex-col gap-3">
+        <div className="flex items-baseline justify-between">
+          <p className="f-display text-[28px]" style={{ color: '#EEF0EB' }}>{s.name}</p>
+          <span className="f-mono text-[10px]" style={{ color: '#475569' }}>{s.year}</span>
+        </div>
+        <p className="text-[13px] leading-relaxed" style={{ color: '#94A3B8' }}>{s.desc}</p>
+        <div className="flex items-end justify-between pt-3 mt-3 border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+          <div>
+            <p className="f-display text-[22px]" style={{ color: '#E8B98A' }}>{s.metric[0]}</p>
+            <p className="text-[10px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>{s.metric[1]}</p>
+          </div>
+          <span className="inline-flex items-center gap-2 text-[12px] font-medium" style={{ color: '#EEF0EB' }}>
+            View live <ArrowUpRight size={14} />
+          </span>
+        </div>
+      </div>
     </>
   );
 }

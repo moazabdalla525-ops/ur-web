@@ -1,8 +1,15 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Inter } from 'next/font/google';
+import { Fraunces, Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
+  subsets: ['latin'],
+  axes: ['opsz', 'SOFT'],
+  display: 'swap',
+});
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
@@ -14,6 +21,13 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains-mono',
+  subsets: ['latin'],
+  weight: ['400', '500'],
   display: 'swap',
 });
 
@@ -35,8 +49,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col">
+    <html lang="en" className={`${fraunces.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+      <body className="min-h-screen flex flex-col grain">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
