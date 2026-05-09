@@ -1,21 +1,12 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { CalendarDays, MessageCircle } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
-};
 
 const sections = [
   {
@@ -43,129 +34,131 @@ const facts = [
 ];
 
 export default function AboutContent() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in')),
+      { threshold: 0.15 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        {/* Background orbs */}
+      <section className="pt-32 pb-16 relative overflow-hidden px-8">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#153243] blur-[120px]" />
-          <div className="orb-pulse-slow absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#284B63] blur-[100px]" />
+          <div className="orbA absolute rounded-full" style={{ width: '500px', height: '500px', background: '#1C3A52', filter: 'blur(120px)', top: '-120px', right: '0' }} />
+          <div className="orbB absolute rounded-full" style={{ width: '400px', height: '400px', background: 'rgba(194,111,79,.35)', filter: 'blur(100px)', bottom: '-80px', left: '0' }} />
           <AnimatedBackground count={14} />
         </div>
-
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div variants={stagger} initial="hidden" animate="visible">
-            <motion.span
-              variants={fadeUp}
-              className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-4"
-            >
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
+              <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#E8B98A' }}>
+                <span className="absolute inset-0 rounded-full ring" style={{ background: '#E8B98A' }} />
+              </span>
               About
-            </motion.span>
-
-            <motion.h1
-              variants={fadeUp}
-              className="font-heading font-bold text-5xl md:text-7xl text-slate-50 mb-6 leading-[1.05]"
-            >
-              Not an agency.{' '}
-              <span className="gradient-shimmer">Just me.</span>
-            </motion.h1>
-
-            <motion.p variants={fadeUp} className="text-slate-400 text-xl leading-relaxed max-w-2xl">
+            </span>
+            <h1 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(52px,9vw,120px)' }}>
+              Not an agency.<br />
+              <span className="italic"><span className="apricot-fill">Just me.</span></span>
+            </h1>
+            <p className="text-[18px] leading-relaxed max-w-2xl" style={{ color: '#94A3B8' }}>
               One person. Direct communication. Sites that work on a phone at midnight in Ajman.
-            </motion.p>
+            </p>
           </motion.div>
         </div>
       </section>
 
       {/* Stats strip */}
-      <section className="border-y border-slate-800/60 bg-[#153243]/40">
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
+      <section className="border-y px-8" style={{ borderColor: 'rgba(180,184,171,.10)', background: 'rgba(15,30,43,.45)' }}>
+        <div className="max-w-[1400px] mx-auto py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
             {facts.map((f, i) => (
-              <motion.div
-                key={f.label}
-                variants={fadeUp}
-                custom={i}
-                className="text-center"
-              >
-                <motion.p
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ type: 'spring', stiffness: 200, delay: i * 0.08 }}
-                  className="font-heading font-bold text-2xl text-slate-50 mb-1"
-                >
-                  {f.value}
-                </motion.p>
-                <p className="text-slate-600 text-xs uppercase tracking-widest">{f.label}</p>
-              </motion.div>
+              <div key={f.label} className="text-center" style={{ animationDelay: `${i * 0.08}s` }}>
+                <p className="f-display text-[32px] md:text-[40px] leading-none mb-1" style={{ color: '#EEF0EB' }}>{f.value}</p>
+                <p className="f-mono text-[10px] uppercase tracking-[.2em]" style={{ color: '#475569' }}>{f.label}</p>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Editorial sections */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="space-y-0">
-            {sections.map((s, i) => (
-              <motion.div
-                key={s.heading}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -32 : 32 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.65, ease: 'easeOut', delay: 0.05 }}
-                className={`flex flex-col md:flex-row gap-8 md:gap-16 py-16 ${
-                  i < sections.length - 1 ? 'border-b border-slate-800/60' : ''
-                }`}
-              >
-                {/* Big number */}
-                <div className="flex-shrink-0">
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                    className="font-heading font-bold text-7xl md:text-8xl leading-none"
-                    style={{
-                      background: 'linear-gradient(135deg, #0B1C28 0%, #153243 50%, #0B1C28 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    {s.num}
-                  </motion.span>
-                </div>
+      {/* Editorial numbered sections */}
+      <section className="py-8 px-8">
+        <div className="max-w-[1400px] mx-auto">
+          {sections.map((s, i) => (
+            <motion.div
+              key={s.heading}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.65, ease: 'easeOut' }}
+              className="grid grid-cols-12 gap-6 py-16"
+              style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(180,184,171,.10)' }}
+            >
+              {/* Section marker */}
+              <div className="col-span-12 md:col-span-1 f-mono text-[11px] tracking-[.2em] pt-1" style={{ color: '#475569' }}>
+                § 0{i + 1}
+              </div>
 
-                {/* Text */}
-                <div className="flex-1 pt-2">
-                  <motion.span
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.15 }}
-                    className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-3"
-                  >
-                    {s.heading}
-                  </motion.span>
-                  <motion.p
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-slate-300 text-lg leading-[1.9]"
-                  >
-                    {s.body}
-                  </motion.p>
-                </div>
+              {/* Big number */}
+              <div className="col-span-3 md:col-span-2 flex items-start">
+                <span className="f-display leading-none" style={{ color: '#E8B98A', fontSize: 'clamp(60px,8vw,120px)' }}>
+                  {s.num}
+                </span>
+              </div>
+
+              {/* Text */}
+              <div className="col-span-9 md:col-span-9 pt-1">
+                <span className="f-mono text-[10.5px] uppercase tracking-[.22em] block mb-4" style={{ color: '#475569' }}>
+                  {s.heading}
+                </span>
+                <p className="text-[17px] leading-[1.85]" style={{ color: '#CBD5E1' }}>
+                  {s.body}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          <div className="border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }} />
+        </div>
+      </section>
+
+      {/* Quick facts cards */}
+      <section className="py-20 px-8" style={{ background: 'rgba(15,30,43,.35)', borderTop: '1px solid rgba(180,184,171,.08)', borderBottom: '1px solid rgba(180,184,171,.08)' }}>
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-12 gap-6 mb-14 reveal">
+            <div className="col-span-12 md:col-span-1 f-mono text-[11px] tracking-[.2em]" style={{ color: '#475569' }}>§ 04</div>
+            <div className="col-span-12 md:col-span-11">
+              <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
+                By the numbers
+              </span>
+              <h2 className="f-display" style={{ color: '#EEF0EB', fontSize: 'clamp(36px,5vw,72px)' }}>
+                What you actually <span className="italic"><span className="apricot-fill">get.</span></span>
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { metric: '10', unit: 'working days', desc: 'From deposit to live site — every time. If I miss it, the monthly care plan is on me for a year.' },
+              { metric: 'AED 1,500', unit: 'fixed price', desc: 'No hourly billing. No scope creep invoices. The number you see is the number you pay.' },
+              { metric: '1', unit: 'revision round', desc: 'You give me feedback once, I fix everything. We go live. Simple.' },
+            ].map((c, i) => (
+              <motion.div
+                key={c.unit}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="grad-border rounded-3xl p-9"
+                style={{ background: 'rgba(11,26,38,.65)' }}
+              >
+                <p className="f-display leading-none mb-1" style={{ color: '#E8B98A', fontSize: 'clamp(48px,7vw,80px)' }}>{c.metric}</p>
+                <p className="f-mono text-[10px] uppercase tracking-[.2em] mb-5" style={{ color: '#475569' }}>{c.unit}</p>
+                <p className="text-[14px] leading-relaxed" style={{ color: '#94A3B8' }}>{c.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -173,51 +166,41 @@ export default function AboutContent() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <motion.div
-            animate={{ scale: [1, 1.12, 1], opacity: [0.04, 0.08, 0.04] }}
-            transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <div className="w-[500px] h-[200px] rounded-full bg-[#153243] blur-[80px]" />
-          </motion.div>
+      <section className="py-28 px-8 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute orbA rounded-full" style={{ width: '600px', height: '600px', background: 'rgba(232,185,138,.12)', filter: 'blur(120px)', top: '20%', left: '50%', transform: 'translate(-50%,-50%)' }} />
+          <div className="absolute beam inset-y-0 -left-1/3 w-1/3" />
         </div>
-
-        <div className="max-w-2xl mx-auto px-6 text-center">
+        <div className="max-w-[900px] mx-auto text-center">
           <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <motion.h2 variants={fadeUp} className="font-heading font-bold text-3xl md:text-4xl text-slate-50 mb-4">
-              If that sounds like the person you want building your site —
-            </motion.h2>
-            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4 mt-8">
-              <motion.a
+            <h2 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(36px,6vw,80px)' }}>
+              If that sounds like the person<br />you want building your site —
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <a
                 href={CALENDLY}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
+                className="press inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold cursor-pointer"
+                style={{ background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)', boxShadow: '0 18px 50px -18px rgba(232,185,138,.55)', color: '#0B1A26' }}
               >
-                <CalendarDays size={16} />
-                Book a discovery call
-              </motion.a>
-              <motion.a
+                <CalendarDays size={16} /> Book a discovery call
+              </a>
+              <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 border border-slate-700 hover:border-slate-500 text-slate-200 hover:text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 cursor-pointer"
+                className="press inline-flex items-center gap-2 rounded-full border px-7 py-4 text-base font-medium cursor-pointer"
+                style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
               >
-                <MessageCircle size={16} />
-                WhatsApp me
-              </motion.a>
-            </motion.div>
+                <MessageCircle size={16} /> WhatsApp me
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

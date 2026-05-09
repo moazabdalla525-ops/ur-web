@@ -517,7 +517,7 @@ export default function HomeContent() {
                 style={{ background: 'rgba(11,26,38,.72)', transitionDelay: `${i * 0.06}s`, animationDelay: `${i * 0.4}s` }}
               >
                 <div className="flex items-baseline justify-between">
-                  <p className="f-display text-[44px]" style={{ color: i === 0 ? '#E8B98A' : '#334155' }}>{s.n}</p>
+                  <p className="f-display text-[44px]" style={{ color: '#E8B98A' }}>{s.n}</p>
                   <span className="f-mono text-[10px] tracking-[.18em] uppercase" style={{ color: '#475569' }}>{s.day}</span>
                 </div>
                 <p className="f-display text-[26px]" style={{ color: '#EEF0EB' }}>{s.t}</p>

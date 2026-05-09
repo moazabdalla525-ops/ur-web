@@ -1,23 +1,13 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, type Variants } from 'framer-motion';
-import { CalendarDays, MessageCircle, Mail, Send, CheckCircle2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CalendarDays, MessageCircle, Mail, Send, Check } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CALENDLY = 'https://calendly.com/moazabdalla525/30min';
 const WHATSAPP = 'https://wa.me/971528686540';
 const EMAIL = 'moazabdalla567@gmail.com';
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
 
 const industries = [
   'AC service', 'Typing center', 'Plumber', 'Mover / packer',
@@ -31,8 +21,9 @@ const directLinks = [
     sublabel: 'Free 15-min discovery call',
     href: CALENDLY,
     target: '_blank',
-    color: 'bg-[#153243]/10 border-[#284B63]/30 hover:border-[#284B63]/60',
-    iconColor: 'text-[#B4B8AB]',
+    iconStyle: { color: '#E8B98A' },
+    borderColor: 'rgba(232,185,138,.20)',
+    hoverBorder: 'rgba(232,185,138,.40)',
   },
   {
     icon: MessageCircle,
@@ -40,8 +31,9 @@ const directLinks = [
     sublabel: 'Direct message, no bots',
     href: WHATSAPP,
     target: '_blank',
-    color: 'bg-green-500/8 border-green-500/30 hover:border-green-400/50',
-    iconColor: 'text-green-400',
+    iconStyle: { color: '#7BCBA1' },
+    borderColor: 'rgba(123,203,161,.20)',
+    hoverBorder: 'rgba(123,203,161,.40)',
   },
   {
     icon: Mail,
@@ -49,14 +41,32 @@ const directLinks = [
     sublabel: EMAIL,
     href: `mailto:${EMAIL}`,
     target: '_self',
-    color: 'bg-[#153243] border-slate-800/60 hover:border-slate-700/60',
-    iconColor: 'text-slate-400',
+    iconStyle: { color: '#94A3B8' },
+    borderColor: 'rgba(180,184,171,.15)',
+    hoverBorder: 'rgba(180,184,171,.30)',
   },
 ];
+
+const inputClass = "w-full rounded-xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 f-grot";
+const inputStyle = {
+  background: 'rgba(11,26,38,.8)',
+  border: '1px solid rgba(180,184,171,.15)',
+  color: '#EEF0EB',
+};
 
 export default function ContactContent() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in')),
+      { threshold: 0.15 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,129 +90,168 @@ export default function ContactContent() {
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
+      <section className="pt-32 pb-16 relative overflow-hidden px-8">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orb-pulse absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#153243] blur-[120px]" />
+          <div
+            className="absolute orbA rounded-full"
+            style={{ width: '600px', height: '400px', background: '#153243', filter: 'blur(120px)', top: '-100px', left: '50%', transform: 'translateX(-50%)' }}
+          />
           <AnimatedBackground count={12} />
         </div>
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-xl">
-            <motion.span variants={fadeUp} className="text-xs font-semibold uppercase tracking-widest text-[#B4B8AB] block mb-4">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
+              <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#E8B98A' }}>
+                <span className="absolute inset-0 rounded-full ring" style={{ background: '#E8B98A' }} />
+              </span>
               Contact
-            </motion.span>
-            <motion.h1 variants={fadeUp} className="font-heading font-bold text-5xl md:text-6xl text-slate-50 mb-5">
-              Tell me about your business
-            </motion.h1>
-            <motion.p variants={fadeUp} className="text-slate-400 text-lg leading-relaxed">
-              Fill in the form or reach me directly below. I reply within 4 hours during Dubai working hours (9am–7pm, Sun–Thu).
-            </motion.p>
+            </span>
+            <h1 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(48px,8vw,100px)' }}>
+              Tell me about your <span className="italic"><span className="apricot-fill">business.</span></span>
+            </h1>
+            <p className="text-[17px] leading-relaxed" style={{ color: '#94A3B8' }}>
+              Fill in the form or reach me directly. I reply within 4 hours during Dubai working hours (9am–7pm, Sun–Thu).
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="pb-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
+      {/* Content grid */}
+      <section className="pb-28 px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-12 gap-10 items-start">
+
             {/* Form */}
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="lg:col-span-3"
+              className="col-span-12 lg:col-span-7"
             >
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-green-500/8 border border-green-500/30 rounded-3xl p-10 text-center"
-                >
+              <AnimatePresence mode="wait">
+                {submitted ? (
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 300, delay: 0.1 }}
-                    className="w-14 h-14 bg-green-500/15 rounded-full flex items-center justify-center mx-auto mb-5"
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="grad-border rounded-3xl p-14 text-center"
+                    style={{ background: 'rgba(11,26,38,.7)' }}
                   >
-                    <CheckCircle2 className="text-green-400" size={28} />
+                    <div
+                      className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+                      style={{ background: 'rgba(232,185,138,.15)', border: '1px solid rgba(232,185,138,.35)' }}
+                    >
+                      <Check size={28} style={{ color: '#E8B98A' }} />
+                    </div>
+                    <h2 className="f-display text-[36px] mb-3" style={{ color: '#EEF0EB' }}>Message sent.</h2>
+                    <p className="text-[15px]" style={{ color: '#94A3B8' }}>I&apos;ll get back to you within 4 hours during business hours.</p>
                   </motion.div>
-                  <h2 className="font-heading font-bold text-2xl text-slate-50 mb-3">Message sent</h2>
-                  <p className="text-slate-400 text-sm">I&apos;ll get back to you within 4 hours during business hours.</p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                        Your name <span className="text-[#B4B8AB]">*</span>
-                      </label>
-                      <input id="name" name="name" type="text" required placeholder="Ahmed Al Mansouri"
-                        className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
-                    </div>
-                    <div>
-                      <label htmlFor="business" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                        Business name <span className="text-[#B4B8AB]">*</span>
-                      </label>
-                      <input id="business" name="business" type="text" required placeholder="Al Noor AC Services"
-                        className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="industry" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                      Industry <span className="text-[#B4B8AB]">*</span>
-                    </label>
-                    <select id="industry" name="industry" required defaultValue=""
-                      className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 cursor-pointer appearance-none">
-                      <option value="" disabled className="text-slate-700 bg-[#153243]">Select your industry</option>
-                      {industries.map((ind) => (
-                        <option key={ind} value={ind} className="bg-[#153243] text-slate-50">{ind}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="website" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                      Current website URL{' '}
-                      <span className="text-slate-700 font-normal normal-case tracking-normal">(optional)</span>
-                    </label>
-                    <input id="website" name="website" type="url" placeholder="https://yoursite.com"
-                      className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200" />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-widest text-slate-600 mb-2">
-                      Message <span className="text-[#B4B8AB]">*</span>
-                    </label>
-                    <textarea id="message" name="message" required rows={5}
-                      placeholder="Tell me what you do, which area you serve, and what you're hoping a new website will do for the business..."
-                      className="w-full bg-[#153243] border border-slate-800/80 focus:border-[#284B63]/60 text-slate-50 placeholder:text-slate-700 rounded-2xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 resize-none" />
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={submitting}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#284B63] to-[#153243] hover:from-[#2A5070] hover:to-[#1C3A52] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-2xl transition-all duration-200 cursor-pointer shadow-lg shadow-[#153243]/40"
+                ) : (
+                  <motion.div
+                    key="form"
+                    className="grad-border rounded-3xl p-8 md:p-10"
+                    style={{ background: 'rgba(11,26,38,.6)' }}
                   >
-                    {submitting ? (
-                      <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</>
-                    ) : (
-                      <><Send size={16} />Send</>
-                    )}
-                  </motion.button>
-                </form>
-              )}
+                    <p className="f-mono text-[10px] uppercase tracking-[.22em] mb-8" style={{ color: '#475569' }}>
+                      § 01 · Project brief
+                    </p>
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      <div className="grid sm:grid-cols-2 gap-5">
+                        <div>
+                          <label htmlFor="name" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
+                            Your name <span style={{ color: '#E8B98A' }}>*</span>
+                          </label>
+                          <input
+                            id="name" name="name" type="text" required
+                            placeholder="Ahmed Al Mansouri"
+                            className={inputClass}
+                            style={{ ...inputStyle, '--placeholder-color': '#334155' } as React.CSSProperties}
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="business" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
+                            Business name <span style={{ color: '#E8B98A' }}>*</span>
+                          </label>
+                          <input
+                            id="business" name="business" type="text" required
+                            placeholder="Al Noor AC Services"
+                            className={inputClass}
+                            style={inputStyle}
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="industry" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
+                          Industry <span style={{ color: '#E8B98A' }}>*</span>
+                        </label>
+                        <select
+                          id="industry" name="industry" required defaultValue=""
+                          className={`${inputClass} cursor-pointer appearance-none`}
+                          style={inputStyle}
+                        >
+                          <option value="" disabled style={{ color: '#475569', background: '#0B1A26' }}>Select your industry</option>
+                          {industries.map((ind) => (
+                            <option key={ind} value={ind} style={{ background: '#0F1E2B', color: '#EEF0EB' }}>{ind}</option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="website" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
+                          Current website URL{' '}
+                          <span style={{ color: '#334155', textTransform: 'none', letterSpacing: 'normal', fontFamily: 'inherit' }}>(optional)</span>
+                        </label>
+                        <input
+                          id="website" name="website" type="url"
+                          placeholder="https://yoursite.com"
+                          className={inputClass}
+                          style={inputStyle}
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
+                          Message <span style={{ color: '#E8B98A' }}>*</span>
+                        </label>
+                        <textarea
+                          id="message" name="message" required rows={5}
+                          placeholder="Tell me what you do, which area you serve, and what you're hoping a new website will do for the business..."
+                          className={`${inputClass} resize-none`}
+                          style={inputStyle}
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="press w-full inline-flex items-center justify-center gap-2 rounded-xl py-4 text-[15px] font-semibold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                        style={{
+                          background: submitting ? 'rgba(232,185,138,.4)' : 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)',
+                          boxShadow: '0 18px 50px -18px rgba(232,185,138,.45)',
+                          color: '#0B1A26',
+                        }}
+                      >
+                        {submitting ? (
+                          <><span className="w-4 h-4 border-2 border-[#0B1A26]/30 border-t-[#0B1A26] rounded-full animate-spin" /> Sending...</>
+                        ) : (
+                          <><Send size={16} /> Send message</>
+                        )}
+                      </button>
+                    </form>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
 
-            {/* Direct links */}
+            {/* Sidebar */}
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-              className="lg:col-span-2 space-y-4"
+              className="col-span-12 lg:col-span-5 flex flex-col gap-4"
             >
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-600 mb-5">Or reach me directly</p>
+              <p className="f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>Or reach me directly</p>
 
               {directLinks.map((link, i) => (
                 <motion.a
@@ -213,41 +262,55 @@ export default function ContactContent() {
                   whileHover={{ x: 4 }}
                   transition={{ type: 'spring', stiffness: 400 }}
                   initial={{ opacity: 0, x: 16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  style={{ transitionDelay: `${0.2 + i * 0.1}s` }}
-                  className={`flex items-center gap-4 border rounded-2xl p-5 cursor-pointer group ${link.color} transition-colors duration-200`}
+                  animate={{ opacity: 1, x: 0, transition: { delay: 0.2 + i * 0.1 } }}
+                  className="flex items-center gap-4 rounded-2xl p-5 cursor-pointer group transition-colors duration-200"
+                  style={{ background: 'rgba(11,26,38,.6)', border: `1px solid ${link.borderColor}` }}
                 >
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-slate-800/60`}>
-                    <link.icon className={link.iconColor} size={20} aria-hidden="true" />
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'rgba(180,184,171,.08)' }}
+                  >
+                    <link.icon size={20} aria-hidden="true" style={link.iconStyle} />
                   </div>
                   <div>
-                    <p className="font-heading font-semibold text-slate-50 text-sm group-hover:text-[#B4B8AB] transition-colors duration-200">
-                      {link.label}
-                    </p>
-                    <p className="text-slate-600 text-xs mt-0.5 break-all">{link.sublabel}</p>
+                    <p className="font-semibold text-sm f-grot" style={{ color: '#EEF0EB' }}>{link.label}</p>
+                    <p className="text-[12px] mt-0.5 break-all f-mono" style={{ color: '#475569' }}>{link.sublabel}</p>
                   </div>
                 </motion.a>
               ))}
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-                className="mt-6 bg-[#153243] border border-slate-800/60 rounded-2xl p-5"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <motion.span
-                    animate={{ opacity: [1, 0.3, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="w-2 h-2 rounded-full bg-green-400"
-                  />
-                  <p className="text-slate-50 text-sm font-medium">Usually online</p>
+              {/* Availability card */}
+              <div className="mt-2 rounded-2xl p-6 grad-border" style={{ background: 'rgba(11,26,38,.6)' }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-1.5 h-1.5 rounded-full pulse" style={{ background: '#7BCBA1' }} />
+                  <p className="font-semibold text-sm f-grot" style={{ color: '#EEF0EB' }}>Usually online</p>
                 </div>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-[13px] leading-relaxed" style={{ color: '#64748B' }}>
                   I reply within 4 hours — Sunday to Thursday, 9am to 7pm Dubai time.
                 </p>
-              </motion.div>
+
+                {/* Process mini timeline */}
+                <div className="mt-6 flex flex-col gap-3">
+                  {[
+                    { label: 'You send this form', done: true },
+                    { label: 'I reply within 4 hrs', done: false },
+                    { label: 'Free 15-min call', done: false },
+                    { label: 'Quote confirmed', done: false },
+                  ].map((step) => (
+                    <div key={step.label} className="flex items-center gap-3">
+                      <span
+                        className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
+                        style={{ background: step.done ? '#E8B98A' : 'rgba(180,184,171,.15)', border: `1px solid ${step.done ? '#E8B98A' : 'rgba(180,184,171,.25)'}` }}
+                      >
+                        {step.done && <Check size={9} style={{ color: '#0B1A26' }} />}
+                      </span>
+                      <span className="text-[12px] f-mono" style={{ color: step.done ? '#E8B98A' : '#475569' }}>{step.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
+
           </div>
         </div>
       </section>
