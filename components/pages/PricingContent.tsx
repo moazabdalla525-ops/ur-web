@@ -194,7 +194,37 @@ export default function PricingContent() {
             <p className="text-[15px]" style={{ color: '#94A3B8' }}>Same result, a fraction of the cost and time.</p>
           </div>
 
-          <div className="reveal rounded-2xl overflow-hidden border" style={{ background: 'rgba(15,12,8,.55)', borderColor: 'rgba(160,148,120,.10)' }}>
+          {/* ── Mobile: stacked cards ── */}
+          <div className="reveal md:hidden space-y-3">
+            {compareRows.map((r, i) => (
+              <div
+                key={r.label}
+                className="rounded-2xl overflow-hidden"
+                style={{ background: 'rgba(15,12,8,.6)', border: '1px solid rgba(160,148,120,.10)' }}
+              >
+                <div className="flex items-center gap-3 px-5 py-3 border-b" style={{ borderColor: 'rgba(160,148,120,.10)', background: 'rgba(23,19,14,.4)' }}>
+                  <span className="f-mono text-[10px]" style={{ color: '#475569' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className="f-display text-[20px]" style={{ color: '#EDE3D0' }}>{r.label}</span>
+                </div>
+                <div className="grid grid-cols-2">
+                  <div className="px-5 py-4 border-r" style={{ borderColor: 'rgba(160,148,120,.10)' }}>
+                    <p className="f-mono text-[9px] uppercase tracking-[.18em] mb-2" style={{ color: '#475569' }}>Agency</p>
+                    <p className="f-display text-[20px]" style={{ color: '#475569', textDecoration: 'line-through', textDecorationColor: 'rgba(244,63,94,.5)' }}>{r.a}</p>
+                  </div>
+                  <div className="px-5 py-4">
+                    <p className="f-mono text-[9px] uppercase tracking-[.18em] mb-2" style={{ color: '#C89A38' }}>ur/web</p>
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <p className="f-display text-[24px]" style={{ color: '#EDE3D0' }}>{r.b}</p>
+                      <span className="f-mono text-[9px] tracking-[.15em] uppercase px-2 py-0.5 rounded-full" style={{ color: '#C89A38', border: '1px solid rgba(200,154,56,.3)', background: 'rgba(200,154,56,.08)' }}>{r.spread}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ── Desktop: table ── */}
+          <div className="reveal hidden md:block rounded-2xl overflow-hidden border" style={{ background: 'rgba(15,12,8,.55)', borderColor: 'rgba(160,148,120,.10)' }}>
             <div
               className="grid grid-cols-12 items-center px-6 py-4 border-b"
               style={{ borderColor: 'rgba(160,148,120,.10)', background: 'rgba(23,19,14,.4)' }}
@@ -216,10 +246,7 @@ export default function PricingContent() {
                 <div className="col-span-4 text-right f-display text-[18px]" style={{ color: '#475569', textDecoration: 'line-through', textDecorationColor: 'rgba(244,63,94,.4)' }}>{r.a}</div>
                 <div className="col-span-4 text-right flex items-center justify-end gap-3">
                   <span className="f-display text-[22px]" style={{ color: '#EDE3D0' }}>{r.b}</span>
-                  <span
-                    className="f-mono text-[9.5px] tracking-[.18em] uppercase px-2 py-0.5 rounded-full hidden sm:block"
-                    style={{ color: '#C89A38', border: '1px solid rgba(200,154,56,.3)', background: 'rgba(200,154,56,.05)' }}
-                  >
+                  <span className="f-mono text-[9.5px] tracking-[.18em] uppercase px-2 py-0.5 rounded-full" style={{ color: '#C89A38', border: '1px solid rgba(200,154,56,.3)', background: 'rgba(200,154,56,.05)' }}>
                     {r.spread}
                   </span>
                 </div>
