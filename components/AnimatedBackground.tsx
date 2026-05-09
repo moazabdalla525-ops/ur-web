@@ -16,7 +16,7 @@ interface Particle {
   color: string;
 }
 
-const COLORS = ['#B4B8AB', '#284B63', '#EEF0EB', '#B4B8AB', '#284B63'];
+const COLORS = ['#A09478', '#2D2212', '#EDE3D0', '#A09478', '#2D2212'];
 
 export default function AnimatedBackground({ count = 18 }: { count?: number }) {
   const [particles, setParticles] = useState<Particle[]>([]);
@@ -74,7 +74,7 @@ export default function AnimatedBackground({ count = 18 }: { count?: number }) {
         style={{
           left: '-55%',
           background:
-            'linear-gradient(105deg, transparent 20%, rgba(180,184,171,0.03) 50%, transparent 80%)',
+            'linear-gradient(105deg, transparent 20%, rgba(160,148,120,0.03) 50%, transparent 80%)',
           transform: 'skewX(-8deg)',
         }}
         animate={{ x: ['0%', '300%'] }}
@@ -92,7 +92,7 @@ export default function AnimatedBackground({ count = 18 }: { count?: number }) {
         style={{
           left: '-35%',
           background:
-            'linear-gradient(105deg, transparent 20%, rgba(40,75,99,0.04) 50%, transparent 80%)',
+            'linear-gradient(105deg, transparent 20%, rgba(45,34,18,0.04) 50%, transparent 80%)',
           transform: 'skewX(-8deg)',
         }}
         animate={{ x: ['0%', '400%'] }}

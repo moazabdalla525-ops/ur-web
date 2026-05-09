@@ -38,18 +38,18 @@ export default function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50">
       {/* Top rail */}
       <div className="hidden md:flex items-center justify-between text-[11px] f-mono tracking-wider uppercase border-b"
-           style={{ borderColor: 'rgba(180,184,171,.10)', color: '#64748B' }}>
+           style={{ borderColor: 'rgba(160,148,120,.10)', color: '#64748B' }}>
         <div className="flex items-center gap-6 px-8 py-2.5">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full pulse" style={{ background: '#7BCBA1' }} />
-            <span style={{ color: '#EEF0EB' }}>Open for May–Jun · 2 slots</span>
+            <span style={{ color: '#EDE3D0' }}>Open for May–Jun · 2 slots</span>
           </span>
           <span>UAE · GMT+4</span>
         </div>
         <div className="flex items-center gap-6 px-8 py-2.5">
           <span>moazabdalla567@gmail.com</span>
-          <span style={{ color: 'rgba(180,184,171,.30)' }}>/</span>
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="hover:text-[#EEF0EB] transition-colors">+971 52 868 6540</a>
+          <span style={{ color: 'rgba(160,148,120,.30)' }}>/</span>
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="hover:text-[#EDE3D0] transition-colors">+971 52 868 6540</a>
         </div>
       </div>
 
@@ -57,15 +57,15 @@ export default function Navbar() {
       <nav
         className={`transition-all duration-300 ${scrolled ? 'backdrop-blur-md' : ''}`}
         style={{
-          background: scrolled ? 'rgba(11,26,38,.88)' : 'transparent',
-          borderBottom: scrolled ? '1px solid rgba(180,184,171,.08)' : '1px solid transparent',
+          background: scrolled ? 'rgba(15,12,8,.88)' : 'transparent',
+          borderBottom: scrolled ? '1px solid rgba(160,148,120,.08)' : '1px solid transparent',
         }}
       >
         <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 cursor-pointer group">
-            <span className="w-2 h-2 rounded-full" style={{ background: '#E8B98A' }} />
-            <span className="f-grot text-[17px] font-semibold tracking-tight" style={{ color: '#EEF0EB' }}>
+            <span className="w-2 h-2 rounded-full" style={{ background: '#C89A38' }} />
+            <span className="f-grot text-[17px] font-semibold tracking-tight" style={{ color: '#EDE3D0' }}>
               ur<span className="apricot-fill">/web</span>
             </span>
           </Link>
@@ -77,7 +77,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 className="underline-grow cursor-pointer transition-colors duration-200"
-                style={{ color: pathname === l.href ? '#EEF0EB' : '#64748B' }}
+                style={{ color: pathname === l.href ? '#EDE3D0' : '#64748B' }}
               >
                 {l.label}
               </Link>
@@ -93,9 +93,9 @@ export default function Navbar() {
             whileTap={{ scale: 0.97 }}
             className="hidden md:inline-flex items-center gap-2 press rounded-full px-5 py-2.5 text-sm font-semibold cursor-pointer"
             style={{
-              background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)',
-              boxShadow: '0 18px 50px -18px rgba(232,185,138,.55), inset 0 1px 0 rgba(255,255,255,.5)',
-              color: '#0B1A26',
+              background: 'linear-gradient(105deg,#E8CF7A 0%, #C89A38 50%, #9B7020 110%)',
+              boxShadow: '0 18px 50px -18px rgba(200,154,56,.55), inset 0 1px 0 rgba(255,255,255,.5)',
+              color: '#0F0C08',
             }}
           >
             <CalendarDays size={14} />
@@ -123,7 +123,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
             className="md:hidden overflow-hidden"
-            style={{ background: 'rgba(11,26,38,.96)', borderBottom: '1px solid rgba(180,184,171,.10)', backdropFilter: 'blur(16px)' }}
+            style={{ background: 'rgba(15,12,8,.96)', borderBottom: '1px solid rgba(160,148,120,.10)', backdropFilter: 'blur(16px)' }}
           >
             <div className="max-w-[1400px] mx-auto px-8 py-6 flex flex-col gap-5">
               {links.map((l) => (
@@ -131,7 +131,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   className="text-base font-medium f-grot transition-colors duration-200"
-                  style={{ color: pathname === l.href ? '#EEF0EB' : '#64748B' }}
+                  style={{ color: pathname === l.href ? '#EDE3D0' : '#64748B' }}
                 >
                   {l.label}
                 </Link>
@@ -143,8 +143,8 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="text-center font-semibold px-5 py-3 rounded-full text-sm cursor-pointer"
                   style={{
-                    background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)',
-                    color: '#0B1A26',
+                    background: 'linear-gradient(105deg,#E8CF7A 0%, #C89A38 50%, #9B7020 110%)',
+                    color: '#0F0C08',
                   }}
                 >
                   Book a 15-min call
@@ -154,7 +154,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-center font-medium px-5 py-3 rounded-full text-sm cursor-pointer transition-colors duration-200"
-                  style={{ border: '1px solid rgba(180,184,171,.25)', color: '#EEF0EB' }}
+                  style={{ border: '1px solid rgba(160,148,120,.25)', color: '#EDE3D0' }}
                 >
                   WhatsApp me
                 </a>

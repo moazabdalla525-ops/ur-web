@@ -24,9 +24,9 @@ function PrimaryPill({ href, children, big }: { href: string; children: React.Re
       rel="noopener noreferrer"
       className={`press inline-flex items-center gap-3 rounded-full font-semibold cursor-pointer ${big ? 'px-7 py-4 text-base' : 'px-5 py-3 text-sm'}`}
       style={{
-        background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)',
-        boxShadow: '0 18px 50px -18px rgba(232,185,138,.55), inset 0 1px 0 rgba(255,255,255,.5)',
-        color: '#0B1A26',
+        background: 'linear-gradient(105deg,#E8CF7A 0%, #C89A38 50%, #9B7020 110%)',
+        boxShadow: '0 18px 50px -18px rgba(200,154,56,.55), inset 0 1px 0 rgba(255,255,255,.5)',
+        color: '#0F0C08',
       }}
     >
       {children}
@@ -41,7 +41,7 @@ function SecondaryPill({ href, children, big }: { href: string; children: React.
       target="_blank"
       rel="noopener noreferrer"
       className={`press inline-flex items-center gap-3 rounded-full border font-medium cursor-pointer ${big ? 'px-7 py-4 text-base' : 'px-5 py-3 text-sm'}`}
-      style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
+      style={{ borderColor: 'rgba(160,148,120,.30)', color: '#EDE3D0' }}
     >
       {children}
     </a>
@@ -55,13 +55,13 @@ function SectionHead({ num, eyebrow, title, accent, lede }: { num: string; eyebr
     <div className="grid grid-cols-12 gap-6 mb-14">
       <div className="col-span-12 md:col-span-1 f-mono text-[11px] tracking-[.2em]" style={{ color: '#475569' }}>{num}</div>
       <div className="col-span-12 md:col-span-7 flex flex-col gap-5">
-        <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot" style={{ color: '#E8B98A' }}>
-          <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#E8B98A' }}>
-            <span className="absolute inset-0 rounded-full ring" style={{ background: '#E8B98A' }} />
+        <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot" style={{ color: '#C89A38' }}>
+          <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#C89A38' }}>
+            <span className="absolute inset-0 rounded-full ring" style={{ background: '#C89A38' }} />
           </span>
           {eyebrow}
         </span>
-        <h2 className="f-display" style={{ color: '#EEF0EB', fontSize: 'clamp(40px,6vw,88px)' }}>
+        <h2 className="f-display" style={{ color: '#EDE3D0', fontSize: 'clamp(40px,6vw,88px)' }}>
           {title} <span className="italic"><span className="apricot-fill">{accent}</span></span>
         </h2>
       </div>
@@ -78,7 +78,7 @@ function SectionHead({ num, eyebrow, title, accent, lede }: { num: string; eyebr
 
 const sites = [
   { name: 'Serenity Sleep', tag: 'Health & Wellness', city: 'Dubai', year: '2024', url: 'https://serenity-sleep.vercel.app/', desc: 'Calm, conversion-focused landing page built to book consultations.', tint: 'rgba(139,92,246,.16)', glow: 'rgba(139,92,246,.18)', tagColor: '#a78bfa', metric: ['+34%', 'consults booked'] },
-  { name: 'Pepperlane', tag: 'Restaurant Discovery', city: 'Abu Dhabi', year: '2024', url: 'https://pepperlane-feast-finder.lovable.app', desc: 'A modern restaurant finder for the UAE market — search-first, fast, mobile.', tint: 'rgba(232,185,138,.16)', glow: 'rgba(232,185,138,.18)', tagColor: '#E8B98A', metric: ['1.2s', 'avg page load'] },
+  { name: 'Pepperlane', tag: 'Restaurant Discovery', city: 'Abu Dhabi', year: '2024', url: 'https://pepperlane-feast-finder.lovable.app', desc: 'A modern restaurant finder for the UAE market — search-first, fast, mobile.', tint: 'rgba(200,154,56,.16)', glow: 'rgba(200,154,56,.18)', tagColor: '#C89A38', metric: ['1.2s', 'avg page load'] },
   { name: 'Goat Burger', tag: 'Fast Food Brand', city: 'Sharjah', year: '2025', url: 'https://goat-burger.lovable.app/', desc: 'Bold brand site with menu showcase, location, and one-tap WhatsApp ordering.', tint: 'rgba(244,63,94,.18)', glow: 'rgba(244,63,94,.18)', tagColor: '#fb7185', metric: ['×2.1', 'WhatsApp orders'] },
   { name: 'Al Noor AC', tag: 'Service · Local SEO', city: 'Ajman', year: '2025', url: '#', desc: 'Page-1 Google for "AC service Ajman" within 8 weeks of launch.', tint: 'rgba(123,203,161,.16)', glow: 'rgba(123,203,161,.18)', tagColor: '#7BCBA1', metric: ['#1', '"AC service Ajman"'] },
 ];
@@ -178,11 +178,11 @@ export default function HomeContent() {
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
             className="absolute orbA rounded-full"
-            style={{ width: '620px', height: '620px', background: '#1C3A52', filter: 'blur(110px)', top: '-180px', left: `${10 + mouse.x * 4}%` }}
+            style={{ width: '620px', height: '620px', background: '#241C10', filter: 'blur(110px)', top: '-180px', left: `${10 + mouse.x * 4}%` }}
           />
           <div
             className="absolute orbB rounded-full"
-            style={{ width: '520px', height: '520px', background: 'rgba(194,111,79,.55)', filter: 'blur(120px)', bottom: '-200px', right: `${5 - mouse.x * 4}%` }}
+            style={{ width: '520px', height: '520px', background: 'rgba(155,112,32,.55)', filter: 'blur(120px)', bottom: '-200px', right: `${5 - mouse.x * 4}%` }}
           />
           {Array.from({ length: 18 }).map((_, i) => (
             <span
@@ -190,7 +190,7 @@ export default function HomeContent() {
               className="absolute rounded-full drift"
               style={{
                 width: `${1 + (i % 4)}px`, height: `${1 + (i % 4)}px`,
-                background: i % 3 ? '#B4B8AB' : '#E8B98A',
+                background: i % 3 ? '#A09478' : '#C89A38',
                 top: `${(i * 53) % 96}%`, left: `${(i * 37) % 96}%`,
                 opacity: 0.35,
                 animationDelay: `-${(i * 0.7) % 9}s`,
@@ -200,7 +200,7 @@ export default function HomeContent() {
           ))}
           <div className="absolute inset-y-0 -left-1/3 w-1/3 beam" />
           <div className="absolute inset-0 opacity-[.08]"
-            style={{ backgroundImage: 'linear-gradient(to right, rgba(180,184,171,.4) 1px, transparent 1px)', backgroundSize: '160px 100%' }} />
+            style={{ backgroundImage: 'linear-gradient(to right, rgba(160,148,120,.4) 1px, transparent 1px)', backgroundSize: '160px 100%' }} />
         </div>
 
         <div className="relative max-w-[1400px] mx-auto grid grid-cols-12 gap-6 pt-12">
@@ -212,9 +212,9 @@ export default function HomeContent() {
           {/* Main content */}
           <div className="col-span-12 md:col-span-10 flex flex-col gap-10">
             <div className="flex items-center gap-5">
-              <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot" style={{ color: '#E8B98A' }}>
-                <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#E8B98A' }}>
-                  <span className="absolute inset-0 rounded-full ring" style={{ background: '#E8B98A' }} />
+              <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot" style={{ color: '#C89A38' }}>
+                <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#C89A38' }}>
+                  <span className="absolute inset-0 rounded-full ring" style={{ background: '#C89A38' }} />
                 </span>
                 UAE · Independent web shop · est. 2024
               </span>
@@ -222,7 +222,7 @@ export default function HomeContent() {
 
             <h1
               className="f-display font-[500]"
-              style={{ color: '#EEF0EB', fontSize: 'clamp(64px,11vw,180px)' }}
+              style={{ color: '#EDE3D0', fontSize: 'clamp(64px,11vw,180px)' }}
             >
               <span className="rise inline-block" style={{ animationDelay: '0s' }}>Websites</span><br />
               <span className="rise inline-block mr-4" style={{ animationDelay: '.08s' }}>that</span>
@@ -239,7 +239,7 @@ export default function HomeContent() {
               <div className="md:col-span-7">
                 <p className="text-[19px] leading-[1.55] max-w-2xl" style={{ color: '#CBD5E1' }}>
                   Not an agency. Just me — Moaz. I design and build clean, fast, mobile-first marketing sites for UAE businesses.
-                  Delivered in <span style={{ color: '#E8B98A' }}>10 working days</span>, for <span style={{ color: '#E8B98A' }}>AED 1,500</span>, fixed.
+                  Delivered in <span style={{ color: '#C89A38' }}>10 working days</span>, for <span style={{ color: '#C89A38' }}>AED 1,500</span>, fixed.
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-7">
                   <PrimaryPill href={CALENDLY} big>
@@ -258,7 +258,7 @@ export default function HomeContent() {
               <div className="md:col-span-5 flex md:justify-end items-end">
                 <div
                   className="grad-border rounded-2xl p-5 max-w-[320px] w-full"
-                  style={{ background: 'rgba(15,30,43,.55)' }}
+                  style={{ background: 'rgba(23,19,14,.55)' }}
                 >
                   <div className="flex items-center justify-between text-[10px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>
                     <span>Live · Calendly</span>
@@ -267,7 +267,7 @@ export default function HomeContent() {
                       Online
                     </span>
                   </div>
-                  <p className="f-display text-[42px] mt-2" style={{ color: '#EEF0EB' }}>
+                  <p className="f-display text-[42px] mt-2" style={{ color: '#EDE3D0' }}>
                     15<span style={{ color: '#475569' }}>m</span>
                   </p>
                   <p className="text-[13px] mt-1" style={{ color: '#94A3B8' }}>Free intro · I&apos;ll quote you on the call.</p>
@@ -281,9 +281,9 @@ export default function HomeContent() {
                           key={i}
                           className="aspect-square rounded-md flex items-center justify-center text-[9px]"
                           style={{
-                            background: taken ? 'rgba(100,116,139,.18)' : open ? 'rgba(232,185,138,.20)' : 'transparent',
-                            color: taken ? '#475569' : open ? '#E8B98A' : '#64748B',
-                            border: open ? '1px solid rgba(232,185,138,.4)' : '1px solid transparent',
+                            background: taken ? 'rgba(100,116,139,.18)' : open ? 'rgba(200,154,56,.20)' : 'transparent',
+                            color: taken ? '#475569' : open ? '#C89A38' : '#64748B',
+                            border: open ? '1px solid rgba(200,154,56,.4)' : '1px solid transparent',
                           }}
                         >
                           {i + 8}
@@ -326,7 +326,7 @@ export default function HomeContent() {
                   rel="noopener noreferrer"
                   className="snap reveal group press tilt relative shrink-0 w-[78vw] md:w-[480px] rounded-3xl overflow-hidden grad-border block"
                   style={{
-                    background: `linear-gradient(165deg, ${s.tint}, rgba(11,26,38,.85))`,
+                    background: `linear-gradient(165deg, ${s.tint}, rgba(15,12,8,.85))`,
                     boxShadow: `0 30px 80px -30px ${s.glow}`,
                     transitionDelay: `${i * 0.05}s`,
                   }}
@@ -334,13 +334,13 @@ export default function HomeContent() {
                   {/* Browser mockup */}
                   <div
                     className="aspect-[4/3] relative overflow-hidden"
-                    style={{ background: `radial-gradient(circle at 30% 30%, ${s.tint}, transparent 60%), #0F1E2B` }}
+                    style={{ background: `radial-gradient(circle at 30% 30%, ${s.tint}, transparent 60%), #171310` }}
                   >
                     <div
                       className="absolute inset-x-6 top-6 bottom-6 rounded-2xl border"
-                      style={{ borderColor: 'rgba(180,184,171,.18)', background: 'rgba(11,26,38,.7)' }}
+                      style={{ borderColor: 'rgba(160,148,120,.18)', background: 'rgba(15,12,8,.7)' }}
                     >
-                      <div className="flex items-center gap-1.5 px-4 py-3 border-b" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+                      <div className="flex items-center gap-1.5 px-4 py-3 border-b" style={{ borderColor: 'rgba(160,148,120,.10)' }}>
                         <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
                         <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
                         <span className="w-2 h-2 rounded-full" style={{ background: '#475569' }} />
@@ -350,16 +350,16 @@ export default function HomeContent() {
                       </div>
                       <div className="p-5 flex flex-col gap-3">
                         <div className="h-2 w-3/4 rounded-full" style={{ background: s.tagColor, opacity: 0.55 }} />
-                        <div className="h-2 w-1/2 rounded-full" style={{ background: 'rgba(180,184,171,.4)' }} />
-                        <div className="h-2 w-2/3 rounded-full" style={{ background: 'rgba(180,184,171,.25)' }} />
+                        <div className="h-2 w-1/2 rounded-full" style={{ background: 'rgba(160,148,120,.4)' }} />
+                        <div className="h-2 w-2/3 rounded-full" style={{ background: 'rgba(160,148,120,.25)' }} />
                         <div className="grid grid-cols-3 gap-2 mt-3">
                           <div className="aspect-square rounded-lg" style={{ background: `linear-gradient(135deg,${s.tagColor}40,transparent)` }} />
-                          <div className="aspect-square rounded-lg" style={{ background: 'rgba(180,184,171,.10)' }} />
-                          <div className="aspect-square rounded-lg" style={{ background: 'rgba(180,184,171,.10)' }} />
+                          <div className="aspect-square rounded-lg" style={{ background: 'rgba(160,148,120,.10)' }} />
+                          <div className="aspect-square rounded-lg" style={{ background: 'rgba(160,148,120,.10)' }} />
                         </div>
                         <div className="flex items-center gap-2 mt-2">
                           <div className="flex-1 h-7 rounded-full" style={{ background: s.tagColor, opacity: 0.7 }} />
-                          <div className="w-7 h-7 rounded-full border" style={{ borderColor: 'rgba(180,184,171,.3)' }} />
+                          <div className="w-7 h-7 rounded-full border" style={{ borderColor: 'rgba(160,148,120,.3)' }} />
                         </div>
                       </div>
                     </div>
@@ -374,16 +374,16 @@ export default function HomeContent() {
                   {/* Card body */}
                   <div className="p-7 flex flex-col gap-3">
                     <div className="flex items-baseline justify-between">
-                      <p className="f-display text-[32px]" style={{ color: '#EEF0EB' }}>{s.name}</p>
+                      <p className="f-display text-[32px]" style={{ color: '#EDE3D0' }}>{s.name}</p>
                       <span className="f-mono text-[10px] tracking-[.18em] uppercase" style={{ color: '#475569' }}>{s.city} · {s.year}</span>
                     </div>
                     <p className="text-[14px] leading-relaxed" style={{ color: '#94A3B8' }}>{s.desc}</p>
-                    <div className="flex items-end justify-between pt-3 mt-3 border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }}>
+                    <div className="flex items-end justify-between pt-3 mt-3 border-t" style={{ borderColor: 'rgba(160,148,120,.10)' }}>
                       <div>
-                        <p className="f-display text-[24px]" style={{ color: '#E8B98A' }}>{s.metric[0]}</p>
+                        <p className="f-display text-[24px]" style={{ color: '#C89A38' }}>{s.metric[0]}</p>
                         <p className="text-[10px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>{s.metric[1]}</p>
                       </div>
-                      <span className="inline-flex items-center gap-2 text-[13px] font-medium underline-grow" style={{ color: '#EEF0EB' }}>
+                      <span className="inline-flex items-center gap-2 text-[13px] font-medium underline-grow" style={{ color: '#EDE3D0' }}>
                         View live <ArrowUpRight size={16} />
                       </span>
                     </div>
@@ -414,19 +414,19 @@ export default function HomeContent() {
             {/* Main price block */}
             <div
               className="col-span-12 md:col-span-7 relative grad-border rounded-3xl p-10 md:p-14 overflow-hidden"
-              style={{ background: 'linear-gradient(160deg, rgba(40,75,99,.45), rgba(11,26,38,.85))' }}
+              style={{ background: 'linear-gradient(160deg, rgba(45,34,18,.45), rgba(15,12,8,.85))' }}
             >
               <span
                 className="absolute -top-3 left-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-[.2em] uppercase"
-                style={{ background: 'linear-gradient(105deg,#F4D3A8,#C26F4F)', color: '#0B1A26' }}
+                style={{ background: 'linear-gradient(105deg,#E8CF7A,#9B7020)', color: '#0F0C08' }}
               >
                 One-time · pay once
               </span>
               <p className="text-[11px] f-mono uppercase tracking-[.22em] mb-3" style={{ color: '#475569' }}>Fixed price · no add-ons</p>
               <div className="flex items-end gap-4">
-                <p className="f-display glow leading-none" style={{ color: '#EEF0EB', fontSize: 'clamp(80px,13vw,180px)' }}>1,500</p>
+                <p className="f-display glow leading-none" style={{ color: '#EDE3D0', fontSize: 'clamp(80px,13vw,180px)' }}>1,500</p>
                 <div className="pb-6">
-                  <p className="f-display text-[28px]" style={{ color: '#E8B98A' }}>AED</p>
+                  <p className="f-display text-[28px]" style={{ color: '#C89A38' }}>AED</p>
                   <p className="text-[12px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>≈ USD 408</p>
                 </div>
               </div>
@@ -435,14 +435,14 @@ export default function HomeContent() {
               </p>
 
               {/* Ledger */}
-              <div className="mt-10 grid gap-px rounded-xl overflow-hidden" style={{ background: 'rgba(180,184,171,.10)' }}>
+              <div className="mt-10 grid gap-px rounded-xl overflow-hidden" style={{ background: 'rgba(160,148,120,.10)' }}>
                 {includes.map((d, i) => (
-                  <div key={d} className="flex items-start gap-4 px-5 py-3.5" style={{ background: 'rgba(11,26,38,.7)' }}>
+                  <div key={d} className="flex items-start gap-4 px-5 py-3.5" style={{ background: 'rgba(15,12,8,.7)' }}>
                     <span className="f-mono text-[10px] mt-0.5 shrink-0" style={{ color: '#475569', width: '24px' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="mt-0.5 shrink-0" style={{ color: '#E8B98A' }}><Check size={16} /></span>
-                    <span className="text-[14px] leading-relaxed flex-1" style={{ color: '#EEF0EB' }}>{d}</span>
+                    <span className="mt-0.5 shrink-0" style={{ color: '#C89A38' }}><Check size={16} /></span>
+                    <span className="text-[14px] leading-relaxed flex-1" style={{ color: '#EDE3D0' }}>{d}</span>
                   </div>
                 ))}
               </div>
@@ -462,26 +462,26 @@ export default function HomeContent() {
 
             {/* Monthly + testimonial */}
             <div className="col-span-12 md:col-span-5 flex flex-col gap-6">
-              <div className="rounded-3xl p-9" style={{ background: 'rgba(15,30,43,.65)', border: '1px solid rgba(180,184,171,.12)' }}>
+              <div className="rounded-3xl p-9" style={{ background: 'rgba(23,19,14,.65)', border: '1px solid rgba(160,148,120,.12)' }}>
                 <p className="text-[11px] f-mono uppercase tracking-[.22em]" style={{ color: '#475569' }}>Optional · monthly care</p>
                 <div className="flex items-end gap-3 mt-2">
-                  <p className="f-display text-[64px] leading-none" style={{ color: '#EEF0EB' }}>250</p>
+                  <p className="f-display text-[64px] leading-none" style={{ color: '#EDE3D0' }}>250</p>
                   <p className="pb-3 text-[14px]" style={{ color: '#94A3B8' }}>AED / mo</p>
                 </div>
                 <p className="mt-3 text-[14px]" style={{ color: '#94A3B8' }}>So your site stays fast, safe, and current. Cancel any time.</p>
                 <ul className="mt-6 flex flex-col gap-2.5">
                   {monthly.map((d) => (
                     <li key={d} className="flex items-start gap-3 text-[13px]" style={{ color: '#CBD5E1' }}>
-                      <span className="mt-1 w-1 h-1 rounded-full shrink-0" style={{ background: '#E8B98A' }} />
+                      <span className="mt-1 w-1 h-1 rounded-full shrink-0" style={{ background: '#C89A38' }} />
                       {d}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="rounded-3xl p-9 grad-border relative overflow-hidden" style={{ background: 'rgba(232,185,138,.05)' }}>
-                <Star size={28} style={{ color: '#E8B98A' }} />
-                <p className="f-display text-[26px] mt-3" style={{ color: '#EEF0EB' }}>
+              <div className="rounded-3xl p-9 grad-border relative overflow-hidden" style={{ background: 'rgba(200,154,56,.05)' }}>
+                <Star size={28} style={{ color: '#C89A38' }} />
+                <p className="f-display text-[26px] mt-3" style={{ color: '#EDE3D0' }}>
                   &ldquo;Done in 11 days, came in on price, ranked us in a month.&rdquo;
                 </p>
                 <p className="mt-4 text-[12px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>
@@ -496,7 +496,7 @@ export default function HomeContent() {
       {/* ── Process ───────────────────────────────────────────────── */}
       <section
         className="relative py-28 px-8 border-y"
-        style={{ borderColor: 'rgba(180,184,171,.08)', background: 'rgba(15,30,43,.35)' }}
+        style={{ borderColor: 'rgba(160,148,120,.08)', background: 'rgba(23,19,14,.35)' }}
       >
         <div className="max-w-[1400px] mx-auto">
           <SectionHead
@@ -508,22 +508,22 @@ export default function HomeContent() {
           />
           <div
             className="relative grid grid-cols-1 md:grid-cols-5 gap-px rounded-2xl overflow-hidden"
-            style={{ background: 'rgba(180,184,171,.10)' }}
+            style={{ background: 'rgba(160,148,120,.10)' }}
           >
             {steps.map((s, i) => (
               <div
                 key={s.n}
                 className="reveal flex flex-col gap-5 p-7 md:p-9 floatY"
-                style={{ background: 'rgba(11,26,38,.72)', transitionDelay: `${i * 0.06}s`, animationDelay: `${i * 0.4}s` }}
+                style={{ background: 'rgba(15,12,8,.72)', transitionDelay: `${i * 0.06}s`, animationDelay: `${i * 0.4}s` }}
               >
                 <div className="flex items-baseline justify-between">
-                  <p className="f-display text-[44px]" style={{ color: '#E8B98A' }}>{s.n}</p>
+                  <p className="f-display text-[44px]" style={{ color: '#C89A38' }}>{s.n}</p>
                   <span className="f-mono text-[10px] tracking-[.18em] uppercase" style={{ color: '#475569' }}>{s.day}</span>
                 </div>
-                <p className="f-display text-[26px]" style={{ color: '#EEF0EB' }}>{s.t}</p>
+                <p className="f-display text-[26px]" style={{ color: '#EDE3D0' }}>{s.t}</p>
                 <p className="text-[13px] leading-relaxed" style={{ color: '#94A3B8' }}>{s.d}</p>
                 <div className="mt-auto flex items-center gap-2">
-                  <span className="h-px flex-1" style={{ background: 'rgba(180,184,171,.15)' }} />
+                  <span className="h-px flex-1" style={{ background: 'rgba(160,148,120,.15)' }} />
                   <span className="f-mono text-[10px]" style={{ color: '#475569' }}>→</span>
                 </div>
               </div>
@@ -543,33 +543,33 @@ export default function HomeContent() {
             lede="Same result, a fraction of the cost and time."
           />
 
-          <div className="reveal rounded-2xl overflow-hidden border" style={{ background: 'rgba(11,26,38,.55)', borderColor: 'rgba(180,184,171,.10)' }}>
+          <div className="reveal rounded-2xl overflow-hidden border" style={{ background: 'rgba(15,12,8,.55)', borderColor: 'rgba(160,148,120,.10)' }}>
             {/* Header */}
             <div
               className="grid grid-cols-12 items-center px-6 py-4 border-b"
-              style={{ borderColor: 'rgba(180,184,171,.10)', background: 'rgba(15,30,43,.4)' }}
+              style={{ borderColor: 'rgba(160,148,120,.10)', background: 'rgba(23,19,14,.4)' }}
             >
               <div className="col-span-4 f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#475569' }}>Metric</div>
               <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#475569' }}>Typical agency</div>
-              <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#E8B98A' }}>ur/web</div>
+              <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#C89A38' }}>ur/web</div>
             </div>
 
             {compareRows.map((r, i) => (
               <div
                 key={r.label}
                 className="grid grid-cols-12 items-center px-6 py-4"
-                style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(180,184,171,.07)' }}
+                style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(160,148,120,.07)' }}
               >
                 <div className="col-span-4 flex items-baseline gap-3">
                   <span className="f-mono text-[10px]" style={{ color: '#475569' }}>{String(i + 1).padStart(2, '0')}</span>
-                  <span className="f-display text-[16px]" style={{ color: '#EEF0EB' }}>{r.label}</span>
+                  <span className="f-display text-[16px]" style={{ color: '#EDE3D0' }}>{r.label}</span>
                 </div>
                 <div className="col-span-4 text-right f-display text-[18px]" style={{ color: '#475569', textDecoration: 'line-through', textDecorationColor: 'rgba(244,63,94,.4)' }}>{r.a}</div>
                 <div className="col-span-4 text-right flex items-center justify-end gap-3">
-                  <span className="f-display text-[22px]" style={{ color: '#EEF0EB' }}>{r.b}</span>
+                  <span className="f-display text-[22px]" style={{ color: '#EDE3D0' }}>{r.b}</span>
                   <span
                     className="f-mono text-[9.5px] tracking-[.18em] uppercase px-2 py-0.5 rounded-full"
-                    style={{ color: '#E8B98A', border: '1px solid rgba(232,185,138,.3)', background: 'rgba(232,185,138,.05)' }}
+                    style={{ color: '#C89A38', border: '1px solid rgba(200,154,56,.3)', background: 'rgba(200,154,56,.05)' }}
                   >
                     {r.spread}
                   </span>
@@ -593,7 +593,7 @@ export default function HomeContent() {
       {/* ── FAQ ───────────────────────────────────────────────────── */}
       <section
         className="relative py-28 px-8 border-y"
-        style={{ borderColor: 'rgba(180,184,171,.08)' }}
+        style={{ borderColor: 'rgba(160,148,120,.08)' }}
       >
         <div className="max-w-[1400px] mx-auto">
           <SectionHead
@@ -610,18 +610,18 @@ export default function HomeContent() {
                     key={q}
                     onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
                     className="text-left border-t"
-                    style={{ borderColor: 'rgba(180,184,171,.10)' }}
+                    style={{ borderColor: 'rgba(160,148,120,.10)' }}
                   >
                     <div className="flex items-start justify-between gap-6 py-7">
                       <div className="flex items-baseline gap-5">
                         <span className="f-mono text-[11px] tracking-[.18em] shrink-0" style={{ color: '#475569' }}>
                           {String(i + 1).padStart(2, '0')}
                         </span>
-                        <span className="f-display" style={{ color: '#EEF0EB', fontSize: 'clamp(22px,3vw,32px)' }}>{q}</span>
+                        <span className="f-display" style={{ color: '#EDE3D0', fontSize: 'clamp(22px,3vw,32px)' }}>{q}</span>
                       </div>
                       <span
                         className="mt-3 transition-transform duration-300"
-                        style={{ color: '#E8B98A', transform: openFaq === i ? 'rotate(45deg)' : 'rotate(0)' }}
+                        style={{ color: '#C89A38', transform: openFaq === i ? 'rotate(45deg)' : 'rotate(0)' }}
                       >
                         <Plus size={22} />
                       </span>
@@ -642,13 +642,13 @@ export default function HomeContent() {
                     </AnimatePresence>
                   </button>
                 ))}
-                <div className="border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }} />
+                <div className="border-t" style={{ borderColor: 'rgba(160,148,120,.10)' }} />
               </div>
             </div>
             <div className="col-span-12 md:col-span-3 flex md:justify-end">
-              <div className="rounded-2xl p-6 max-w-[280px] grad-border self-start mt-4" style={{ background: 'rgba(11,26,38,.7)' }}>
+              <div className="rounded-2xl p-6 max-w-[280px] grad-border self-start mt-4" style={{ background: 'rgba(15,12,8,.7)' }}>
                 <p className="text-[11px] f-mono uppercase tracking-[.22em]" style={{ color: '#475569' }}>Different question?</p>
-                <p className="f-display text-[24px] mt-3" style={{ color: '#EEF0EB' }}>Ask me on WhatsApp.</p>
+                <p className="f-display text-[24px] mt-3" style={{ color: '#EDE3D0' }}>Ask me on WhatsApp.</p>
                 <p className="mt-2 text-[13px]" style={{ color: '#94A3B8' }}>Sun–Thu 9am–7pm Dubai time. Usually online.</p>
                 <div className="mt-5">
                   <PrimaryPill href={WHATSAPP}>
@@ -667,7 +667,7 @@ export default function HomeContent() {
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute orbA rounded-full"
-            style={{ width: '700px', height: '700px', background: 'rgba(232,185,138,.16)', filter: 'blur(120px)', top: '30%', left: '50%', transform: 'translate(-50%,-50%)' }}
+            style={{ width: '700px', height: '700px', background: 'rgba(200,154,56,.16)', filter: 'blur(120px)', top: '30%', left: '50%', transform: 'translate(-50%,-50%)' }}
           />
           <div className="absolute beam inset-y-0 -left-1/3 w-1/3" />
         </div>
@@ -677,25 +677,25 @@ export default function HomeContent() {
               <span
                 key={i}
                 className="absolute inset-0 rounded-full ring"
-                style={{ border: '1px solid rgba(232,185,138,.5)', animationDelay: `${i * 1}s` }}
+                style={{ border: '1px solid rgba(200,154,56,.5)', animationDelay: `${i * 1}s` }}
               />
             ))}
             <span
               className="relative w-24 h-24 rounded-full flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg,#F4D3A8,#C26F4F)', color: '#0B1A26', boxShadow: '0 30px 80px -20px rgba(232,185,138,.45)' }}
+              style={{ background: 'linear-gradient(135deg,#E8CF7A,#9B7020)', color: '#0F0C08', boxShadow: '0 30px 80px -20px rgba(200,154,56,.45)' }}
             >
               <CalendarDays size={32} />
             </span>
           </div>
 
-          <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot" style={{ color: '#E8B98A' }}>
-            <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#E8B98A' }}>
-              <span className="absolute inset-0 rounded-full ring" style={{ background: '#E8B98A' }} />
+          <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot" style={{ color: '#C89A38' }}>
+            <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#C89A38' }}>
+              <span className="absolute inset-0 rounded-full ring" style={{ background: '#C89A38' }} />
             </span>
             Ready when you are
           </span>
 
-          <h2 className="f-display" style={{ color: '#EEF0EB', fontSize: 'clamp(56px,9vw,140px)' }}>
+          <h2 className="f-display" style={{ color: '#EDE3D0', fontSize: 'clamp(56px,9vw,140px)' }}>
             Let&apos;s build the site<br />your business <span className="italic"><span className="apricot-fill">deserves.</span></span>
           </h2>
 

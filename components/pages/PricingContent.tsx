@@ -60,15 +60,15 @@ export default function PricingContent() {
       {/* Header */}
       <section className="pt-32 pb-16 relative overflow-hidden px-8">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orbA absolute rounded-full" style={{ width: '500px', height: '500px', background: 'rgba(40,75,99,.5)', filter: 'blur(120px)', top: '-100px', right: '10%' }} />
+          <div className="orbA absolute rounded-full" style={{ width: '500px', height: '500px', background: 'rgba(45,34,18,.5)', filter: 'blur(120px)', top: '-100px', right: '10%' }} />
           <AnimatedBackground count={12} />
         </div>
         <div className="max-w-[1400px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
+            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#C89A38' }}>
               Pricing
             </span>
-            <h1 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(48px,8vw,100px)' }}>
+            <h1 className="f-display mb-6" style={{ color: '#EDE3D0', fontSize: 'clamp(48px,8vw,100px)' }}>
               Transparent.{' '}
               <span className="italic"><span className="apricot-fill">No surprises.</span></span>
             </h1>
@@ -86,19 +86,19 @@ export default function PricingContent() {
             {/* Big price block */}
             <div
               className="col-span-12 md:col-span-7 relative grad-border rounded-3xl p-10 md:p-14 overflow-hidden"
-              style={{ background: 'linear-gradient(160deg, rgba(40,75,99,.45), rgba(11,26,38,.85))' }}
+              style={{ background: 'linear-gradient(160deg, rgba(45,34,18,.45), rgba(15,12,8,.85))' }}
             >
               <span
                 className="absolute -top-3 left-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-[.2em] uppercase"
-                style={{ background: 'linear-gradient(105deg,#F4D3A8,#C26F4F)', color: '#0B1A26' }}
+                style={{ background: 'linear-gradient(105deg,#E8CF7A,#9B7020)', color: '#0F0C08' }}
               >
                 One-time · pay once
               </span>
               <p className="text-[11px] f-mono uppercase tracking-[.22em] mb-3" style={{ color: '#475569' }}>Fixed price · no add-ons</p>
               <div className="flex items-end gap-4">
-                <p className="f-display glow leading-none" style={{ color: '#EEF0EB', fontSize: 'clamp(80px,13vw,180px)' }}>1,500</p>
+                <p className="f-display glow leading-none" style={{ color: '#EDE3D0', fontSize: 'clamp(80px,13vw,180px)' }}>1,500</p>
                 <div className="pb-6">
-                  <p className="f-display text-[28px]" style={{ color: '#E8B98A' }}>AED</p>
+                  <p className="f-display text-[28px]" style={{ color: '#C89A38' }}>AED</p>
                   <p className="text-[12px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>≈ USD 408</p>
                 </div>
               </div>
@@ -107,14 +107,14 @@ export default function PricingContent() {
               </p>
 
               {/* Ledger */}
-              <div className="mt-10 grid gap-px rounded-xl overflow-hidden" style={{ background: 'rgba(180,184,171,.10)' }}>
+              <div className="mt-10 grid gap-px rounded-xl overflow-hidden" style={{ background: 'rgba(160,148,120,.10)' }}>
                 {includes.map((d, i) => (
-                  <div key={d} className="flex items-start gap-4 px-5 py-3.5" style={{ background: 'rgba(11,26,38,.7)' }}>
+                  <div key={d} className="flex items-start gap-4 px-5 py-3.5" style={{ background: 'rgba(15,12,8,.7)' }}>
                     <span className="f-mono text-[10px] mt-0.5 shrink-0" style={{ color: '#475569', width: '24px' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="mt-0.5 shrink-0" style={{ color: '#E8B98A' }}><Check size={16} /></span>
-                    <span className="text-[14px] leading-relaxed flex-1" style={{ color: '#EEF0EB' }}>{d}</span>
+                    <span className="mt-0.5 shrink-0" style={{ color: '#C89A38' }}><Check size={16} /></span>
+                    <span className="text-[14px] leading-relaxed flex-1" style={{ color: '#EDE3D0' }}>{d}</span>
                   </div>
                 ))}
               </div>
@@ -125,7 +125,7 @@ export default function PricingContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="press inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold cursor-pointer"
-                  style={{ background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)', boxShadow: '0 18px 50px -18px rgba(232,185,138,.55)', color: '#0B1A26' }}
+                  style={{ background: 'linear-gradient(105deg,#E8CF7A 0%, #C89A38 50%, #9B7020 110%)', boxShadow: '0 18px 50px -18px rgba(200,154,56,.55)', color: '#0F0C08' }}
                 >
                   <CalendarDays size={16} /> Book a discovery call
                 </a>
@@ -134,7 +134,7 @@ export default function PricingContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="press inline-flex items-center gap-2 rounded-full border px-7 py-4 text-base font-medium cursor-pointer"
-                  style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
+                  style={{ borderColor: 'rgba(160,148,120,.30)', color: '#EDE3D0' }}
                 >
                   <MessageCircle size={16} /> Question first?
                 </a>
@@ -144,17 +144,17 @@ export default function PricingContent() {
 
             {/* Monthly + testimonial */}
             <div className="col-span-12 md:col-span-5 flex flex-col gap-6">
-              <div className="rounded-3xl p-9" style={{ background: 'rgba(15,30,43,.65)', border: '1px solid rgba(180,184,171,.12)' }}>
+              <div className="rounded-3xl p-9" style={{ background: 'rgba(23,19,14,.65)', border: '1px solid rgba(160,148,120,.12)' }}>
                 <p className="text-[11px] f-mono uppercase tracking-[.22em]" style={{ color: '#475569' }}>Optional · monthly care</p>
                 <div className="flex items-end gap-3 mt-2">
-                  <p className="f-display text-[64px] leading-none" style={{ color: '#EEF0EB' }}>250</p>
+                  <p className="f-display text-[64px] leading-none" style={{ color: '#EDE3D0' }}>250</p>
                   <p className="pb-3 text-[14px]" style={{ color: '#94A3B8' }}>AED / mo</p>
                 </div>
                 <p className="mt-3 text-[14px]" style={{ color: '#94A3B8' }}>So your site stays fast, safe, and current. Cancel any time.</p>
                 <ul className="mt-6 flex flex-col gap-2.5">
                   {monthly.map((d) => (
                     <li key={d} className="flex items-start gap-3 text-[13px]" style={{ color: '#CBD5E1' }}>
-                      <span className="mt-1 w-1 h-1 rounded-full shrink-0" style={{ background: '#E8B98A' }} />
+                      <span className="mt-1 w-1 h-1 rounded-full shrink-0" style={{ background: '#C89A38' }} />
                       {d}
                     </li>
                   ))}
@@ -164,15 +164,15 @@ export default function PricingContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="press mt-8 w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 text-[14px] font-medium cursor-pointer"
-                  style={{ border: '1px solid rgba(180,184,171,.20)', color: '#CBD5E1' }}
+                  style={{ border: '1px solid rgba(160,148,120,.20)', color: '#CBD5E1' }}
                 >
                   <MessageCircle size={15} /> Ask on WhatsApp
                 </a>
               </div>
 
-              <div className="rounded-3xl p-9 grad-border relative overflow-hidden" style={{ background: 'rgba(232,185,138,.05)' }}>
-                <Star size={28} style={{ color: '#E8B98A' }} />
-                <p className="f-display text-[26px] mt-3" style={{ color: '#EEF0EB' }}>
+              <div className="rounded-3xl p-9 grad-border relative overflow-hidden" style={{ background: 'rgba(200,154,56,.05)' }}>
+                <Star size={28} style={{ color: '#C89A38' }} />
+                <p className="f-display text-[26px] mt-3" style={{ color: '#EDE3D0' }}>
                   &ldquo;Done in 11 days, came in on price, ranked us in a month.&rdquo;
                 </p>
                 <p className="mt-4 text-[12px] f-mono uppercase tracking-[.18em]" style={{ color: '#475569' }}>
@@ -185,40 +185,40 @@ export default function PricingContent() {
       </section>
 
       {/* Comparison table */}
-      <section className="py-20 px-8 border-t" style={{ borderColor: 'rgba(180,184,171,.08)', background: 'rgba(15,30,43,.25)' }}>
+      <section className="py-20 px-8 border-t" style={{ borderColor: 'rgba(160,148,120,.08)', background: 'rgba(23,19,14,.25)' }}>
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-12 reveal">
-            <h2 className="f-display mb-3" style={{ color: '#EEF0EB', fontSize: 'clamp(36px,6vw,72px)' }}>
+            <h2 className="f-display mb-3" style={{ color: '#EDE3D0', fontSize: 'clamp(36px,6vw,72px)' }}>
               Agency, vs <span className="italic"><span className="apricot-fill">just me.</span></span>
             </h2>
             <p className="text-[15px]" style={{ color: '#94A3B8' }}>Same result, a fraction of the cost and time.</p>
           </div>
 
-          <div className="reveal rounded-2xl overflow-hidden border" style={{ background: 'rgba(11,26,38,.55)', borderColor: 'rgba(180,184,171,.10)' }}>
+          <div className="reveal rounded-2xl overflow-hidden border" style={{ background: 'rgba(15,12,8,.55)', borderColor: 'rgba(160,148,120,.10)' }}>
             <div
               className="grid grid-cols-12 items-center px-6 py-4 border-b"
-              style={{ borderColor: 'rgba(180,184,171,.10)', background: 'rgba(15,30,43,.4)' }}
+              style={{ borderColor: 'rgba(160,148,120,.10)', background: 'rgba(23,19,14,.4)' }}
             >
               <div className="col-span-4 f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#475569' }}>Metric</div>
               <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#475569' }}>Typical agency</div>
-              <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#E8B98A' }}>ur/web</div>
+              <div className="col-span-4 text-right f-mono text-[10px] tracking-[.22em] uppercase" style={{ color: '#C89A38' }}>ur/web</div>
             </div>
             {compareRows.map((r, i) => (
               <div
                 key={r.label}
                 className="grid grid-cols-12 items-center px-6 py-4"
-                style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(180,184,171,.07)' }}
+                style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(160,148,120,.07)' }}
               >
                 <div className="col-span-4 flex items-baseline gap-3">
                   <span className="f-mono text-[10px]" style={{ color: '#475569' }}>{String(i + 1).padStart(2, '0')}</span>
-                  <span className="f-display text-[16px]" style={{ color: '#EEF0EB' }}>{r.label}</span>
+                  <span className="f-display text-[16px]" style={{ color: '#EDE3D0' }}>{r.label}</span>
                 </div>
                 <div className="col-span-4 text-right f-display text-[18px]" style={{ color: '#475569', textDecoration: 'line-through', textDecorationColor: 'rgba(244,63,94,.4)' }}>{r.a}</div>
                 <div className="col-span-4 text-right flex items-center justify-end gap-3">
-                  <span className="f-display text-[22px]" style={{ color: '#EEF0EB' }}>{r.b}</span>
+                  <span className="f-display text-[22px]" style={{ color: '#EDE3D0' }}>{r.b}</span>
                   <span
                     className="f-mono text-[9.5px] tracking-[.18em] uppercase px-2 py-0.5 rounded-full hidden sm:block"
-                    style={{ color: '#E8B98A', border: '1px solid rgba(232,185,138,.3)', background: 'rgba(232,185,138,.05)' }}
+                    style={{ color: '#C89A38', border: '1px solid rgba(200,154,56,.3)', background: 'rgba(200,154,56,.05)' }}
                   >
                     {r.spread}
                   </span>
@@ -235,7 +235,7 @@ export default function PricingContent() {
       {/* FAQ */}
       <section className="py-20 px-8">
         <div className="max-w-[1100px] mx-auto">
-          <h2 className="f-display mb-10 reveal" style={{ color: '#EEF0EB', fontSize: 'clamp(32px,5vw,64px)' }}>
+          <h2 className="f-display mb-10 reveal" style={{ color: '#EDE3D0', fontSize: 'clamp(32px,5vw,64px)' }}>
             Pricing <span className="italic"><span className="apricot-fill">questions.</span></span>
           </h2>
           <div className="flex flex-col">
@@ -244,16 +244,16 @@ export default function PricingContent() {
                 key={q}
                 onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
                 className="text-left border-t reveal"
-                style={{ borderColor: 'rgba(180,184,171,.10)' }}
+                style={{ borderColor: 'rgba(160,148,120,.10)' }}
               >
                 <div className="flex items-start justify-between gap-6 py-7">
                   <div className="flex items-baseline gap-5">
                     <span className="f-mono text-[11px] tracking-[.18em] shrink-0" style={{ color: '#475569' }}>{String(i + 1).padStart(2, '0')}</span>
-                    <span className="f-display" style={{ color: '#EEF0EB', fontSize: 'clamp(20px,3vw,30px)' }}>{q}</span>
+                    <span className="f-display" style={{ color: '#EDE3D0', fontSize: 'clamp(20px,3vw,30px)' }}>{q}</span>
                   </div>
                   <span
                     className="mt-3 transition-transform duration-300 shrink-0"
-                    style={{ color: '#E8B98A', transform: openFaq === i ? 'rotate(45deg)' : 'rotate(0)' }}
+                    style={{ color: '#C89A38', transform: openFaq === i ? 'rotate(45deg)' : 'rotate(0)' }}
                   >
                     <Plus size={22} />
                   </span>
@@ -274,13 +274,13 @@ export default function PricingContent() {
                 </AnimatePresence>
               </button>
             ))}
-            <div className="border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }} />
+            <div className="border-t" style={{ borderColor: 'rgba(160,148,120,.10)' }} />
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-8 border-t" style={{ borderColor: 'rgba(180,184,171,.08)' }}>
+      <section className="py-20 px-8 border-t" style={{ borderColor: 'rgba(160,148,120,.08)' }}>
         <div className="max-w-[800px] mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -288,7 +288,7 @@ export default function PricingContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="f-display mb-4" style={{ color: '#EEF0EB', fontSize: 'clamp(32px,5vw,64px)' }}>Still have questions?</h2>
+            <h2 className="f-display mb-4" style={{ color: '#EDE3D0', fontSize: 'clamp(32px,5vw,64px)' }}>Still have questions?</h2>
             <p className="mb-8 text-[15px]" style={{ color: '#94A3B8' }}>Message me on WhatsApp or book a free 15-min call. No commitment.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -296,7 +296,7 @@ export default function PricingContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="press inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold cursor-pointer"
-                style={{ background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)', color: '#0B1A26' }}
+                style={{ background: 'linear-gradient(105deg,#E8CF7A 0%, #C89A38 50%, #9B7020 110%)', color: '#0F0C08' }}
               >
                 <CalendarDays size={16} /> Book a free call
               </a>
@@ -305,7 +305,7 @@ export default function PricingContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="press inline-flex items-center gap-2 rounded-full border px-7 py-4 text-base font-medium cursor-pointer"
-                style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
+                style={{ borderColor: 'rgba(160,148,120,.30)', color: '#EDE3D0' }}
               >
                 <MessageCircle size={16} /> WhatsApp me
               </a>

@@ -8,16 +8,16 @@
 }
 
 :root {
-  --navy: #0B1A26;
-  --navy-2: #0F1E2B;
-  --teal: #153243;
-  --teal-2: #1C3A52;
-  --teal-3: #284B63;
-  --sage: #B4B8AB;
-  --cream: #EEF0EB;
-  --paper: #F4F9E9;
-  --apricot: #E8B98A;
-  --rust: #C26F4F;
+  --navy:    #0F0C08;
+  --navy-2:  #171310;
+  --teal:    #1C1710;
+  --teal-2:  #241C10;
+  --teal-3:  #2D2212;
+  --sage:    #A09478;
+  --cream:   #EDE3D0;
+  --paper:   #F5EEE0;
+  --apricot: #C89A38;
+  --rust:    #9B7020;
 }
 
 * {
@@ -30,11 +30,11 @@ html {
 
 body {
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(40, 75, 99, 0.30), transparent 60%),
-    radial-gradient(900px 600px at -10% 30%, rgba(194, 111, 79, 0.10), transparent 60%),
-    #0B1A26;
+    radial-gradient(1200px 600px at 80% -10%, rgba(45, 34, 18, 0.40), transparent 60%),
+    radial-gradient(900px 600px at -10% 30%, rgba(155, 112, 32, 0.12), transparent 60%),
+    #0F0C08;
   background-attachment: fixed;
-  color: #F4F9E9;
+  color: #F5EEE0;
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -76,24 +76,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: rgba(232, 185, 138, 0.35);
+  background: rgba(200, 154, 56, 0.35);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid #E8B98A;
+  outline: 2px solid #C89A38;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 /* ── Shimmer gradient text ── */
 @keyframes shim {
-  0% { background-position: 0% 50%; }
+  0%   { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
 
 .shimmer {
-  background-image: linear-gradient(110deg, #B4B8AB 0%, #EEF0EB 25%, #F4F9E9 50%, #EEF0EB 75%, #B4B8AB 100%);
+  background-image: linear-gradient(110deg, #A09478 0%, #EDE3D0 25%, #F5EEE0 50%, #EDE3D0 75%, #A09478 100%);
   background-size: 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -102,9 +102,8 @@ h1, h2, h3, h4, h5, h6 {
   animation: shim 7s linear infinite;
 }
 
-/* Legacy gradient-shimmer kept for pages that use it */
 .gradient-shimmer {
-  background-image: linear-gradient(110deg, #B4B8AB 0%, #EEF0EB 25%, #F4F9E9 50%, #EEF0EB 75%, #B4B8AB 100%);
+  background-image: linear-gradient(110deg, #A09478 0%, #EDE3D0 25%, #F5EEE0 50%, #EDE3D0 75%, #A09478 100%);
   background-size: 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -113,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .apricot-fill {
-  background-image: linear-gradient(110deg, #E8B98A 0%, #F4D3A8 25%, #FFE7CC 50%, #F4D3A8 75%, #E8B98A 100%);
+  background-image: linear-gradient(110deg, #C89A38 0%, #E8CF7A 25%, #F5E8A0 50%, #E8CF7A 75%, #C89A38 100%);
   background-size: 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -125,49 +124,48 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Ambient orbs ── */
 @keyframes orbA {
   0%, 100% { opacity: 0.10; transform: translate(0, 0) scale(1); }
-  50% { opacity: 0.30; transform: translate(20px, -30px) scale(1.08); }
+  50%       { opacity: 0.30; transform: translate(20px, -30px) scale(1.08); }
 }
 
 @keyframes orbB {
   0%, 100% { opacity: 0.08; transform: translate(0, 0) scale(1); }
-  50% { opacity: 0.22; transform: translate(-30px, 20px) scale(1.10); }
+  50%       { opacity: 0.22; transform: translate(-30px, 20px) scale(1.10); }
 }
 
 .orbA { animation: orbA 10s ease-in-out infinite; }
 .orbB { animation: orbB 14s ease-in-out infinite; }
 
-/* Legacy orb-pulse kept for sub-pages */
 @keyframes orb-pulse {
   0%, 100% { opacity: 0.06; transform: scale(1); }
-  50% { opacity: 0.12; transform: scale(1.08); }
+  50%       { opacity: 0.12; transform: scale(1.08); }
 }
 
-.orb-pulse { animation: orb-pulse 8s ease-in-out infinite; }
+.orb-pulse      { animation: orb-pulse 8s ease-in-out infinite; }
 .orb-pulse-slow { animation: orb-pulse 12s ease-in-out infinite reverse; }
 
 /* ── Particle drift ── */
 @keyframes drift {
   0%, 100% { transform: translate(0, 0); opacity: 0.10; }
-  50% { transform: translate(20px, -30px); opacity: 0.55; }
+  50%       { transform: translate(20px, -30px); opacity: 0.55; }
 }
 
 .drift { animation: drift 9s ease-in-out infinite; }
 
 /* ── Beam sweep ── */
 @keyframes beam {
-  0% { transform: translateX(-20%) skewX(-12deg); }
+  0%   { transform: translateX(-20%) skewX(-12deg); }
   100% { transform: translateX(160%) skewX(-12deg); }
 }
 
 .beam {
-  background: linear-gradient(105deg, transparent 30%, rgba(232, 185, 138, 0.10) 50%, transparent 70%);
+  background: linear-gradient(105deg, transparent 30%, rgba(200, 154, 56, 0.10) 50%, transparent 70%);
   animation: beam 11s ease-in-out infinite;
 }
 
 /* ── Hero word rise ── */
 @keyframes rise {
   from { transform: translateY(28px); opacity: 0; filter: blur(6px); }
-  to { transform: none; opacity: 1; filter: none; }
+  to   { transform: none; opacity: 1; filter: none; }
 }
 
 .rise { display: inline-block; animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
@@ -175,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Marquee ticker ── */
 @keyframes mq {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to   { transform: translateX(-50%); }
 }
 
 .mq-track { animation: mq 60s linear infinite; }
@@ -189,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Float ── */
 @keyframes floatY {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50%       { transform: translateY(-8px); }
 }
 
 .floatY { animation: floatY 4.5s ease-in-out infinite; }
@@ -205,12 +203,12 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Pop in ── */
 @keyframes pop {
   from { opacity: 0; transform: translateY(14px) scale(0.96); }
-  to { opacity: 1; transform: none; }
+  to   { opacity: 1; transform: none; }
 }
 
 .pop { animation: pop 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 
-/* ── Sweep on hover (letter colour sweep) ── */
+/* ── Sweep on hover ── */
 .sweep {
   background-image: linear-gradient(110deg, currentColor 0%, currentColor 45%, var(--apricot) 50%, currentColor 55%, currentColor 100%);
   background-size: 300% 100%;
@@ -228,8 +226,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Glow pulse ── */
 @keyframes glow {
-  0%, 100% { filter: drop-shadow(0 0 0 rgba(232, 185, 138, 0)); }
-  50% { filter: drop-shadow(0 0 18px rgba(232, 185, 138, 0.45)); }
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(200, 154, 56, 0)); }
+  50%       { filter: drop-shadow(0 0 18px rgba(200, 154, 56, 0.45)); }
 }
 
 .glow { animation: glow 4s ease-in-out infinite; }
@@ -237,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Grid drift ── */
 @keyframes gdrift {
   from { background-position: 0 0; }
-  to { background-position: 60px 60px; }
+  to   { background-position: 60px 60px; }
 }
 
 .gdrift { animation: gdrift 22s linear infinite; }
@@ -247,12 +245,12 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s, background 0.25s, border-color 0.25s, color 0.25s;
 }
 
-.press:hover { transform: translateY(-3px) scale(1.04); }
+.press:hover  { transform: translateY(-3px) scale(1.04); }
 .press:active { transform: scale(0.97); }
 
 /* ── Pulse rings ── */
 @keyframes ring {
-  0% { transform: scale(0.9); opacity: 0.55; }
+  0%   { transform: scale(0.9); opacity: 0.55; }
   100% { transform: scale(2.6); opacity: 0; }
 }
 
@@ -261,7 +259,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Live dot pulse ── */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.25; }
+  50%       { opacity: 0.25; }
 }
 
 .pulse { animation: pulse 2s ease-in-out infinite; }
@@ -296,7 +294,7 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(232, 185, 138, 0.55), rgba(180, 184, 171, 0.10) 40%, rgba(40, 75, 99, 0.55));
+  background: linear-gradient(135deg, rgba(200, 154, 56, 0.55), rgba(160, 148, 120, 0.10) 40%, rgba(45, 34, 18, 0.55));
   -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -308,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
 .reveal.in { opacity: 1; transform: none; }
 
 /* ── Side rail tick ── */
-.rail-tick { width: 14px; height: 1px; background: rgba(180, 184, 171, 0.35); transition: width 0.3s, background 0.3s; }
+.rail-tick { width: 14px; height: 1px; background: rgba(160, 148, 120, 0.35); transition: width 0.3s, background 0.3s; }
 .rail-tick.on { width: 34px; background: var(--apricot); }
 
 /* ── Blink cursor ── */

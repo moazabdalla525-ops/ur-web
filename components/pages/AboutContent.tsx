@@ -49,19 +49,19 @@ export default function AboutContent() {
       {/* Header */}
       <section className="pt-32 pb-16 relative overflow-hidden px-8">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="orbA absolute rounded-full" style={{ width: '500px', height: '500px', background: '#1C3A52', filter: 'blur(120px)', top: '-120px', right: '0' }} />
-          <div className="orbB absolute rounded-full" style={{ width: '400px', height: '400px', background: 'rgba(194,111,79,.35)', filter: 'blur(100px)', bottom: '-80px', left: '0' }} />
+          <div className="orbA absolute rounded-full" style={{ width: '500px', height: '500px', background: '#241C10', filter: 'blur(120px)', top: '-120px', right: '0' }} />
+          <div className="orbB absolute rounded-full" style={{ width: '400px', height: '400px', background: 'rgba(155,112,32,.35)', filter: 'blur(100px)', bottom: '-80px', left: '0' }} />
           <AnimatedBackground count={14} />
         </div>
         <div className="max-w-[1400px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
-              <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#E8B98A' }}>
-                <span className="absolute inset-0 rounded-full ring" style={{ background: '#E8B98A' }} />
+            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#C89A38' }}>
+              <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#C89A38' }}>
+                <span className="absolute inset-0 rounded-full ring" style={{ background: '#C89A38' }} />
               </span>
               About
             </span>
-            <h1 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(52px,9vw,120px)' }}>
+            <h1 className="f-display mb-6" style={{ color: '#EDE3D0', fontSize: 'clamp(52px,9vw,120px)' }}>
               Not an agency.<br />
               <span className="italic"><span className="apricot-fill">Just me.</span></span>
             </h1>
@@ -73,12 +73,12 @@ export default function AboutContent() {
       </section>
 
       {/* Stats strip */}
-      <section className="border-y px-8" style={{ borderColor: 'rgba(180,184,171,.10)', background: 'rgba(15,30,43,.45)' }}>
+      <section className="border-y px-8" style={{ borderColor: 'rgba(160,148,120,.10)', background: 'rgba(23,19,14,.45)' }}>
         <div className="max-w-[1400px] mx-auto py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
             {facts.map((f, i) => (
               <div key={f.label} className="text-center" style={{ animationDelay: `${i * 0.08}s` }}>
-                <p className="f-display text-[32px] md:text-[40px] leading-none mb-1" style={{ color: '#EEF0EB' }}>{f.value}</p>
+                <p className="f-display text-[32px] md:text-[40px] leading-none mb-1" style={{ color: '#EDE3D0' }}>{f.value}</p>
                 <p className="f-mono text-[10px] uppercase tracking-[.2em]" style={{ color: '#475569' }}>{f.label}</p>
               </div>
             ))}
@@ -97,7 +97,7 @@ export default function AboutContent() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.65, ease: 'easeOut' }}
               className="grid grid-cols-12 gap-6 py-16"
-              style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(180,184,171,.10)' }}
+              style={{ borderTop: i === 0 ? 'none' : '1px solid rgba(160,148,120,.10)' }}
             >
               {/* Section marker */}
               <div className="col-span-12 md:col-span-1 f-mono text-[11px] tracking-[.2em] pt-1" style={{ color: '#475569' }}>
@@ -106,7 +106,7 @@ export default function AboutContent() {
 
               {/* Big number */}
               <div className="col-span-3 md:col-span-2 flex items-start">
-                <span className="f-display leading-none" style={{ color: '#E8B98A', fontSize: 'clamp(60px,8vw,120px)' }}>
+                <span className="f-display leading-none" style={{ color: '#C89A38', fontSize: 'clamp(60px,8vw,120px)' }}>
                   {s.num}
                 </span>
               </div>
@@ -122,20 +122,20 @@ export default function AboutContent() {
               </div>
             </motion.div>
           ))}
-          <div className="border-t" style={{ borderColor: 'rgba(180,184,171,.10)' }} />
+          <div className="border-t" style={{ borderColor: 'rgba(160,148,120,.10)' }} />
         </div>
       </section>
 
       {/* Quick facts cards */}
-      <section className="py-20 px-8" style={{ background: 'rgba(15,30,43,.35)', borderTop: '1px solid rgba(180,184,171,.08)', borderBottom: '1px solid rgba(180,184,171,.08)' }}>
+      <section className="py-20 px-8" style={{ background: 'rgba(23,19,14,.35)', borderTop: '1px solid rgba(160,148,120,.08)', borderBottom: '1px solid rgba(160,148,120,.08)' }}>
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-12 gap-6 mb-14 reveal">
             <div className="col-span-12 md:col-span-1 f-mono text-[11px] tracking-[.2em]" style={{ color: '#475569' }}>§ 04</div>
             <div className="col-span-12 md:col-span-11">
-              <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
+              <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#C89A38' }}>
                 By the numbers
               </span>
-              <h2 className="f-display" style={{ color: '#EEF0EB', fontSize: 'clamp(36px,5vw,72px)' }}>
+              <h2 className="f-display" style={{ color: '#EDE3D0', fontSize: 'clamp(36px,5vw,72px)' }}>
                 What you actually <span className="italic"><span className="apricot-fill">get.</span></span>
               </h2>
             </div>
@@ -154,9 +154,9 @@ export default function AboutContent() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="grad-border rounded-3xl p-9"
-                style={{ background: 'rgba(11,26,38,.65)' }}
+                style={{ background: 'rgba(15,12,8,.65)' }}
               >
-                <p className="f-display leading-none mb-1" style={{ color: '#E8B98A', fontSize: 'clamp(48px,7vw,80px)' }}>{c.metric}</p>
+                <p className="f-display leading-none mb-1" style={{ color: '#C89A38', fontSize: 'clamp(48px,7vw,80px)' }}>{c.metric}</p>
                 <p className="f-mono text-[10px] uppercase tracking-[.2em] mb-5" style={{ color: '#475569' }}>{c.unit}</p>
                 <p className="text-[14px] leading-relaxed" style={{ color: '#94A3B8' }}>{c.desc}</p>
               </motion.div>
@@ -168,7 +168,7 @@ export default function AboutContent() {
       {/* CTA */}
       <section className="py-28 px-8 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute orbA rounded-full" style={{ width: '600px', height: '600px', background: 'rgba(232,185,138,.12)', filter: 'blur(120px)', top: '20%', left: '50%', transform: 'translate(-50%,-50%)' }} />
+          <div className="absolute orbA rounded-full" style={{ width: '600px', height: '600px', background: 'rgba(200,154,56,.12)', filter: 'blur(120px)', top: '20%', left: '50%', transform: 'translate(-50%,-50%)' }} />
           <div className="absolute beam inset-y-0 -left-1/3 w-1/3" />
         </div>
         <div className="max-w-[900px] mx-auto text-center">
@@ -178,7 +178,7 @@ export default function AboutContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(36px,6vw,80px)' }}>
+            <h2 className="f-display mb-6" style={{ color: '#EDE3D0', fontSize: 'clamp(36px,6vw,80px)' }}>
               If that sounds like the person<br />you want building your site —
             </h2>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
@@ -187,7 +187,7 @@ export default function AboutContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="press inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold cursor-pointer"
-                style={{ background: 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)', boxShadow: '0 18px 50px -18px rgba(232,185,138,.55)', color: '#0B1A26' }}
+                style={{ background: 'linear-gradient(105deg,#E8CF7A 0%, #C89A38 50%, #9B7020 110%)', boxShadow: '0 18px 50px -18px rgba(200,154,56,.55)', color: '#0F0C08' }}
               >
                 <CalendarDays size={16} /> Book a discovery call
               </a>
@@ -196,7 +196,7 @@ export default function AboutContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="press inline-flex items-center gap-2 rounded-full border px-7 py-4 text-base font-medium cursor-pointer"
-                style={{ borderColor: 'rgba(180,184,171,.30)', color: '#EEF0EB' }}
+                style={{ borderColor: 'rgba(160,148,120,.30)', color: '#EDE3D0' }}
               >
                 <MessageCircle size={16} /> WhatsApp me
               </a>

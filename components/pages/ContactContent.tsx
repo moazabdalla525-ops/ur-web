@@ -21,9 +21,9 @@ const directLinks = [
     sublabel: 'Free 15-min discovery call',
     href: CALENDLY,
     target: '_blank',
-    iconStyle: { color: '#E8B98A' },
-    borderColor: 'rgba(232,185,138,.20)',
-    hoverBorder: 'rgba(232,185,138,.40)',
+    iconStyle: { color: '#C89A38' },
+    borderColor: 'rgba(200,154,56,.20)',
+    hoverBorder: 'rgba(200,154,56,.40)',
   },
   {
     icon: MessageCircle,
@@ -42,16 +42,16 @@ const directLinks = [
     href: `mailto:${EMAIL}`,
     target: '_self',
     iconStyle: { color: '#94A3B8' },
-    borderColor: 'rgba(180,184,171,.15)',
-    hoverBorder: 'rgba(180,184,171,.30)',
+    borderColor: 'rgba(160,148,120,.15)',
+    hoverBorder: 'rgba(160,148,120,.30)',
   },
 ];
 
 const inputClass = "w-full rounded-xl px-4 py-3.5 text-sm outline-none transition-colors duration-200 f-grot";
 const inputStyle = {
-  background: 'rgba(11,26,38,.8)',
-  border: '1px solid rgba(180,184,171,.15)',
-  color: '#EEF0EB',
+  background: 'rgba(15,12,8,.8)',
+  border: '1px solid rgba(160,148,120,.15)',
+  color: '#EDE3D0',
 };
 
 export default function ContactContent() {
@@ -94,19 +94,19 @@ export default function ContactContent() {
         <div className="absolute inset-0 -z-10 pointer-events-none">
           <div
             className="absolute orbA rounded-full"
-            style={{ width: '600px', height: '400px', background: '#153243', filter: 'blur(120px)', top: '-100px', left: '50%', transform: 'translateX(-50%)' }}
+            style={{ width: '600px', height: '400px', background: '#1C1710', filter: 'blur(120px)', top: '-100px', left: '50%', transform: 'translateX(-50%)' }}
           />
           <AnimatedBackground count={12} />
         </div>
         <div className="max-w-[1400px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#E8B98A' }}>
-              <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#E8B98A' }}>
-                <span className="absolute inset-0 rounded-full ring" style={{ background: '#E8B98A' }} />
+            <span className="inline-flex items-center gap-2 text-[10.5px] font-semibold tracking-[.22em] uppercase f-grot mb-4 block" style={{ color: '#C89A38' }}>
+              <span className="relative w-1.5 h-1.5 rounded-full" style={{ background: '#C89A38' }}>
+                <span className="absolute inset-0 rounded-full ring" style={{ background: '#C89A38' }} />
               </span>
               Contact
             </span>
-            <h1 className="f-display mb-6" style={{ color: '#EEF0EB', fontSize: 'clamp(48px,8vw,100px)' }}>
+            <h1 className="f-display mb-6" style={{ color: '#EDE3D0', fontSize: 'clamp(48px,8vw,100px)' }}>
               Tell me about your <span className="italic"><span className="apricot-fill">business.</span></span>
             </h1>
             <p className="text-[17px] leading-relaxed" style={{ color: '#94A3B8' }}>
@@ -135,22 +135,22 @@ export default function ContactContent() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="grad-border rounded-3xl p-14 text-center"
-                    style={{ background: 'rgba(11,26,38,.7)' }}
+                    style={{ background: 'rgba(15,12,8,.7)' }}
                   >
                     <div
                       className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
-                      style={{ background: 'rgba(232,185,138,.15)', border: '1px solid rgba(232,185,138,.35)' }}
+                      style={{ background: 'rgba(200,154,56,.15)', border: '1px solid rgba(200,154,56,.35)' }}
                     >
-                      <Check size={28} style={{ color: '#E8B98A' }} />
+                      <Check size={28} style={{ color: '#C89A38' }} />
                     </div>
-                    <h2 className="f-display text-[36px] mb-3" style={{ color: '#EEF0EB' }}>Message sent.</h2>
+                    <h2 className="f-display text-[36px] mb-3" style={{ color: '#EDE3D0' }}>Message sent.</h2>
                     <p className="text-[15px]" style={{ color: '#94A3B8' }}>I&apos;ll get back to you within 4 hours during business hours.</p>
                   </motion.div>
                 ) : (
                   <motion.div
                     key="form"
                     className="grad-border rounded-3xl p-8 md:p-10"
-                    style={{ background: 'rgba(11,26,38,.6)' }}
+                    style={{ background: 'rgba(15,12,8,.6)' }}
                   >
                     <p className="f-mono text-[10px] uppercase tracking-[.22em] mb-8" style={{ color: '#475569' }}>
                       § 01 · Project brief
@@ -159,7 +159,7 @@ export default function ContactContent() {
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
                           <label htmlFor="name" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
-                            Your name <span style={{ color: '#E8B98A' }}>*</span>
+                            Your name <span style={{ color: '#C89A38' }}>*</span>
                           </label>
                           <input
                             id="name" name="name" type="text" required
@@ -170,7 +170,7 @@ export default function ContactContent() {
                         </div>
                         <div>
                           <label htmlFor="business" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
-                            Business name <span style={{ color: '#E8B98A' }}>*</span>
+                            Business name <span style={{ color: '#C89A38' }}>*</span>
                           </label>
                           <input
                             id="business" name="business" type="text" required
@@ -183,16 +183,16 @@ export default function ContactContent() {
 
                       <div>
                         <label htmlFor="industry" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
-                          Industry <span style={{ color: '#E8B98A' }}>*</span>
+                          Industry <span style={{ color: '#C89A38' }}>*</span>
                         </label>
                         <select
                           id="industry" name="industry" required defaultValue=""
                           className={`${inputClass} cursor-pointer appearance-none`}
                           style={inputStyle}
                         >
-                          <option value="" disabled style={{ color: '#475569', background: '#0B1A26' }}>Select your industry</option>
+                          <option value="" disabled style={{ color: '#475569', background: '#0F0C08' }}>Select your industry</option>
                           {industries.map((ind) => (
-                            <option key={ind} value={ind} style={{ background: '#0F1E2B', color: '#EEF0EB' }}>{ind}</option>
+                            <option key={ind} value={ind} style={{ background: '#171310', color: '#EDE3D0' }}>{ind}</option>
                           ))}
                         </select>
                       </div>
@@ -212,7 +212,7 @@ export default function ContactContent() {
 
                       <div>
                         <label htmlFor="message" className="block f-mono text-[10px] uppercase tracking-[.22em] mb-2" style={{ color: '#475569' }}>
-                          Message <span style={{ color: '#E8B98A' }}>*</span>
+                          Message <span style={{ color: '#C89A38' }}>*</span>
                         </label>
                         <textarea
                           id="message" name="message" required rows={5}
@@ -227,13 +227,13 @@ export default function ContactContent() {
                         disabled={submitting}
                         className="press w-full inline-flex items-center justify-center gap-2 rounded-xl py-4 text-[15px] font-semibold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         style={{
-                          background: submitting ? 'rgba(232,185,138,.4)' : 'linear-gradient(105deg,#F4D3A8 0%, #E8B98A 50%, #C26F4F 110%)',
-                          boxShadow: '0 18px 50px -18px rgba(232,185,138,.45)',
-                          color: '#0B1A26',
+                          background: submitting ? 'rgba(200,154,56,.4)' : 'linear-gradient(105deg,#E8CF7A 0%, #C89A38 50%, #9B7020 110%)',
+                          boxShadow: '0 18px 50px -18px rgba(200,154,56,.45)',
+                          color: '#0F0C08',
                         }}
                       >
                         {submitting ? (
-                          <><span className="w-4 h-4 border-2 border-[#0B1A26]/30 border-t-[#0B1A26] rounded-full animate-spin" /> Sending...</>
+                          <><span className="w-4 h-4 border-2 border-[#0F0C08]/30 border-t-[#0F0C08] rounded-full animate-spin" /> Sending...</>
                         ) : (
                           <><Send size={16} /> Send message</>
                         )}
@@ -264,26 +264,26 @@ export default function ContactContent() {
                   initial={{ opacity: 0, x: 16 }}
                   animate={{ opacity: 1, x: 0, transition: { delay: 0.2 + i * 0.1 } }}
                   className="flex items-center gap-4 rounded-2xl p-5 cursor-pointer group transition-colors duration-200"
-                  style={{ background: 'rgba(11,26,38,.6)', border: `1px solid ${link.borderColor}` }}
+                  style={{ background: 'rgba(15,12,8,.6)', border: `1px solid ${link.borderColor}` }}
                 >
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(180,184,171,.08)' }}
+                    style={{ background: 'rgba(160,148,120,.08)' }}
                   >
                     <link.icon size={20} aria-hidden="true" style={link.iconStyle} />
                   </div>
                   <div>
-                    <p className="font-semibold text-sm f-grot" style={{ color: '#EEF0EB' }}>{link.label}</p>
+                    <p className="font-semibold text-sm f-grot" style={{ color: '#EDE3D0' }}>{link.label}</p>
                     <p className="text-[12px] mt-0.5 break-all f-mono" style={{ color: '#475569' }}>{link.sublabel}</p>
                   </div>
                 </motion.a>
               ))}
 
               {/* Availability card */}
-              <div className="mt-2 rounded-2xl p-6 grad-border" style={{ background: 'rgba(11,26,38,.6)' }}>
+              <div className="mt-2 rounded-2xl p-6 grad-border" style={{ background: 'rgba(15,12,8,.6)' }}>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-1.5 h-1.5 rounded-full pulse" style={{ background: '#7BCBA1' }} />
-                  <p className="font-semibold text-sm f-grot" style={{ color: '#EEF0EB' }}>Usually online</p>
+                  <p className="font-semibold text-sm f-grot" style={{ color: '#EDE3D0' }}>Usually online</p>
                 </div>
                 <p className="text-[13px] leading-relaxed" style={{ color: '#64748B' }}>
                   I reply within 4 hours — Sunday to Thursday, 9am to 7pm Dubai time.
@@ -300,11 +300,11 @@ export default function ContactContent() {
                     <div key={step.label} className="flex items-center gap-3">
                       <span
                         className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: step.done ? '#E8B98A' : 'rgba(180,184,171,.15)', border: `1px solid ${step.done ? '#E8B98A' : 'rgba(180,184,171,.25)'}` }}
+                        style={{ background: step.done ? '#C89A38' : 'rgba(160,148,120,.15)', border: `1px solid ${step.done ? '#C89A38' : 'rgba(160,148,120,.25)'}` }}
                       >
-                        {step.done && <Check size={9} style={{ color: '#0B1A26' }} />}
+                        {step.done && <Check size={9} style={{ color: '#0F0C08' }} />}
                       </span>
-                      <span className="text-[12px] f-mono" style={{ color: step.done ? '#E8B98A' : '#475569' }}>{step.label}</span>
+                      <span className="text-[12px] f-mono" style={{ color: step.done ? '#C89A38' : '#475569' }}>{step.label}</span>
                     </div>
                   ))}
                 </div>
