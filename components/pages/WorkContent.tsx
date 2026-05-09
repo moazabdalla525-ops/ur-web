@@ -48,19 +48,6 @@ const sites = [
     tagColor: '#fb7185',
     metric: ['×2.1', 'WhatsApp orders'],
   },
-  {
-    name: 'Al Noor AC',
-    tag: 'Service · Local SEO',
-    city: 'Ajman',
-    year: '2025',
-    url: '#',
-    desc: 'Page-1 Google for "AC service Ajman" within 8 weeks of launch. Service-focused design that converts searchers into booked jobs.',
-    features: ['Local SEO strategy built in', 'One-tap call & WhatsApp', 'Service area pages', 'Google Business Profile link'],
-    tint: 'rgba(123,203,161,.16)',
-    glow: 'rgba(123,203,161,.18)',
-    tagColor: '#7BCBA1',
-    metric: ['#1', '"AC service Ajman"'],
-  },
 ];
 
 export default function WorkContent() {

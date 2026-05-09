@@ -80,7 +80,6 @@ const sites = [
   { name: 'Serenity Sleep', tag: 'Health & Wellness', city: 'Dubai', year: '2024', url: 'https://serenity-sleep.vercel.app/', desc: 'Calm, conversion-focused landing page built to book consultations.', tint: 'rgba(139,92,246,.16)', glow: 'rgba(139,92,246,.18)', tagColor: '#a78bfa', metric: ['+34%', 'consults booked'] },
   { name: 'Pepperlane', tag: 'Restaurant Discovery', city: 'Abu Dhabi', year: '2024', url: 'https://pepperlane-feast-finder.lovable.app', desc: 'A modern restaurant finder for the UAE market — search-first, fast, mobile.', tint: 'rgba(200,154,56,.16)', glow: 'rgba(200,154,56,.18)', tagColor: '#C89A38', metric: ['1.2s', 'avg page load'] },
   { name: 'Goat Burger', tag: 'Fast Food Brand', city: 'Sharjah', year: '2025', url: 'https://goat-burger.lovable.app/', desc: 'Bold brand site with menu showcase, location, and one-tap WhatsApp ordering.', tint: 'rgba(244,63,94,.18)', glow: 'rgba(244,63,94,.18)', tagColor: '#fb7185', metric: ['×2.1', 'WhatsApp orders'] },
-  { name: 'Al Noor AC', tag: 'Service · Local SEO', city: 'Ajman', year: '2025', url: '#', desc: 'Page-1 Google for "AC service Ajman" within 8 weeks of launch.', tint: 'rgba(123,203,161,.16)', glow: 'rgba(123,203,161,.18)', tagColor: '#7BCBA1', metric: ['#1', '"AC service Ajman"'] },
 ];
 
 // ── Pricing data ───────────────────────────────────────────────────────────────
