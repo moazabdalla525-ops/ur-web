@@ -1,15 +1,118 @@
 /* ── Reset & Base ───────────────────────────────────────────────────────── */
 :root {
-  --bg:         #15140F;
-  --bg-2:       #1E1C16;
-  --bg-3:       #272319;
-  --ink:        #F1ECE2;
-  --ink-soft:   #C8C0AE;
-  --ink-mute:   #7A7264;
-  --rule:       rgba(241,236,226,.07);
-  --accent:     #E2A03F;
-  --accent-dim: rgba(226,160,63,.12);
-  --accent-glow:rgba(226,160,63,.06);
+  --bg:         #F7F2E8;
+  --bg-2:       #EDE6D6;
+  --bg-3:       #E2D9C5;
+  --ink:        #1A1714;
+  --ink-soft:   #42392E;
+  --ink-mute:   #8C7D6A;
+  --rule:       rgba(26,23,20,.08);
+  --accent:     #1A1714;
+  --accent-dim: rgba(26,23,20,.08);
+  --accent-glow:rgba(26,23,20,.04);
+}
+
+/* ── Palette overrides ───────────────────────────────────────────────────── */
+
+/* Cream & Rust — warm paper, terracotta accent */
+[data-palette="cream"] {
+  --bg:         #F1ECE2;
+  --bg-2:       #E8E0D1;
+  --bg-3:       #DED5C3;
+  --ink:        #161310;
+  --ink-soft:   #3B362F;
+  --ink-mute:   #8A7F70;
+  --rule:       rgba(22,19,16,.1);
+  --accent:     #B23A1F;
+  --accent-dim: rgba(178,58,31,.1);
+  --accent-glow:rgba(178,58,31,.05);
+}
+
+/* Slate & Cobalt — dark blue-grey, electric blue accent */
+[data-palette="slate"] {
+  --bg:         #0D1117;
+  --bg-2:       #161B22;
+  --bg-3:       #21262D;
+  --ink:        #E6EDF3;
+  --ink-soft:   #B1BAC4;
+  --ink-mute:   #6E7681;
+  --rule:       rgba(230,237,243,.07);
+  --accent:     #388BFD;
+  --accent-dim: rgba(56,139,253,.12);
+  --accent-glow:rgba(56,139,253,.06);
+}
+
+/* Forest & Sage — deep green, sage accent */
+[data-palette="forest"] {
+  --bg:         #0B1410;
+  --bg-2:       #121E17;
+  --bg-3:       #1A2A1F;
+  --ink:        #E8F0E8;
+  --ink-soft:   #B8CCB8;
+  --ink-mute:   #6A8A6A;
+  --rule:       rgba(232,240,232,.07);
+  --accent:     #6BBF6B;
+  --accent-dim: rgba(107,191,107,.12);
+  --accent-glow:rgba(107,191,107,.06);
+}
+
+/* Obsidian & Violet — near-black, violet accent */
+[data-palette="violet"] {
+  --bg:         #0F0E14;
+  --bg-2:       #17151F;
+  --bg-3:       #201D2B;
+  --ink:        #EDE8F5;
+  --ink-soft:   #C0B8D4;
+  --ink-mute:   #7A7090;
+  --rule:       rgba(237,232,245,.07);
+  --accent:     #A78BFA;
+  --accent-dim: rgba(167,139,250,.12);
+  --accent-glow:rgba(167,139,250,.06);
+}
+
+/* Bone & Olive — warm off-white, muted olive accent */
+[data-palette="bone"] {
+  --bg:         #EFE9DC;
+  --bg-2:       #E5DECE;
+  --bg-3:       #D9D0BE;
+  --ink:        #1B1A14;
+  --ink-soft:   #3A352A;
+  --ink-mute:   #8A7F6A;
+  --rule:       rgba(27,26,20,.09);
+  --accent:     #4A6741;
+  --accent-dim: rgba(74,103,65,.1);
+  --accent-glow:rgba(74,103,65,.05);
+}
+
+/* Midnight & Rose — dark navy, blush rose accent */
+[data-palette="rose"] {
+  --bg:         #0C0B10;
+  --bg-2:       #141219;
+  --bg-3:       #1D1A24;
+  --ink:        #F5EEF0;
+  --ink-soft:   #CCC0C5;
+  --ink-mute:   #80707A;
+  --rule:       rgba(245,238,240,.07);
+  --accent:     #E879A0;
+  --accent-dim: rgba(232,121,160,.12);
+  --accent-glow:rgba(232,121,160,.06);
+}
+
+/* Parchment & Ink — editorial newspaper */
+[data-palette="parchment"] {
+  --bg:         #F7F2E8;
+  --bg-2:       #EDE6D6;
+  --bg-3:       #E2D9C5;
+  --ink:        #1A1714;
+  --ink-soft:   #42392E;
+  --ink-mute:   #8C7D6A;
+  --rule:       rgba(26,23,20,.08);
+  --accent:     #1A1714;
+  --accent-dim: rgba(26,23,20,.08);
+  --accent-glow:rgba(26,23,20,.04);
+}
+
+:root {
 
   --ff-display: 'Fraunces', 'Georgia', serif;
   --ff-body:    'DM Sans', system-ui, sans-serif;
@@ -54,13 +157,13 @@ body::after {
 }
 .orb-a {
   width: 700px; height: 700px;
-  background: radial-gradient(circle at center, rgba(226,160,63,.1) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(var(--orb-rgb, 26,23,20),.05) 0%, transparent 70%);
   top: -180px; right: -180px;
   animation: float-a 24s ease-in-out infinite;
 }
 .orb-b {
   width: 550px; height: 550px;
-  background: radial-gradient(circle at center, rgba(226,160,63,.06) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(var(--orb-rgb, 26,23,20),.03) 0%, transparent 70%);
   bottom: 10%; left: -180px;
   animation: float-b 32s ease-in-out infinite;
 }
@@ -145,13 +248,19 @@ body::after {
   align-items: center;
   gap: 32px;
   padding: 22px 40px;
-  background: rgba(21,20,15,.6);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border-bottom: 1px solid var(--rule);
-  transition: padding .5s var(--ease-out), background .5s;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: padding .5s var(--ease-out), background .5s, backdrop-filter .5s, border-color .5s;
 }
-.topnav.scrolled { padding: 14px 40px; background: rgba(21,20,15,.88); }
+.topnav.scrolled {
+  padding: 14px 40px;
+  background: rgba(247,242,232,.55);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid var(--rule);
+}
 
 .brand {
   display: flex; align-items: center; gap: 10px;
