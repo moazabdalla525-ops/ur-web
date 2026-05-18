@@ -1,5 +1,6 @@
 // portfolio.jsx — App root
 const { useEffect, useRef, useState } = React;
+const EMAIL = 'moazabdalla567@gmail.com';
 
 
 // ─── Scroll progress ────────────────────────────────────────────────────────
@@ -27,7 +28,7 @@ function useScrollReveal() {
 
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     return () => io.disconnect();
-  });
+  }, []);
 }
 
 // ─── Nav scroll state ───────────────────────────────────────────────────────
@@ -170,5 +171,4 @@ function App() {
   );
 }
 
-const EMAIL = 'moazabdalla567@gmail.com';
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
